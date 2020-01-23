@@ -2,6 +2,7 @@ package com.arshop.model;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,7 @@ public class RecyclerCategoryView extends RecyclerView.Adapter<RecyclerCategoryV
                 Intent intent = new Intent(context, ActivityProductList.class);
 
                 // Passing the category name chose by the user to ProductList Activity
-                intent.putExtra("Category", (Serializable) categoryListData.get(position));
+                intent.putExtra("CategoryName", (Serializable) categoryListData.get(position));
                 // start the activity
                 context.startActivity(intent);
 

@@ -1,6 +1,7 @@
 package com.arshop.model;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  * This class was made to keep all products better organized. It creates an object which contains
  * an category name and a list of Product which corresponds to that category.
  */
-public class Category {
+public class Category implements Serializable {
 
     private int categoryImage;
     private String categoryName;

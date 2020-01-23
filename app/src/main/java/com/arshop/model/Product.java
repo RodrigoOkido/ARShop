@@ -1,22 +1,22 @@
 package com.arshop.model;
 
+import android.widget.ImageView;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Product {
+public class Product implements Serializable {
 
     private String id;
     private String name;
     private String price;
-    private Category categgory;
-    private ArrayList<String> images;
+    private ArrayList<ImageView> images;
 
 
-    public Product(String id, String name, String price, Category category,
-                    ArrayList<String> images){
+    public Product(String id, String name, String price, ArrayList<ImageView> images){
         this.id = id;
         this.name = name;
         this.price = price;
-        this.categgory = category;
         this.images = images;
 
     }
@@ -34,7 +34,7 @@ public class Product {
         return price;
     }
 
-    public ArrayList<String> getImages() {
+    public ArrayList<ImageView> getImages() {
         return images;
     }
 
@@ -52,7 +52,7 @@ public class Product {
         this.price = price;
     }
 
-    public void setImages(ArrayList<String> images) {
+    public void setImages(ArrayList<ImageView> images) {
         this.images = images;
     }
 }

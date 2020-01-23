@@ -13,13 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.arshop.controller.R;
 
+import java.util.List;
+
 public class RecyclerProductCardView extends RecyclerView.Adapter<RecyclerProductCardView.ProductView> {
 
     private Context context;
-    private Category productListData;
+    private List<Product> productListData;
 
 
-    public RecyclerProductCardView(Context context, Category productList) {
+    public RecyclerProductCardView(Context context, List<Product> productList) {
         this.context = context;
         this.productListData = productList;
     }
@@ -36,8 +38,8 @@ public class RecyclerProductCardView extends RecyclerView.Adapter<RecyclerProduc
     @Override
     public void onBindViewHolder(@NonNull RecyclerProductCardView.ProductView holder, int position) {
 //        holder.productImage.setImageResource(productListData.getProductList().get(position).ge());
-        holder.productName.setText(productListData.getProductList().get(position).getName());
-        holder.productPrice.setText(productListData.getProductList().get(position).getPrice());
+        holder.productName.setText(productListData.get(position).getName());
+        holder.productPrice.setText(productListData.get(position).getPrice());
         holder.productCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +62,7 @@ public class RecyclerProductCardView extends RecyclerView.Adapter<RecyclerProduc
 
     @Override
     public int getItemCount() {
-        return productListData.getProductList().size();
+        return productListData.size();
     }
 
 
