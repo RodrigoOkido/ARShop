@@ -50,6 +50,11 @@ public class Category implements Serializable {
     }
 
 
+    /**
+     * Add an new produtct to the list of the products.
+     *
+     * @param product the Product object to be added
+     */
     public void addProduct ( Product product ){
         productList.add(product);
 

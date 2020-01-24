@@ -20,6 +20,7 @@ import com.arshop.model.Product;
 import com.arshop.model.RecyclerProductCardView;
 import com.bumptech.glide.Glide;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -58,7 +59,9 @@ public class ActivityProductList extends AppCompatActivity {
 
         // Process the products informations givin this ID to the API.
         // This ID will be append to an URL and be processed as an request to the server.
-        processProductsJsonUrl(productsIds);
+        for (int i = 0; i < productsIds.size(); i++) {
+            processProductsJsonUrl(productsIds.get(i));
+        }
 //        Log.d("CHECKING", String.valueOf(categoryPicked.getProductList().get(0)));
 
     }
@@ -79,11 +82,11 @@ public class ActivityProductList extends AppCompatActivity {
                     "MLB1091011505","MLB880663138","MLB1142593979","MLB778945078","MLB688334853",
                     "MLB998765671","MLB840808616"));
                 break;
-            case "Eletro": productsIds = new ArrayList<String>(Arrays.asList("MLB771468129",
+            case "Eletrodomesticos": productsIds = new ArrayList<String>(Arrays.asList("MLB771468129",
                     "MLB805104535","MLB937652025","MLB1108379810","MLB869005659","MLB747292932",
                     "MLB967263695","MLB1143116459"));
                 break;
-            case "Sofa": productsIds = new ArrayList<String>(Arrays.asList("MLB830687652",
+            case "Sofas": productsIds = new ArrayList<String>(Arrays.asList("MLB830687652",
                     "MLB1130894410","MLB830692038","MLB830688004","MLB925457196","MLB1178661430",
                     "MLB1178204238","MLB1178665106"));
                 break;
@@ -101,55 +104,71 @@ public class ActivityProductList extends AppCompatActivity {
      * Responsible to parse an JSON which is requested given an URL. This function gets all the
      * necessary information of the product.
      *
-     * @param productsIds Receives the users wanted category.
+     * @param productId Process the productId of one product.
      */
-    private void processProductsJsonUrl(List<String> productsIds){
-        String url = "https://api.mercadolibre.com/items/MLB1040282676";
+    private void processProductsJsonUrl(String productId){
 
-        // Request JSON Object given URL.
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            String url = "https://api.mercadolibre.com/items/"+productId;
+            ArrayList<String> prodImages = new ArrayList<>();
 
-                    @Override
-                    public void onResponse(JSONObject response) {
+            // Request JSON Object given URL.
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
-                        try {
+                        @Override
+                        public void onResponse(JSONObject response) {
 
-                            // Basic informations of the product
-                            String prodId = response.getString("id");
-                            Log.d("DEBUG",prodId);
-                            String prodThumb = response.getString("secure_thumbnail");
-                            Log.d("DEBUG",prodThumb);
-                            String prodName = response.getString(("title"));
-                            Log.d("DEBUG",prodName);
-                            String prodPrice = response.getString("price");
-                            Log.d("DEBUG",prodPrice);
-                            Product newProduct = new Product (prodId,prodName,prodPrice, new ArrayList<>());
-                            categoryPicked.addProduct(newProduct);
+                            try {
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                                // Basic informations of the product
+                                String prodId = response.getString("id");
+                                Log.d("DEBUG", prodId);
+                                String prodThumb = response.getString("secure_thumbnail");
+                                Log.d("DEBUG", prodThumb);
+                                String prodName = response.getString(("title"));
+                                Log.d("DEBUG", prodName);
+                                String prodPrice = response.getString("price");
+                                Log.d("DEBUG", prodPrice);
+                                JSONArray images = response.getJSONArray("pictures");
+                                for (int image = 0; image < images.length(); image++){
+                                    prodImages.add(images.getJSONObject(image).getString("secure_url"));
+                                    Log.d("DEBUG", images.getJSONObject(image).getString("secure_url"));
+                                }
+                                Product newProduct = new Product(prodId, prodName, prodPrice, prodImages);
+                                categoryPicked.addProduct(newProduct);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                            showProducts(categoryPicked.getProductList());
                         }
+                    }, new Response.ErrorListener() {
 
-                        showProducts(categoryPicked.getProductList());
-                    }
-                }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
 
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
+                        }
+                    });
 
-                    }
-                });
+            // Add the JSON object request in the request queue.
+            req.add(jsonObjectRequest);
 
-        // Add the JSON object request in the request queue.
-        req.add(jsonObjectRequest);
+
     }
 
+
+
+    /**
+     * Show the product list on the screen based on the category chosen by the user.
+     *
+     * @param products The list of the products to be exhibits
+     */
     public void showProducts(List<Product> products){
         RecyclerView productExhibition = (RecyclerView) findViewById(R.id.recycler_products_list);
         RecyclerProductCardView prodCardAdapter = new RecyclerProductCardView(this, categoryPicked.getProductList());
-        productExhibition.setLayoutManager(new GridLayoutManager(this,3));
+        productExhibition.setLayoutManager(new GridLayoutManager(this,2));
         productExhibition.setAdapter(prodCardAdapter);
     }
 }

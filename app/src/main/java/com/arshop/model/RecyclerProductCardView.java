@@ -12,6 +12,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.arshop.controller.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
 
@@ -37,7 +39,11 @@ public class RecyclerProductCardView extends RecyclerView.Adapter<RecyclerProduc
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerProductCardView.ProductView holder, int position) {
-//        holder.productImage.setImageResource(productListData.getProductList().get(position).ge());
+        RequestOptions options = new RequestOptions()
+                .centerCrop()
+                .placeholder(R.mipmap.ic_launcher_round)
+                .error(R.mipmap.ic_launcher_round);
+        Glide.with(context).load(productListData.get(position).getImages().get(0)).apply(options).into(holder.productImage);
         holder.productName.setText(productListData.get(position).getName());
         holder.productPrice.setText(productListData.get(position).getPrice());
         holder.productCardView.setOnClickListener(new View.OnClickListener() {
