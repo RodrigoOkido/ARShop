@@ -17,8 +17,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.arshop.model.Category;
 import com.arshop.model.Product;
-import com.arshop.model.RecyclerProductCardView;
-import com.bumptech.glide.Glide;
+import com.arshop.recyclers.RecyclerProductCardView;
 
 import org.json.JSONArray;
 import org.json.JSONException;

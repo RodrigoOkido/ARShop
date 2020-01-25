@@ -1,8 +1,7 @@
-package com.arshop.model;
+package com.arshop.recyclers;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +11,9 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.arshop.controller.ActivityProductCategory;
 import com.arshop.controller.ActivityProductList;
 import com.arshop.controller.R;
+import com.arshop.model.Category;
 
 import java.io.Serializable;
 import java.util.List;

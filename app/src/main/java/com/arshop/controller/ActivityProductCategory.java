@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.arshop.model.Category;
-import com.arshop.model.RecyclerCategoryView;
+import com.arshop.recyclers.RecyclerCategoryView;
 
 import java.util.ArrayList;
 import java.util.List;

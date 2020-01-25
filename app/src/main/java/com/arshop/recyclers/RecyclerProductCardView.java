@@ -1,6 +1,7 @@
-package com.arshop.model;
+package com.arshop.recyclers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.arshop.controller.ActivityProductDetail;
 import com.arshop.controller.R;
+import com.arshop.model.Product;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
@@ -50,17 +53,15 @@ public class RecyclerProductCardView extends RecyclerView.Adapter<RecyclerProduc
             @Override
             public void onClick(View v) {
 
-//                Intent intent = new Intent(context,.class);
-//
-//                // passing data to the book activity
-//                intent.putExtra("Title",productListData.get(position).getTitle());
-//                intent.putExtra("Description",productListData.get(position).getDescription());
-//                intent.putExtra("Thumbnail",productListData.get(position).getThumbnail());
-//                // start the activity
-//                context.startActivity(intent);
+                Intent intent = new Intent(context, ActivityProductDetail.class);
+
+//              Passing data to the book activity
+                intent.putExtra("Product",productListData.get(position));
+
+//              Start the activity
+                context.startActivity(intent);
              }
         });
-
 
 
     }
