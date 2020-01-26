@@ -52,7 +52,7 @@ public class RecyclerProductCardView extends RecyclerView.Adapter<RecyclerProduc
                 .error(R.mipmap.ic_launcher_round);
         Glide.with(context).load(productListData.get(position).getImages().get(0)).apply(options).into(holder.productImage);
         holder.productName.setText(productListData.get(position).getName());
-        holder.productPrice.setText(productListData.get(position).getPrice());
+        holder.productPrice.append(productListData.get(position).getPrice());
         holder.productCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

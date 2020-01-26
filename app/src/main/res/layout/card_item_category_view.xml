@@ -28,6 +28,7 @@
             android:layout_gravity="center"
             android:textSize="25dp"
             android:textStyle="bold"
+            android:textColor="#000"
             android:text="My Category" />
 
     </FrameLayout>

@@ -1,14 +1,15 @@
 package com.arshop.controller;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
+import com.arshop.adapters.ImageSliderView;
 import com.arshop.model.Product;
 
 import java.io.Serializable;
@@ -21,7 +22,11 @@ import java.util.List;
  */
 public class ActivityProductDetail extends AppCompatActivity {
 
-    // Layout TextvView fields
+    // ViewPager for the product images
+    private ViewPager prodImagesPager;
+    private ImageSliderView slider;
+
+    // Layout TextView fields
     private TextView prodName, prodPrice, prodWarranty, prodMP, prodLocation;
 
     // Private attributes
@@ -40,16 +45,27 @@ public class ActivityProductDetail extends AppCompatActivity {
         productPicked = (Product) intent.getExtras().getSerializable("ProductCheck");
 
         // Associating each field of the product detail activity
+        prodImagesPager = (ViewPager)findViewById((R.id.prodImages_ViewPager));
         prodName = (TextView)findViewById(R.id.prodName);
         prodPrice = (TextView)findViewById(R.id.prodPrice);
         prodWarranty = (TextView)findViewById(R.id.prodWarranty);
         prodMP = (TextView)findViewById(R.id.MP_available);
         prodLocation = (TextView)findViewById(R.id.prodLocation);
 
-        // Setting values
+
+        // Setting all fields with values
+        slider = new ImageSliderView(this, productPicked.getImages());
+        prodImagesPager.setAdapter(slider);
+
         prodName.setText(productPicked.getName());
         prodPrice.append(productPicked.getPrice());
-        prodWarranty.append(productPicked.getWarranty());
+
+        if (productPicked.getWarranty() != null) {
+            prodWarranty.append(productPicked.getWarranty());
+        } else {
+            prodWarranty.setText("Não Informado");
+        }
+
         boolean prodMPAvailable = productPicked.isMercadoPagoCondition();
         if (prodMPAvailable) {
             prodMP.append("Garantido pelo Mercado Pago");

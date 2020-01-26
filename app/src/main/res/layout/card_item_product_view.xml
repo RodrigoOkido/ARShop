@@ -37,7 +37,7 @@
             android:gravity="center"
             android:maxLength="10"
             android:maxLines="1"
-            android:textSize="14dp"
-            android:text="Price" />
+            android:text="R$"
+            android:textSize="14dp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
