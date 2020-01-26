@@ -20,6 +20,10 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
 
+
+/**
+ * RecyclerProductCardView class handles the exhibition of each product card of the product list.
+ */
 public class RecyclerProductCardView extends RecyclerView.Adapter<RecyclerProductCardView.ProductView> {
 
     private Context context;
@@ -55,15 +59,13 @@ public class RecyclerProductCardView extends RecyclerView.Adapter<RecyclerProduc
 
                 Intent intent = new Intent(context, ActivityProductDetail.class);
 
-//              Passing data to the book activity
-                intent.putExtra("Product",productListData.get(position));
+//              Passing data to the Product Detail Activity
+                intent.putExtra("ProductCheck",productListData.get(position));
 
 //              Start the activity
                 context.startActivity(intent);
              }
         });
-
-
     }
 
 

@@ -53,64 +53,87 @@
         </FrameLayout>
 
         <Button
-            android:id="@+id/purchase_button"
+            android:id="@+id/add_to_cart_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#00FF00"
             android:onClick="addToCart"
-            android:text="Adicionar ao Carrinho" />
+            android:text="Adicionar ao Carrinho"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/prodName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Product Name" />
+            android:text="Product Name"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#000"/>
 
         <TextView
             android:id="@+id/prodPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Preço: " />
+            android:text="Preço: R$"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#000"/>
 
         <TextView
             android:id="@+id/prodBrand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Marca: " />
+            android:text="Marca: "
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#000"/>
 
         <TextView
             android:id="@+id/prodWarranty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Garantia: " />
+            android:text="Garantia: "
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#000"/>
 
         <TextView
             android:id="@+id/MP_available"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mercado Pago: " />
+            android:text="Mercado Pago: "
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#000"/>
 
         <TextView
             android:id="@+id/prod_more_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
-            android:textSize="16dp"
+            android:text="Mais informações:"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:text="Mais informações:" />
+            android:textColor="#000"/>
 
         <TextView
-            android:id="@+id/prod_location"
+            android:id="@+id/prodLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Local do Produto: " />
+            android:text="Local do Produto: "
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:textColor="#000"/>
 
         <TextView
             android:id="@+id/prod_dimensions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dimensões: " />
+            android:text="Dimensões: "
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:textColor="#000"/>
 
     </LinearLayout>
 </LinearLayout>

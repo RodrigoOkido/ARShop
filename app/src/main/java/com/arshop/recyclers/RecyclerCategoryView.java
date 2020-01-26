@@ -18,6 +18,10 @@ import com.arshop.model.Category;
 import java.io.Serializable;
 import java.util.List;
 
+
+/**
+ * RecyclerCategoryView handles the exhibition of the list of categories.
+ */
 public class RecyclerCategoryView extends RecyclerView.Adapter<RecyclerCategoryView.CategoryView>  {
 
     private Context context;

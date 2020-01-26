@@ -11,10 +11,17 @@ import java.util.List;
  */
 public class Category implements Serializable {
 
+    // Attributes of the Category
     private int categoryImage;
     private String categoryName;
     private List<Product> productList;
 
+    /**
+     * Category class constructor.
+     *
+     * @param cat category name
+     * @param image background image id
+     */
     public Category(String cat, int image){
         categoryName = cat;
         categoryImage = image;

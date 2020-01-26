@@ -6,6 +6,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+/**
+ * RecyclerMyCartView handles the exhibition of the list of products wished by the user.
+ */
 public class RecyclerMyCartView extends RecyclerView.Adapter<RecyclerMyCartView.CartView> {
 
 

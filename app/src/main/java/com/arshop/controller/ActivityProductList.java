@@ -146,6 +146,9 @@ public class ActivityProductList extends AppCompatActivity {
                             String prodPrice = response.getString("price");
                             Log.d("DEBUG", prodPrice);
 
+                            // Brand
+                            String prodBranc;
+
                             // Warranty
                             String prodWarranty = response.getString("warranty");
                             Log.d("DEBUG", prodWarranty);
@@ -159,9 +162,10 @@ public class ActivityProductList extends AppCompatActivity {
                             JSONObject prodLocationCity = prodLocation.getJSONObject("city");
                             JSONObject prodLocationState = prodLocation.getJSONObject("state");
                             String prodCity = prodLocationCity.getString("name");
-                            String prodState = prodLocationState.getString("state");
+                            String prodState = prodLocationState.getString("name");
 
-                            Product newProduct = new Product(prodId, prodName, prodPrice, prodImages);
+                            Product newProduct = new Product(prodId, prodName, prodPrice, prodImages,
+                                    prodWarranty, prodMercadoPago, prodCity, prodState);
                             categoryPicked.addProduct(newProduct);
 
                         } catch (JSONException e) {
@@ -181,10 +185,7 @@ public class ActivityProductList extends AppCompatActivity {
 
             // Add the JSON object request in the request queue.
             req.add(jsonObjectRequest);
-
-
     }
-
 
 
     /**
