@@ -34,7 +34,7 @@ public class RecyclerCategoryView extends RecyclerView.Adapter<RecyclerCategoryV
     public CategoryView onCreateViewHolder(ViewGroup parent, int viewType) {
         View view ;
         LayoutInflater mInflater = LayoutInflater.from(context);
-        view = mInflater.inflate(R.layout.category_card_item_view,parent,false);
+        view = mInflater.inflate(R.layout.card_item_category_view,parent,false);
         return new CategoryView(view);
     }
 

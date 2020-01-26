@@ -8,6 +8,11 @@ import com.google.ar.sceneform.rendering.ModelRenderable;
 
 import java.lang.ref.WeakReference;
 
+
+/**
+ * Class ModelLoader. This class deal with the modelation of 3D objects (this case for Augmented
+ * Reality).
+ */
 public class ModelLoader {
     private final WeakReference<ActivityModelDisplay> owner;
     private static final String TAG = "ModelLoader";

@@ -7,7 +7,9 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-
+/**
+ * Class responsible to show a detailed product information to the user.
+ */
 public class ActivityProductDetail extends AppCompatActivity {
 
     @Override

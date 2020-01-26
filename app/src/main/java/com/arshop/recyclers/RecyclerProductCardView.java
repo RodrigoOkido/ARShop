@@ -36,7 +36,7 @@ public class RecyclerProductCardView extends RecyclerView.Adapter<RecyclerProduc
     public RecyclerProductCardView.ProductView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view ;
         LayoutInflater mInflater = LayoutInflater.from(context);
-        view = mInflater.inflate(R.layout.product_card_item_view,parent,false);
+        view = mInflater.inflate(R.layout.card_item_product_view,parent,false);
         return new ProductView(view);
     }
 

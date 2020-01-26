@@ -33,6 +33,8 @@ import java.util.List;
  */
 public class ActivityProductList extends AppCompatActivity {
 
+    // Private variables to deal with the user selected category and the products Ids
+    // within this category.
     private Category categoryPicked;
     private List<String> productsIds;
 
@@ -114,42 +116,68 @@ public class ActivityProductList extends AppCompatActivity {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                     (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
-                        @Override
-                        public void onResponse(JSONObject response) {
+                    @Override
+                    public void onResponse(JSONObject response) {
 
-                            try {
+                        try {
 
-                                // Basic informations of the product
-                                String prodId = response.getString("id");
-                                Log.d("DEBUG", prodId);
-                                String prodThumb = response.getString("secure_thumbnail");
-                                Log.d("DEBUG", prodThumb);
-                                String prodName = response.getString(("title"));
-                                Log.d("DEBUG", prodName);
-                                String prodPrice = response.getString("price");
-                                Log.d("DEBUG", prodPrice);
-                                JSONArray images = response.getJSONArray("pictures");
-                                for (int image = 0; image < images.length(); image++){
-                                    prodImages.add(images.getJSONObject(image).getString("secure_url"));
-                                    Log.d("DEBUG", images.getJSONObject(image).getString("secure_url"));
-                                }
-                                Product newProduct = new Product(prodId, prodName, prodPrice, prodImages);
-                                categoryPicked.addProduct(newProduct);
+                            // Gather all basic informations of the product
 
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                            // Images of the product
+                            JSONArray images = response.getJSONArray("pictures");
+                            for (int image = 0; image < images.length(); image++){
+                                prodImages.add(images.getJSONObject(image).getString("secure_url"));
+                                Log.d("DEBUG", images.getJSONObject(image).getString("secure_url"));
                             }
 
-                            showProducts(categoryPicked.getProductList());
-                        }
-                    }, new Response.ErrorListener() {
+                            // ID
+                            String prodId = response.getString("id");
+                            Log.d("DEBUG", prodId);
 
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            error.printStackTrace();
+                            // Thumb
+                            String prodThumb = response.getString("secure_thumbnail");
+                            Log.d("DEBUG", prodThumb);
 
+                            // Name
+                            String prodName = response.getString(("title"));
+                            Log.d("DEBUG", prodName);
+
+                            // Price
+                            String prodPrice = response.getString("price");
+                            Log.d("DEBUG", prodPrice);
+
+                            // Warranty
+                            String prodWarranty = response.getString("warranty");
+                            Log.d("DEBUG", prodWarranty);
+
+                            // Mercado Pago accepted?
+                            boolean prodMercadoPago = response.getBoolean("accepts_mercadopago");
+                            Log.d("DEBUG", String.valueOf(prodMercadoPago));
+
+                            // City and State
+                            JSONObject prodLocation = response.getJSONObject("seller_address");
+                            JSONObject prodLocationCity = prodLocation.getJSONObject("city");
+                            JSONObject prodLocationState = prodLocation.getJSONObject("state");
+                            String prodCity = prodLocationCity.getString("name");
+                            String prodState = prodLocationState.getString("state");
+
+                            Product newProduct = new Product(prodId, prodName, prodPrice, prodImages);
+                            categoryPicked.addProduct(newProduct);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                    });
+
+                        showProducts(categoryPicked.getProductList());
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+
+                    }
+                });
 
             // Add the JSON object request in the request queue.
             req.add(jsonObjectRequest);
