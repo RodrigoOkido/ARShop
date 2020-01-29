@@ -27,7 +27,7 @@ public class ActivityProductDetail extends AppCompatActivity {
     private ImageSliderView slider;
 
     // Layout TextView fields
-    private TextView prodName, prodPrice, prodWarranty, prodMP, prodLocation;
+    private TextView prodPrice, prodName, prodQuantity, prodWarranty, prodMP, prodLocation;
 
     // Private attributes
     private Product productPicked;
@@ -46,8 +46,9 @@ public class ActivityProductDetail extends AppCompatActivity {
 
         // Associating each field of the product detail activity
         prodImagesPager = (ViewPager)findViewById((R.id.prodImages_ViewPager));
-        prodName = (TextView)findViewById(R.id.prodName);
         prodPrice = (TextView)findViewById(R.id.prodPrice);
+        prodName = (TextView)findViewById(R.id.prodName);
+        prodQuantity = (TextView)findViewById(R.id.prodAvailableQty);
         prodWarranty = (TextView)findViewById(R.id.prodWarranty);
         prodMP = (TextView)findViewById(R.id.MP_available);
         prodLocation = (TextView)findViewById(R.id.prodLocation);
@@ -59,6 +60,7 @@ public class ActivityProductDetail extends AppCompatActivity {
 
         prodName.setText(productPicked.getName());
         prodPrice.append(productPicked.getPrice());
+        prodQuantity.setText(productPicked.getQuantity() + " disnponíveis");
 
         if (productPicked.getWarranty() != null) {
             prodWarranty.append(productPicked.getWarranty());

@@ -15,6 +15,7 @@ public class Product implements Serializable {
     private String id;
     private String name;
     private String price;
+    private String quantity;
     private String warranty;
     private boolean mercadoPagoCondition;
     private String productLocationCity;
@@ -28,17 +29,19 @@ public class Product implements Serializable {
      * @param id Product id
      * @param name Product name
      * @param price Product actual price
+     * @param quantity Product quantity. Number of units available
      * @param images Product list of images
      * @param warranty Product warranty information
      * @param mercadoPagoCondition Product Mercado Pago condition
      * @param city Product city. Where the product is being selling
      * @param state Product state. After the city, name the state of this city.
      * */
-    public Product(String id, String name, String price, ArrayList<String> images, String warranty,
-                   boolean mercadoPagoCondition, String city, String state){
+    public Product(String id, String name, String price, String quantity, ArrayList<String> images,
+                   String warranty, boolean mercadoPagoCondition, String city, String state){
         this.id = id;
         this.name = name;
         this.price = price;
+        this.quantity = quantity;
         this.images = images;
         this.warranty = warranty;
         this.mercadoPagoCondition = mercadoPagoCondition;
@@ -57,6 +60,10 @@ public class Product implements Serializable {
 
     public String getPrice() {
         return price;
+    }
+
+    public String getQuantity() {
+        return quantity;
     }
 
     public String getWarranty() {
@@ -93,6 +100,10 @@ public class Product implements Serializable {
         this.price = price;
     }
 
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
     public void setWarranty(String warranty) {
         this.warranty = warranty;
     }
@@ -112,5 +123,6 @@ public class Product implements Serializable {
     public void setProductLocationState(String productLocationState) {
         this.productLocationState = productLocationState;
     }
+
 
 }

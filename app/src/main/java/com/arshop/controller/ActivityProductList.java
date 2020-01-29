@@ -146,6 +146,10 @@ public class ActivityProductList extends AppCompatActivity {
                             String prodPrice = response.getString("price");
                             Log.d("DEBUG", prodPrice);
 
+                            // Quantity Available
+                            String prodQuantity = response.getString("available_quantity");
+                            Log.d("DEBUG", prodQuantity);
+
                             // Brand
                             String prodBranc;
 
@@ -164,8 +168,10 @@ public class ActivityProductList extends AppCompatActivity {
                             String prodCity = prodLocationCity.getString("name");
                             String prodState = prodLocationState.getString("name");
 
-                            Product newProduct = new Product(prodId, prodName, prodPrice, prodImages,
-                                    prodWarranty, prodMercadoPago, prodCity, prodState);
+
+                            // Creates a new Product with all gathered information from the API
+                            Product newProduct = new Product(prodId, prodName, prodPrice, prodQuantity,
+                                    prodImages, prodWarranty, prodMercadoPago, prodCity, prodState);
                             categoryPicked.addProduct(newProduct);
 
                         } catch (JSONException e) {
