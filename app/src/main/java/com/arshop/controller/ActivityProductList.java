@@ -142,6 +142,30 @@ public class ActivityProductList extends AppCompatActivity {
                             String prodName = response.getString(("title"));
                             Log.d("DEBUG", prodName);
 
+                            // Atributes array inside JSON.
+                            // Brand and Dimension attributes will be taken here
+                            JSONArray attr = response.getJSONArray("attributes");
+
+                            // The default value will be "Não Informado" in case this field be empty
+                            // in the product pushed in the API.
+                            String prodBrand = "Não Informado";
+                            String prodDimensions = "Não Informado";
+                            for (int attribute = 0; attribute < attr.length(); attribute++){
+                                if(attr.getJSONObject(attribute).getString("id").contains("BRAND")) {
+                                    prodBrand = attr.getJSONObject(attribute)
+                                            .getString("value_name");
+                                }
+                                if(attr.getJSONObject(attribute).getString("id").contains("HEIGHT")) {
+                                    prodDimensions = attr.getJSONObject(attribute)
+                                            .getString("value_name");
+                                }
+
+                                if(attr.getJSONObject(attribute).getString("id").contains("WIDTH")) {
+                                    prodDimensions = prodDimensions.concat(" x " + attr.getJSONObject(attribute)
+                                            .getString("value_name"));
+                                }
+                            }
+
                             // Price
                             String prodPrice = response.getString("price");
                             Log.d("DEBUG", prodPrice);
@@ -150,11 +174,11 @@ public class ActivityProductList extends AppCompatActivity {
                             String prodQuantity = response.getString("available_quantity");
                             Log.d("DEBUG", prodQuantity);
 
-                            // Brand
-                            String prodBranc;
-
                             // Warranty
                             String prodWarranty = response.getString("warranty");
+                            if (prodWarranty == null || prodWarranty == "null") {
+                                prodWarranty = "Verificar no site do Fabricante";
+                            }
                             Log.d("DEBUG", prodWarranty);
 
                             // Mercado Pago accepted?
@@ -168,10 +192,10 @@ public class ActivityProductList extends AppCompatActivity {
                             String prodCity = prodLocationCity.getString("name");
                             String prodState = prodLocationState.getString("name");
 
-
                             // Creates a new Product with all gathered information from the API
-                            Product newProduct = new Product(prodId, prodName, prodPrice, prodQuantity,
-                                    prodImages, prodWarranty, prodMercadoPago, prodCity, prodState);
+                            Product newProduct = new Product(prodId, prodName, prodBrand, prodImages,
+                                    prodPrice, prodQuantity, prodWarranty, prodMercadoPago,
+                                    prodCity, prodState, prodDimensions);
                             categoryPicked.addProduct(newProduct);
 
                         } catch (JSONException e) {

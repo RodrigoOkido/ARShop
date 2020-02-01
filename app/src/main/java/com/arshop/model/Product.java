@@ -16,37 +16,46 @@ public class Product implements Serializable {
     private String name;
     private String price;
     private String quantity;
+    private ArrayList<String> images;
+    private String brand;
     private String warranty;
     private boolean mercadoPagoCondition;
     private String productLocationCity;
     private String productLocationState;
-    private ArrayList<String> images;
+    private String dimensions;
+
 
 
     /**
-     * Product class constructor
+     * Product class constructor. To create a sellable product, it needs all the product information.
+     * This requires a lot of parameters.
      *
      * @param id Product id
      * @param name Product name
+     * @param brand Product brand
+     * @param images Product list of images
      * @param price Product actual price
      * @param quantity Product quantity. Number of units available
-     * @param images Product list of images
      * @param warranty Product warranty information
      * @param mercadoPagoCondition Product Mercado Pago condition
      * @param city Product city. Where the product is being selling
      * @param state Product state. After the city, name the state of this city.
+     * @param dimensions Product dimensions.
      * */
-    public Product(String id, String name, String price, String quantity, ArrayList<String> images,
-                   String warranty, boolean mercadoPagoCondition, String city, String state){
+    public Product(String id, String name, String brand, ArrayList<String> images, String price,
+                   String quantity, String warranty, boolean mercadoPagoCondition,
+                   String city, String state, String dimensions){
         this.id = id;
         this.name = name;
+        this.brand = brand;
+        this.images = images;
         this.price = price;
         this.quantity = quantity;
-        this.images = images;
         this.warranty = warranty;
         this.mercadoPagoCondition = mercadoPagoCondition;
         this.productLocationCity = city;
         this.productLocationState = state;
+        this.dimensions = dimensions;
     }
 
     // Product GETTERS functions
@@ -56,6 +65,14 @@ public class Product implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public ArrayList<String> getImages() {
+        return images;
     }
 
     public String getPrice() {
@@ -82,9 +99,10 @@ public class Product implements Serializable {
         return productLocationState;
     }
 
-    public ArrayList<String> getImages() {
-        return images;
+    public String getDimensions() {
+        return dimensions;
     }
+
 
 
     // Product SETTERS functions
@@ -94,6 +112,10 @@ public class Product implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public void setPrice(String price) {
@@ -125,4 +147,9 @@ public class Product implements Serializable {
     }
 
 
+
+
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
+    }
 }

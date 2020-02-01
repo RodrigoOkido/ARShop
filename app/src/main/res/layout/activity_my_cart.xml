@@ -84,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="#00FF00"
+                    android:onClick="returnToShop"
                     android:text="Continuar Compra"
                     android:textColor="#FFF"
                     android:textStyle="bold" />
@@ -94,6 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="#d40d0d"
+                    android:onClick="finishPurchase"
                     android:text="Finalizar Compra"
                     android:textColor="#FFF"
                     android:textStyle="bold" />

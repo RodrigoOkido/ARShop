@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.arshop.model.Product;
@@ -39,11 +40,16 @@ public class ActivityMyCart extends AppCompatActivity {
         cartView.setLayoutManager(new LinearLayoutManager(this));
         cartView.setAdapter(cartAdapter);
 
-        setTotalSubtotal(productInCart);
+        setSubtotal(productInCart);
     }
 
 
-    public void setTotalSubtotal(List<Product> productInCart) {
+    /**
+     * Receives all the user products added to Cart and return the subtotal of them.
+     *
+     * @param productInCart List of users wanted products.
+     */
+    public void setSubtotal(List<Product> productInCart) {
 
         double subtotal = 0;
 
@@ -53,6 +59,28 @@ public class ActivityMyCart extends AppCompatActivity {
 
         cartSubtotal = (TextView)findViewById(R.id.subtotal_price);
         cartSubtotal.setText(String.valueOf(subtotal));
+    }
+
+
+    /**
+     * Once in the cart screen, user can return to the beginning to keep buying other products.
+     * If so this function will be called.
+     *
+     * @param view The view
+     */
+    public void returnToShop(View view){
+
+    }
+
+
+    /**
+     * If user wants to finish the purchase and click on the "Finish Purchase" button, this function
+     * will be called.
+     *
+     * @param view
+     */
+    public void finishPurchase(View view){
+
     }
 
 }

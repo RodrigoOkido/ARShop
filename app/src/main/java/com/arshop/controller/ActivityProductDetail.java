@@ -4,6 +4,7 @@ package com.arshop.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,9 +26,11 @@ public class ActivityProductDetail extends AppCompatActivity {
     // ViewPager for the product images
     private ViewPager prodImagesPager;
     private ImageSliderView slider;
+    private ImageButton prodARView;
 
     // Layout TextView fields
-    private TextView prodPrice, prodName, prodQuantity, prodWarranty, prodMP, prodLocation;
+    private TextView prodPrice, prodName, prodQuantity;
+    private TextView prodBrand, prodWarranty, prodMP, prodLocation, prodDimensions;
 
     // Private attributes
     private Product productPicked;
@@ -46,21 +49,28 @@ public class ActivityProductDetail extends AppCompatActivity {
 
         // Associating each field of the product detail activity
         prodImagesPager = (ViewPager)findViewById((R.id.prodImages_ViewPager));
+        prodARView = (ImageButton)findViewById(R.id.ar_view_product);
         prodPrice = (TextView)findViewById(R.id.prodPrice);
         prodName = (TextView)findViewById(R.id.prodName);
         prodQuantity = (TextView)findViewById(R.id.prodAvailableQty);
+
+        prodBrand = (TextView)findViewById(R.id.prodBrand);
         prodWarranty = (TextView)findViewById(R.id.prodWarranty);
         prodMP = (TextView)findViewById(R.id.MP_available);
         prodLocation = (TextView)findViewById(R.id.prodLocation);
+        prodDimensions = (TextView)findViewById(R.id.prodDimensions);
 
 
         // Setting all fields with values
         slider = new ImageSliderView(this, productPicked.getImages());
         prodImagesPager.setAdapter(slider);
+        prodARView.setImageResource(R.drawable.ar_button_32px);
+
 
         prodName.setText(productPicked.getName());
         prodPrice.append(productPicked.getPrice());
-        prodQuantity.setText(productPicked.getQuantity() + " disnponíveis");
+        prodQuantity.setText(productPicked.getQuantity() + " disponíveis");
+        prodBrand.append(productPicked.getBrand());
 
         if (productPicked.getWarranty() != null) {
             prodWarranty.append(productPicked.getWarranty());
@@ -77,6 +87,7 @@ public class ActivityProductDetail extends AppCompatActivity {
         prodLocation.append(productPicked.getProductLocationCity()+" - "+
                 productPicked.getProductLocationState());
 
+        prodDimensions.append(productPicked.getDimensions());
     }
 
 
