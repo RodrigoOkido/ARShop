@@ -20,6 +20,8 @@ import java.util.List;
  */
 public class ActivityProductCategory extends AppCompatActivity {
 
+    // Variable list of categories. Each category wanted to be created, need to be added in this
+    // array.
     private List<Category> categoriesList;
 
 

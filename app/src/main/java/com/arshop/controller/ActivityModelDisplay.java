@@ -36,7 +36,7 @@ public class ActivityModelDisplay extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_list);
+        setContentView(R.layout.activity_model_display);
         fragment = (ArFragment)
                 getSupportFragmentManager().findFragmentById(R.id.sceneform_fragment);
 

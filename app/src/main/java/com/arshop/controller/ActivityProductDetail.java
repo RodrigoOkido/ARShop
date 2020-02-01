@@ -47,25 +47,14 @@ public class ActivityProductDetail extends AppCompatActivity {
         Intent intent = getIntent();
         productPicked = (Product) intent.getExtras().getSerializable("ProductCheck");
 
-        // Associating each field of the product detail activity
-        prodImagesPager = (ViewPager)findViewById((R.id.prodImages_ViewPager));
-        prodARView = (ImageButton)findViewById(R.id.ar_view_product);
-        prodPrice = (TextView)findViewById(R.id.prodPrice);
-        prodName = (TextView)findViewById(R.id.prodName);
-        prodQuantity = (TextView)findViewById(R.id.prodAvailableQty);
-
-        prodBrand = (TextView)findViewById(R.id.prodBrand);
-        prodWarranty = (TextView)findViewById(R.id.prodWarranty);
-        prodMP = (TextView)findViewById(R.id.MP_available);
-        prodLocation = (TextView)findViewById(R.id.prodLocation);
-        prodDimensions = (TextView)findViewById(R.id.prodDimensions);
+        // Get each field of the product detail activity layout XML.
+        getLayoutElements();
 
 
         // Setting all fields with values
         slider = new ImageSliderView(this, productPicked.getImages());
         prodImagesPager.setAdapter(slider);
         prodARView.setImageResource(R.drawable.ar_button_32px);
-
 
         prodName.setText(productPicked.getName());
         prodPrice.append(productPicked.getPrice());
@@ -92,10 +81,28 @@ public class ActivityProductDetail extends AppCompatActivity {
 
 
     /**
+     * Associates each field of the Layout (from the xml) to the variables.
+     */
+    public void getLayoutElements() {
+        prodImagesPager = (ViewPager)findViewById((R.id.prodImages_ViewPager));
+        prodARView = (ImageButton)findViewById(R.id.ar_view_product);
+        prodPrice = (TextView)findViewById(R.id.prodPrice);
+        prodName = (TextView)findViewById(R.id.prodName);
+        prodQuantity = (TextView)findViewById(R.id.prodAvailableQty);
+
+        prodBrand = (TextView)findViewById(R.id.prodBrand);
+        prodWarranty = (TextView)findViewById(R.id.prodWarranty);
+        prodMP = (TextView)findViewById(R.id.MP_available);
+        prodLocation = (TextView)findViewById(R.id.prodLocation);
+        prodDimensions = (TextView)findViewById(R.id.prodDimensions);
+    }
+
+
+    /**
      * This function is called when the user clicks in the button to add the product in the cart.
      * The product is added to the cart and the Cart Activity starts with that product in the list.
      *
-     * @param view the actual activity context
+     * @param view The actual activity context.
      */
     public void addToCart (View view) {
 
@@ -109,6 +116,22 @@ public class ActivityProductDetail extends AppCompatActivity {
         // Start MyCart activity.
         this.startActivity(intent);
 
+    }
+
+
+    /**
+     * Function to check the product in Augmented Reality. To be able to use the Augmented
+     * Reality on the smartphone, it needs to authorize the use of the camera.
+     *
+     * @param view The view context.
+     */
+    public void checkProductAR (View view) {
+
+        // Create intent
+        Intent intent = new Intent(view.getContext(), ActivityModelDisplay.class);
+
+        // Start MyCart activity.
+        this.startActivity(intent);
     }
 
 }

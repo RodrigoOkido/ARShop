@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.arshop.model.Product;
 import com.arshop.recyclers.RecyclerMyCartView;
 
+import java.io.Serializable;
 import java.util.List;
 
 
@@ -21,6 +22,8 @@ import java.util.List;
  */
 public class ActivityMyCart extends AppCompatActivity {
 
+
+    // Variables which deals with the users cart information.
     private List<Product> productInCart;
     private TextView cartSubtotal;
 
@@ -66,20 +69,32 @@ public class ActivityMyCart extends AppCompatActivity {
      * Once in the cart screen, user can return to the beginning to keep buying other products.
      * If so this function will be called.
      *
-     * @param view The view
+     * @param view The view context.
      */
     public void returnToShop(View view){
 
+        // Create intent to the ProductCategory Activity
+        Intent intent = new Intent(view.getContext(), ActivityProductCategory.class);
+
+        // Turn back to the main activity.
+        this.startActivity(intent);
     }
 
 
     /**
-     * If user wants to finish the purchase and click on the "Finish Purchase" button, this function
+     * If user wants to conclude the purchase and click on the "Finish Purchase" button, this function
      * will be called.
      *
-     * @param view
+     * @param view The view context.
      */
     public void finishPurchase(View view){
+
+        // Create intent to ProductPurchase Activity
+        Intent intent = new Intent(view.getContext(), ActivityProductPurchase.class);
+        intent.putExtra("PurchasingProducts", (Serializable)productInCart);
+
+        // Start ProductPurchase activity.
+        this.startActivity(intent);
 
     }
 

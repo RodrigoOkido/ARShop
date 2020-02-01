@@ -221,7 +221,7 @@ public class ActivityProductList extends AppCompatActivity {
     /**
      * Show the product list on the screen based on the category chosen by the user.
      *
-     * @param products The list of the products to be exhibits
+     * @param products The list of the products to be exhibits.
      */
     public void showProducts(List<Product> products){
         RecyclerView productExhibition = (RecyclerView) findViewById(R.id.recycler_products_list);
