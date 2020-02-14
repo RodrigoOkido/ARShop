@@ -28,6 +28,8 @@
         <activity android:name=".ActivityProductList" />
         <activity android:name=".ActivityModelDisplay" />
         <activity android:name=".ActivityProductDetail" />
+        <activity android:name=".ActivityPaymentSection" />
+        <activity android:name=".ActivityFinishPurchaseSection" />
 
         <meta-data
             android:name="com.google.ar.core"

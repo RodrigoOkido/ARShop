@@ -32,12 +32,14 @@ public class ActivityMyCart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_cart);
 
-        // Recieve the data of the category selected.
+        // Recieve the data of the products.
         Intent intent = getIntent();
         productInCart = (List<Product>) intent.getExtras().getSerializable("ProductWanted");
 
         Log.d("CART", productInCart.get(0).getName());
 
+
+        // Create the Recycler of the cart view
         RecyclerView cartView = (RecyclerView) findViewById(R.id.recycler_cart_list);
         RecyclerMyCartView cartAdapter = new RecyclerMyCartView(this,productInCart);
         cartView.setLayoutManager(new LinearLayoutManager(this));
@@ -92,6 +94,7 @@ public class ActivityMyCart extends AppCompatActivity {
         // Create intent to ProductPurchase Activity
         Intent intent = new Intent(view.getContext(), ActivityProductPurchase.class);
         intent.putExtra("PurchasingProducts", (Serializable)productInCart);
+        intent.putExtra("Subtotal", cartSubtotal.getText());
 
         // Start ProductPurchase activity.
         this.startActivity(intent);

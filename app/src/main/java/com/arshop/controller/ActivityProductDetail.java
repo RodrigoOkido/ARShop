@@ -23,7 +23,7 @@ import java.util.List;
  */
 public class ActivityProductDetail extends AppCompatActivity {
 
-    // ViewPager for the product images
+    // ViewPager for the product images and button to check the product in AR.
     private ViewPager prodImagesPager;
     private ImageSliderView slider;
     private ImageButton prodARView;
