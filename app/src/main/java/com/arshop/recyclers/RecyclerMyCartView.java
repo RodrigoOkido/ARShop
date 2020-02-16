@@ -44,7 +44,7 @@ public class RecyclerMyCartView extends RecyclerView.Adapter<RecyclerMyCartView.
     public void onBindViewHolder(@NonNull RecyclerMyCartView.CartView holder, int position) {
 
         holder.productInCartName.setText(myCart.get(position).getName());
-        holder.productInCartPrice.setText(myCart.get(position).getPrice());
+        holder.productInCartPrice.append(myCart.get(position).getPrice());
 //        holder.excludeProduct.setImageResource(R.id.);
 //        holder.excludeProduct.setOnClickListener(new View.OnClickListener() {
 //            @Override

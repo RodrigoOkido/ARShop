@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.arshop.model.Product;
@@ -21,6 +22,8 @@ public class ActivityProductPurchase extends AppCompatActivity {
     private List<Product> productsToPurchase;
     private String subtotal;
 
+    private TextView subtotalValue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,9 @@ public class ActivityProductPurchase extends AppCompatActivity {
         Intent intent = getIntent();
         productsToPurchase = (List<Product>) intent.getExtras().getSerializable("PurchasingProducts");
         subtotal = intent.getExtras().getString("Subtotal") ;
+
+        subtotalValue = findViewById(R.id.subtotalValue);
+        subtotalValue.append(subtotal);
     }
 
 

@@ -146,9 +146,6 @@ public class Product implements Serializable {
         this.productLocationState = productLocationState;
     }
 
-
-
-
     public void setDimensions(String dimensions) {
         this.dimensions = dimensions;
     }
