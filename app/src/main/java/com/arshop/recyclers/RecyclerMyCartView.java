@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,8 +46,8 @@ public class RecyclerMyCartView extends RecyclerView.Adapter<RecyclerMyCartView.
 
         holder.productInCartName.setText(myCart.get(position).getName());
         holder.productInCartPrice.append(myCart.get(position).getPrice());
-//        holder.excludeProduct.setImageResource(R.id.);
-//        holder.excludeProduct.setOnClickListener(new View.OnClickListener() {
+        holder.deleteProductFromCart.setImageResource(R.drawable.delete_button);
+//        holder.deleteProductFromCart.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                myCart.remove(position);
@@ -65,7 +66,7 @@ public class RecyclerMyCartView extends RecyclerView.Adapter<RecyclerMyCartView.
         private CardView cartCardView;
         private TextView productInCartName;
         private TextView productInCartPrice;
-        private ImageView excludeProduct;
+        private ImageView deleteProductFromCart;
 
         public CartView(View cartItem){
             super(cartItem);
@@ -73,6 +74,8 @@ public class RecyclerMyCartView extends RecyclerView.Adapter<RecyclerMyCartView.
             cartCardView = (CardView) cartItem.findViewById(R.id.cart_item_view);
             productInCartName = (TextView) cartItem.findViewById(R.id.cartItem);
             productInCartPrice = (TextView) cartItem.findViewById(R.id.cartItemPrice);
+            deleteProductFromCart = (ImageButton) cartItem.findViewById(R.id.removeFromCart);
+
         }
 
     }

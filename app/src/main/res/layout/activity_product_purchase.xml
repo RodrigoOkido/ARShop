@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".ActivityProductPurchase">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,14 +29,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:orientation="vertical">
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rounded_layout"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <TextView
                     android:id="@+id/addressInformationText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Endereço de Entrega" />
+                    android:text="Endereço de Entrega"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/userName"
@@ -101,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:gravity="center"
-                        android:text="-"
+                        android:text=" - "
                         android:textSize="18sp" />
 
                     <EditText
@@ -119,13 +124,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:background="@drawable/rounded_layout"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <TextView
                     android:id="@+id/shippingFormText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Informação do Frete" />
+                    android:text="Informação do Frete"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -155,17 +165,29 @@
                         android:text="R$15" />
 
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+
+                android:background="@drawable/rounded_layout"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <TextView
                     android:id="@+id/paymentFormText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Forma de Pagamento" />
+                    android:text="Forma de Pagamento"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <RadioGroup
+                    android:id="@+id/paymentMethodRadioGroup"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/paymentMethodRadioGroup" >
+                    android:layout_height="match_parent">
 
 
                     <RadioButton
@@ -181,34 +203,39 @@
                         android:text="Boleto Bancário" />
                 </RadioGroup>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+            </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/subtotalText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Subtotal" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_layout"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
-                    <TextView
-                        android:id="@+id/subtotalValue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="R$" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/confirmBasicInfoButton"
+                <TextView
+                    android:id="@+id/subtotalText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:onClick="proceedPurchase"
-                    android:text="Prosseguir" />
+                    android:layout_weight="1"
+                    android:text="Subtotal"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/subtotalValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R$" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/confirmBasicInfoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="proceedPurchase"
+                android:text="Prosseguir" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

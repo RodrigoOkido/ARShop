@@ -28,11 +28,11 @@ public class ActivityProductDetail extends AppCompatActivity {
     private ImageSliderView slider;
     private ImageButton prodARView;
 
-    // Layout TextView fields
+    // Layout TextView fields.
     private TextView prodPrice, prodName, prodQuantity;
     private TextView prodBrand, prodWarranty, prodMP, prodLocation, prodDimensions;
 
-    // Private attributes
+    // Private attributes.
     private Product productPicked;
     private List<Product> productWanted;
 
@@ -41,6 +41,8 @@ public class ActivityProductDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
 
+
+        // Creates an Arraylist of Product. This will be used to add a possible product to the cart.
         productWanted = new ArrayList<>();
 
         // Recieve the data of the category selected.
@@ -51,13 +53,13 @@ public class ActivityProductDetail extends AppCompatActivity {
         getLayoutElements();
 
 
-        // Setting all fields with values
+        // Setting all fields from XML with values
         slider = new ImageSliderView(this, productPicked.getImages());
         prodImagesPager.setAdapter(slider);
-        prodARView.setImageResource(R.drawable.ar_button_32px);
+        prodARView.setImageResource(R.drawable.ar_button);
 
-        prodName.setText(productPicked.getName());
         prodPrice.append(productPicked.getPrice());
+        prodName.setText(productPicked.getName());
         prodQuantity.setText(productPicked.getQuantity() + " disponíveis");
         prodBrand.append(productPicked.getBrand());
 
@@ -99,8 +101,8 @@ public class ActivityProductDetail extends AppCompatActivity {
 
 
     /**
-     * This function is called when the user clicks in the button to add the product in the cart.
-     * The product is added to the cart and the Cart Activity starts with that product in the list.
+     * This function is called when the user clicks the button to add the product in the cart.
+     * Once added to the cart, the Cart Activity starts with this (or more) product inside the list.
      *
      * @param view The actual activity context.
      */
@@ -121,7 +123,7 @@ public class ActivityProductDetail extends AppCompatActivity {
 
     /**
      * Function to check the product in Augmented Reality. To be able to use the Augmented
-     * Reality on the smartphone, it needs to authorize the use of the camera.
+     * Reality, the user needs to authorize the app to access the smartphone camera.
      *
      * @param view The view context.
      */

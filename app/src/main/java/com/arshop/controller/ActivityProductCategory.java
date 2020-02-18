@@ -14,7 +14,7 @@ import java.util.List;
 
 
 /**
- * This is the MAIN ACTIVITY. The MAIN SECTION of the app when opened starts here. This class is
+ * This is the starter activity class. The app when opened starts here. This class is
  * responsible to exhibits all the categories of products. From here, the user can access almost
  * all other areas of the app.
  */
@@ -30,8 +30,8 @@ public class ActivityProductCategory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_category);
 
+        // Create a list of categories and populate the list with categories of products.
         categoriesList = new ArrayList<>();
-
         categoriesList.add(new Category("Cadeiras", R.drawable.cadeira_thumb));
         categoriesList.add(new Category("Sofas", R.drawable.sofa_thumb));
         categoriesList.add(new Category("Mesas", R.drawable.mesa_thumb));
@@ -39,6 +39,7 @@ public class ActivityProductCategory extends AppCompatActivity {
         categoriesList.add(new Category("Decorativos", R.drawable.decorativo_thumb));
 
 
+        // Creates the recycler of the categories.
         RecyclerView initialView = (RecyclerView) findViewById(R.id.recycler_categories_list);
         RecyclerCategoryView categoryAdapter = new RecyclerCategoryView(this,categoriesList);
         initialView.setLayoutManager(new LinearLayoutManager(this));

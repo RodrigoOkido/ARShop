@@ -17,6 +17,7 @@ import java.util.List;
 
 public class ActivityPaymentSection extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    // Private attributes.
     private List<Product> productsToPurchase;
     private String shippingOption, paymentMethodOption ,subtotal;
     
@@ -36,7 +37,7 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
         paymentMethodOption = intent.getExtras().getString("PaymentOption") ;
         subtotal = intent.getExtras().getString("Subtotal") ;
 
-        // Show the spinner with how much the user wants to afford.
+        // Spinner giving options about how much user wants to afford per month.
         creditCardSpinnerValues = (Spinner) findViewById(R.id.creditCardSpinner);
         creditCardSpinnerValues.setOnItemSelectedListener(this);
 
@@ -55,10 +56,10 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
 
 
     /**
-     * Generate all the option values of the subtotal. This gives the user to decide how much per
-     * month user wants to pay using your credit card.
+     * Generate all the option values of the subtotal. This gives the possibility to user decide
+     * how much per month he wants to pay using your credit card.
      *
-     * @param values An empty list which will be added all the payments options.
+     * @param values An empty list which will be added all the payments values.
      * @param subtotal The subtotal of the users cart.
      */
     private void generatePriceValues(List<String> values, String subtotal) {

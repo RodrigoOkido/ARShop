@@ -5,208 +5,245 @@
     android:id="@+id/activity_product_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     android:orientation="vertical"
-    android:padding="5dp"
     tools:context=".ActivityProductDetail">
 
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintImages"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/prodImages_ViewPager"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintImages"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="300dp">
 
-            </androidx.viewpager.widget.ViewPager>
-
-            <ImageView
-                android:id="@+id/prodImages"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:scaleType="centerCrop"
-                tools:srcCompat="@tools:sample/avatars" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <Button
-                    android:id="@+id/add_to_cart_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#00FF00"
-                    android:onClick="addToCart"
-                    android:text="Adicionar ao Carrinho"
-                    android:textStyle="bold" />
-
-                <ImageButton
-                    android:id="@+id/ar_view_product"
-                    android:layout_width="50dp"
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/prodImages_ViewPager"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </androidx.viewpager.widget.ViewPager>
+
+                <ImageView
+                    android:id="@+id/prodImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:onClick="checkProductAR"
-                    tools:srcCompat="@tools:sample/avatars" />
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="2dp"
-                android:layout_weight="0"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/prodPrice"
+                    <Button
+                        android:id="@+id/add_to_cart_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_marginStart="5dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        android:text="R$"
-                        android:textColor="#000"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginStart="10dp"
                         android:layout_marginEnd="5dp"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/prodPrice"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button"
+                        android:onClick="addToCart"
+                        android:text="Adicionar ao Carrinho"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/ar_view_product"
+                        android:layout_width="128px"
+                        android:layout_height="128px"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:onClick="checkProductAR"
+                        android:scaleType="fitCenter"
+                        tools:srcCompat="@tools:sample/avatars" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="0"
+                    android:background="@drawable/rounded_layout"
+                    android:orientation="horizontal"
+
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/prodName"
-                            android:layout_width="match_parent"
+                            android:id="@+id/prodPrice"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Product Name"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:text="R$"
                             android:textColor="#000"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/prodAvailableQty"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Quantity Available"
-                            android:textSize="12sp" />
-                    </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="5dp"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/prodPrice"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                            <TextView
+                                android:id="@+id/prodName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Product Name"
+                                android:textColor="#000"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
 
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                            <TextView
+                                android:id="@+id/prodAvailableQty"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Quantity Available"
+                                android:textSize="12sp" />
+                        </LinearLayout>
 
-        <TextView
-            android:id="@+id/prodBrand"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Marca: "
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="#000"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/prodWarranty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Garantia: "
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="#000"/>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/MP_available"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mercado Pago: "
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="#000"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/prod_more_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
-            android:text="Mais informações:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#000"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/rounded_layout"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/prodLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Local do Produto: "
-            android:textStyle="bold"
-            android:textSize="12sp"
-            android:textColor="#000"/>
+                    <TextView
+                        android:id="@+id/prodWarranty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Garantia: "
+                        android:textColor="#000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/prodDimensions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dimensões: "
-            android:textStyle="bold"
-            android:textSize="12sp"
-            android:textColor="#000"/>
+                    <TextView
+                        android:id="@+id/MP_available"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mercado Pago: "
+                        android:textColor="#000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
 
-    </LinearLayout>
+                    <TextView
+                        android:id="@+id/prodBrand"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Marca: "
+                        android:textColor="#000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/prod_more_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Mais informações:"
+                        android:textColor="#000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/prodLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Local do Produto: "
+                        android:textColor="#000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/prodDimensions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dimensões: "
+                        android:textColor="#000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

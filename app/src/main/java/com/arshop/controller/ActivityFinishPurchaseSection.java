@@ -15,9 +15,11 @@ import java.util.List;
 
 public class ActivityFinishPurchaseSection extends AppCompatActivity {
 
+    // Private attributes.
     private List<Product> productsToPurchase;
     private String paymentMethodOptionChosed, shippingOptionChosed, subtotal;
 
+    // Layout TextView fields.
     private TextView paymentFormValue, shippingValue, subtotalValue;
 
     @Override
@@ -42,8 +44,6 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
         paymentFormValue.setText(paymentMethodOptionChosed);
         shippingValue.setText(shippingOptionChosed);
         subtotalValue.append(subtotal);
-
-
 
     }
 

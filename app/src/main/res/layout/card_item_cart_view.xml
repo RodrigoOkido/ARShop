@@ -40,14 +40,17 @@
                 app:layout_constraintEnd_toStartOf="@+id/removeFromCart"
                 tools:layout_editor_absoluteY="26dp" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/removeFromCart"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="32px"
+                android:layout_height="32px"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

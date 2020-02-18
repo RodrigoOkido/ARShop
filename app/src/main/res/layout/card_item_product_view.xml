@@ -5,7 +5,10 @@
     android:id="@+id/card_product_view"
     android:layout_width="160dp"
     android:layout_height="190dp"
-    android:layout_margin="3dp"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="#fff"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="8dp">
     >
 
 
@@ -27,8 +30,8 @@
             android:gravity="center"
             android:maxLength="40"
             android:maxLines="1"
-            android:textSize="12dp"
-            android:text="Product Name" />
+            android:text="Product Name"
+            android:textSize="12dp" />
 
         <TextView
             android:id="@+id/product_card_price"
