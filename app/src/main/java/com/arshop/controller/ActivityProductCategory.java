@@ -1,10 +1,16 @@
 package com.arshop.controller;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.arshop.model.Category;
 import com.arshop.recyclers.RecyclerCategoryView;
@@ -30,6 +36,11 @@ public class ActivityProductCategory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_category);
 
+        //Load the toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitle("Categorias");
+        setSupportActionBar(toolbar);
+
         // Create a list of categories and populate the list with categories of products.
         categoriesList = new ArrayList<>();
         categoriesList.add(new Category("Cadeiras", R.drawable.cadeira_thumb));
@@ -44,5 +55,30 @@ public class ActivityProductCategory extends AppCompatActivity {
         RecyclerCategoryView categoryAdapter = new RecyclerCategoryView(this,categoriesList);
         initialView.setLayoutManager(new LinearLayoutManager(this));
         initialView.setAdapter(categoryAdapter);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.toolbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuCart:
+                // Create intent
+                Intent intent = new Intent(this, ActivityMyCart.class);
+
+                // Start MyCart activity.
+                this.startActivity(intent);
+                break;
+            case R.id.menuProfile: break;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

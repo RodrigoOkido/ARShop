@@ -1,11 +1,16 @@
 package com.arshop.controller;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -29,6 +34,11 @@ public class ActivityProductPurchase extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_purchase);
 
+        //Load the toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitle("Identificação");
+        setSupportActionBar(toolbar);
+
         // Recieve the data of the products to be purchased.
         Intent intent = getIntent();
         productsToPurchase = (List<Product>) intent.getExtras().getSerializable("PurchasingProducts");
@@ -36,6 +46,31 @@ public class ActivityProductPurchase extends AppCompatActivity {
 
         subtotalValue = findViewById(R.id.subtotalValue);
         subtotalValue.append(subtotal);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.toolbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuCart:
+                // Create intent
+                Intent intent = new Intent(this, ActivityMyCart.class);
+
+                // Start MyCart activity.
+                this.startActivity(intent);
+                break;
+            case R.id.menuProfile: break;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

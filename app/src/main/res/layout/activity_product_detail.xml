@@ -9,6 +9,15 @@
     android:orientation="vertical"
     tools:context=".ActivityProductDetail">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbarColor"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -72,6 +81,7 @@
                         android:layout_marginEnd="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/rounded_button"
+                        android:backgroundTint="@color/addToCart"
                         android:onClick="addToCart"
                         android:text="Adicionar ao Carrinho"
                         android:textStyle="bold" />
@@ -127,7 +137,7 @@
                             android:layout_marginTop="2dp"
                             android:layout_marginBottom="2dp"
                             android:text="R$"
-                            android:textColor="#000"
+                            android:textColor="@color/textColor"
                             android:textSize="24sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -150,7 +160,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Product Name"
-                                android:textColor="#000"
+                                android:textColor="@color/textColor"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
@@ -192,7 +202,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Garantia: "
-                        android:textColor="#000"
+                        android:textColor="@color/textColor"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -201,7 +211,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Mercado Pago: "
-                        android:textColor="#000"
+                        android:textColor="@color/textColor"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -210,7 +220,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Marca: "
-                        android:textColor="#000"
+                        android:textColor="@color/textColor"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -221,7 +231,7 @@
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="10dp"
                         android:text="Mais informações:"
-                        android:textColor="#000"
+                        android:textColor="@color/textColor"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -230,7 +240,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Local do Produto: "
-                        android:textColor="#000"
+                        android:textColor="@color/textColor"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -239,7 +249,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Dimensões: "
-                        android:textColor="#000"
+                        android:textColor="@color/textColor"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>

@@ -1,12 +1,17 @@
 package com.arshop.controller;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 
 import com.android.volley.Request;
@@ -47,6 +52,11 @@ public class ActivityProductList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
 
+        //Load the toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitle("Produtos");
+        setSupportActionBar(toolbar);
+
         req = Volley.newRequestQueue(this);
 
 
@@ -66,6 +76,32 @@ public class ActivityProductList extends AppCompatActivity {
 //        Log.d("CHECKING", String.valueOf(categoryPicked.getProductList().get(0)));
 
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.toolbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuCart:
+                // Create intent
+                Intent intent = new Intent(this, ActivityMyCart.class);
+
+                // Start MyCart activity.
+                this.startActivity(intent);
+                break;
+            case R.id.menuProfile: break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     /**
      * Loads all the products IDs based on the category the user selected.

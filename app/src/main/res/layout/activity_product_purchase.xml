@@ -16,229 +16,241 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/my_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/toolbarColor"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/rounded_layout"
-                android:elevation="8dp"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <TextView
-                    android:id="@+id/addressInformationText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Endereço de Entrega"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/userName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Name"
-                    android:inputType="textPersonName"
-                    android:textSize="14sp" />
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/rounded_layout"
+                    android:elevation="8dp"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/addressInformationText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Endereço de Entrega"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/userAddress"
+                        android:id="@+id/userName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Name"
+                        android:inputType="textPersonName"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/userAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:hint="Address"
+                            android:inputType="textPersonName"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/userAddressNumber"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:ems="10"
+                            android:hint="Number"
+                            android:inputType="textPersonName"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/userAddressComplement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Complement"
+                        android:inputType="textPersonName"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/userCep"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="CEP"
+                            android:inputType="textPersonName"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:gravity="center"
+                            android:text=" - "
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/userNeighborhood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="Neighborhood"
+                            android:inputType="textPersonName"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/rounded_layout"
+                    android:elevation="8dp"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/shippingFormText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Informação do Frete"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <RadioGroup
+                            android:id="@+id/shippingRadioGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <RadioButton
+                                android:id="@+id/shippingOption1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Comum" />
+                        </RadioGroup>
+
+                        <TextView
+                            android:id="@+id/shippingValue1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="R$15" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/rounded_layout"
+                    android:elevation="8dp"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/paymentFormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Forma de Pagamento"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/paymentMethodRadioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <RadioButton
+                            android:id="@+id/paymentCreditCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Cartão de Crédito" />
+
+                        <RadioButton
+                            android:id="@+id/paymentBoleto"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Boleto Bancário" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/rounded_layout"
+                    android:elevation="8dp"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/subtotalText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="Address"
-                        android:inputType="textPersonName"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/userAddressNumber"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:ems="10"
-                        android:hint="Number"
-                        android:inputType="textPersonName"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <EditText
-                    android:id="@+id/userAddressComplement"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Complement"
-                    android:inputType="textPersonName"
-                    android:textSize="14sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/userCep"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="CEP"
-                        android:inputType="textPersonName"
-                        android:textSize="14sp" />
+                        android:text="Subtotal"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/subtotalValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0"
-                        android:gravity="center"
-                        android:text=" - "
-                        android:textSize="18sp" />
-
-                    <EditText
-                        android:id="@+id/userNeighborhood"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="Neighborhood"
-                        android:inputType="textPersonName"
-                        android:textSize="14sp" />
+                        android:text="R$" />
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_layout"
-                android:elevation="8dp"
-                android:layout_marginBottom="20dp"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <TextView
-                    android:id="@+id/shippingFormText"
+                <Button
+                    android:id="@+id/confirmBasicInfoButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Informação do Frete"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <RadioGroup
-                        android:id="@+id/shippingRadioGroup"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <RadioButton
-                            android:id="@+id/shippingOption1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Comum" />
-                    </RadioGroup>
-
-                    <TextView
-                        android:id="@+id/shippingValue1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="R$15" />
-
-                </LinearLayout>
+                    android:layout_gravity="center"
+                    android:onClick="proceedPurchase"
+                    android:text="Prosseguir" />
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/rounded_layout"
-                android:elevation="8dp"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <TextView
-                    android:id="@+id/paymentFormText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Forma de Pagamento"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <RadioGroup
-                    android:id="@+id/paymentMethodRadioGroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-
-                    <RadioButton
-                        android:id="@+id/paymentCreditCard"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Cartão de Crédito" />
-
-                    <RadioButton
-                        android:id="@+id/paymentBoleto"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Boleto Bancário" />
-                </RadioGroup>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_layout"
-                android:elevation="8dp"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-                <TextView
-                    android:id="@+id/subtotalText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Subtotal"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/subtotalValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="R$" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/confirmBasicInfoButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:onClick="proceedPurchase"
-                android:text="Prosseguir" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

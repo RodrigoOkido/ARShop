@@ -4,7 +4,21 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <!-- Toolbar -->
+    <color name="toolbarColor">#04446c</color>
+    <color name="toolbarTextColorr">#fff</color>
 
+    <!-- Avtivities background Gradient -->
     <color name="backgroundGradientPrimary">#EAECED</color>
     <color name="backgroundGradientSecondary">#FFFCFC</color>
+
+    <!-- Text Color -->
+    <color name="textColor">#000000</color>
+    <color name="buttonTextColor">#ffffff</color>
+
+    <!-- Buttons -->
+    <color name="addToCart">#00FF00</color>
+    <color name="keepPurchasing">#00FF00</color>
+    <color name="finishPurchasing">#d40d0d</color>
+    <color name="defaultButton"></color>
 </resources>

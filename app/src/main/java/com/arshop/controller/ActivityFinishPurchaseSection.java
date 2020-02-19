@@ -2,9 +2,14 @@ package com.arshop.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +32,11 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish_purchase_section);
 
+        //Load the toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitle("Confirmar Compra");
+        setSupportActionBar(toolbar);
+
         // Associates each field of the layout to a variable
         getLayoutElements();
 
@@ -45,6 +55,31 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
         shippingValue.setText(shippingOptionChosed);
         subtotalValue.append(subtotal);
 
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.toolbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuCart:
+                // Create intent
+                Intent intent = new Intent(this, ActivityMyCart.class);
+
+                // Start MyCart activity.
+                this.startActivity(intent);
+                break;
+            case R.id.menuProfile: break;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

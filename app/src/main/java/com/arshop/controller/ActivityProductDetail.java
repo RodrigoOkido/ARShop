@@ -3,11 +3,16 @@ package com.arshop.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import com.arshop.adapters.ImageSliderView;
@@ -41,6 +46,10 @@ public class ActivityProductDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
 
+        //Load the toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitle("Sobre o Produto");
+        setSupportActionBar(toolbar);
 
          // Recieve the data of the category selected.
         Intent intent = getIntent();
@@ -76,6 +85,31 @@ public class ActivityProductDetail extends AppCompatActivity {
                 productPicked.getProductLocationState());
 
         prodDimensions.append(productPicked.getDimensions());
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.toolbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuCart:
+                // Create intent
+                Intent intent = new Intent(this, ActivityMyCart.class);
+
+                // Start MyCart activity.
+                this.startActivity(intent);
+                break;
+            case R.id.menuProfile: break;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

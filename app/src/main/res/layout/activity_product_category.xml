@@ -10,14 +10,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="1dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="2dp">
+        android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_categories_list"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/my_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/toolbarColor"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="1dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_categories_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

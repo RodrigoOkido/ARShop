@@ -10,98 +10,112 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="63dp">
+        android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_cart_list"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/my_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/toolbarColor"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-            </androidx.recyclerview.widget.RecyclerView>
 
-            <LinearLayout
-                android:id="@+id/linearLayout3"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/rounded_layout"
-                android:elevation="8dp"
-                android:gravity="bottom"
-                android:orientation="horizontal"
-                android:padding="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/subtotal_text"
-                    android:layout_width="wrap_content"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_cart_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="5dp"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Subtotal (R$) :"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_layout"
+                    android:elevation="8dp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-                <TextView
-                    android:id="@+id/subtotal_price"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/subtotal_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Subtotal (R$) :"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/subtotal_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="0.00"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="0.00"
-                    android:textSize="18sp" />
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/keep_buying_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/keepPurchasing"
+                        android:onClick="returnToShop"
+                        android:text="Continuar Compra"
+                        android:textColor="@color/buttonTextColor"
+                        android:textStyle="bold" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_weight="1"
-                android:gravity="bottom"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                    <Button
+                        android:id="@+id/finish_purchase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/finishPurchasing"
+                        android:onClick="finishPurchase"
+                        android:text="Finalizar Compra"
+                        android:textColor="@color/buttonTextColor"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <Button
-                    android:id="@+id/keep_buying_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#00FF00"
-                    android:onClick="returnToShop"
-                    android:text="Continuar Compra"
-                    android:textColor="#FFF"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/finish_purchase"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#d40d0d"
-                    android:onClick="finishPurchase"
-                    android:text="Finalizar Compra"
-                    android:textColor="#FFF"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
