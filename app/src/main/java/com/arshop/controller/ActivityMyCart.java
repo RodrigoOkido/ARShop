@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.arshop.model.Product;
 import com.arshop.recyclers.RecyclerMyCartView;
@@ -25,6 +28,9 @@ public class ActivityMyCart extends AppCompatActivity {
 
     // Variables which deals with the users cart information.
     private List<Product> productInCart;
+    private double subtotal;
+
+    // Variables to get layout elements.
     private TextView cartSubtotal;
 
     @Override
@@ -56,7 +62,7 @@ public class ActivityMyCart extends AppCompatActivity {
      */
     public void setSubtotal(List<Product> productInCart) {
 
-        double subtotal = 0;
+        subtotal = 0;
 
         for (int i = 0 ; i < productInCart.size() ; i++) {
             subtotal = subtotal + Double.valueOf(productInCart.get(i).getPrice());
@@ -91,13 +97,20 @@ public class ActivityMyCart extends AppCompatActivity {
      */
     public void finishPurchase(View view){
 
-        // Create intent to ProductPurchase Activity
-        Intent intent = new Intent(view.getContext(), ActivityProductPurchase.class);
-        intent.putExtra("PurchasingProducts", (Serializable)productInCart);
-        intent.putExtra("Subtotal", cartSubtotal.getText());
+        if (subtotal == 0) {
+            CharSequence text = "Seu Carrinho está vazio.";
+            int duration = Toast.LENGTH_SHORT;
+            Toast.makeText(view.getContext(), text, duration).show();
+            return;
+        }
 
-        // Start ProductPurchase activity.
-        this.startActivity(intent);
+            // Create intent to ProductPurchase Activity
+            Intent intent = new Intent(view.getContext(), ActivityProductPurchase.class);
+            intent.putExtra("PurchasingProducts", (Serializable) productInCart);
+            intent.putExtra("Subtotal", cartSubtotal.getText());
+
+            // Start ProductPurchase activity.
+            this.startActivity(intent);
 
     }
 

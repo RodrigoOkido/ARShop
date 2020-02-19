@@ -106,6 +106,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_weight="0"
                     android:background="@drawable/rounded_layout"
+                    android:elevation="8dp"
                     android:orientation="horizontal"
 
                     android:padding="5dp"
@@ -178,6 +179,7 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_layout"
+                    android:elevation="8dp"
                     android:orientation="vertical"
                     android:padding="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"

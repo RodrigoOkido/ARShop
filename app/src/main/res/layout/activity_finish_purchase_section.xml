@@ -22,6 +22,7 @@
                 android:layout_margin="5sp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_layout"
+                android:elevation="8dp"
                 android:orientation="vertical"
                 android:padding="5dp">
 

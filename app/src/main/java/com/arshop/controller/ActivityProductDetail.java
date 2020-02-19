@@ -34,7 +34,7 @@ public class ActivityProductDetail extends AppCompatActivity {
 
     // Private attributes.
     private Product productPicked;
-    private List<Product> productWanted;
+    private static List<Product> productWanted = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,10 +42,7 @@ public class ActivityProductDetail extends AppCompatActivity {
         setContentView(R.layout.activity_product_detail);
 
 
-        // Creates an Arraylist of Product. This will be used to add a possible product to the cart.
-        productWanted = new ArrayList<>();
-
-        // Recieve the data of the category selected.
+         // Recieve the data of the category selected.
         Intent intent = getIntent();
         productPicked = (Product) intent.getExtras().getSerializable("ProductCheck");
 

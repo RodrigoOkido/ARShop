@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.arshop.controller.ActivityMyCart;
 import com.arshop.controller.R;
 import com.arshop.model.Product;
 
@@ -47,18 +48,22 @@ public class RecyclerMyCartView extends RecyclerView.Adapter<RecyclerMyCartView.
         holder.productInCartName.setText(myCart.get(position).getName());
         holder.productInCartPrice.append(myCart.get(position).getPrice());
         holder.deleteProductFromCart.setImageResource(R.drawable.delete_button);
-//        holder.deleteProductFromCart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                myCart.remove(position);
-//            }
-//        });
+        holder.deleteProductFromCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myCart.remove(position);
+                notifyItemRemoved(position);
+                ((ActivityMyCart) context).setSubtotal(myCart);
+//
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return myCart.size();
     }
+
 
 
     public static class CartView extends RecyclerView.ViewHolder {
