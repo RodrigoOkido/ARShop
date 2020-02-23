@@ -30,15 +30,15 @@ public class Product implements Serializable {
      * Product class constructor. To create a sellable product, it needs all the product information.
      * This requires a lot of parameters.
      *
-     * @param id Product id
-     * @param name Product name
-     * @param brand Product brand
-     * @param images Product list of images
-     * @param price Product actual price
-     * @param quantity Product quantity. Number of units available
-     * @param warranty Product warranty information
-     * @param mercadoPagoCondition Product Mercado Pago condition
-     * @param city Product city. Where the product is being selling
+     * @param id Product id.
+     * @param name Product name.
+     * @param brand Product brand.
+     * @param images Product list of images.
+     * @param price Product actual price.
+     * @param quantity Product quantity number of units available.
+     * @param warranty Product warranty information.
+     * @param mercadoPagoCondition Product Mercado Pago condition.
+     * @param city Product city. Where the product is being selling.
      * @param state Product state. After the city, name the state of this city.
      * @param dimensions Product dimensions.
      * */

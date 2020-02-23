@@ -9,7 +9,7 @@
     tools:context=".ActivityFinishPurchaseSection">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
+        android:id="@+id/app_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/toolbarColor"
@@ -117,14 +117,18 @@
 
                 </LinearLayout>
 
-            </LinearLayout>
+                <Button
+                    android:id="@+id/finishPurchaseButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/defaultButton"
+                    android:text="Finalizar Compra"
+                    android:textColor="@color/buttonTextColor" />
 
-            <Button
-                android:id="@+id/finishPurchaseButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="Finalizar Compra" />
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -36,7 +36,7 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
         setContentView(R.layout.activity_payment_section);
 
         //Load the toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
         toolbar.setTitle("Pagamento");
         setSupportActionBar(toolbar);
 
@@ -122,6 +122,12 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
     }
 
 
+    /**
+     * Function activated when user clicks in confirmation button after processed the credit card
+     * informations. If no credit card detected, the next screen is locked until user inform this.
+     *
+     * @param view The view context.
+     */
     public void proceedConfirmationPurchase(View view){
         // Create intent
         Intent intent = new Intent(view.getContext(), ActivityFinishPurchaseSection.class);

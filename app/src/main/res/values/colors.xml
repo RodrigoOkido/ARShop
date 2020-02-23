@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimaryDark">#FF04304D</color>
     <color name="colorAccent">#D81B60</color>
 
     <!-- Toolbar -->
@@ -20,5 +20,5 @@
     <color name="addToCart">#00FF00</color>
     <color name="keepPurchasing">#00FF00</color>
     <color name="finishPurchasing">#d40d0d</color>
-    <color name="defaultButton"></color>
+    <color name="defaultButton">#04446c</color>
 </resources>

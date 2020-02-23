@@ -53,7 +53,7 @@ public class ActivityProductList extends AppCompatActivity {
         setContentView(R.layout.activity_product_list);
 
         //Load the toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
         toolbar.setTitle("Produtos");
         setSupportActionBar(toolbar);
 

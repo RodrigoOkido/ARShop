@@ -19,11 +19,11 @@ public class Category implements Serializable {
     /**
      * Category class constructor.
      *
-     * @param cat category name
-     * @param image background image id
+     * @param category Category name.
+     * @param image Background image id.
      */
-    public Category(String cat, int image){
-        categoryName = cat;
+    public Category(String category, int image){
+        categoryName = category;
         categoryImage = image;
         productList = new ArrayList<Product>();
     }

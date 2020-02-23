@@ -24,7 +24,7 @@
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/my_toolbar"
+                    android:id="@+id/app_toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:background="@color/toolbarColor"
@@ -147,8 +147,12 @@
                     android:id="@+id/confirmUserPaymentDataButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/defaultButton"
                     android:onClick="proceedConfirmationPurchase"
-                    android:text="Confirmar" />
+                    android:text="Confirmar"
+                    android:textColor="@color/buttonTextColor" />
             </LinearLayout>
         </LinearLayout>
 
