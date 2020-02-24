@@ -18,6 +18,12 @@ import com.arshop.recyclers.RecyclerMyCartView;
 
 import java.util.List;
 
+
+/**
+ * This class activity represents the final step of the product purchases. Called after the
+ * ActivityPaymentSection class, here is where the user can check and confirm all the summary
+ * about what is being purchased, the subtotal and how this will be payed.
+ */
 public class ActivityFinishPurchaseSection extends AppCompatActivity {
 
     // Private attributes.
@@ -26,6 +32,7 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
 
     // Layout TextView fields.
     private TextView paymentFormValue, shippingValue, subtotalValue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +48,10 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
         getLayoutElements();
 
         Intent intent = getIntent();
-        productsToPurchase = (List<Product>) intent.getExtras().getSerializable("PurchasingProducts");
+        productsToPurchase = ((LoggedUser) this.getApplication()).getUsersCart();
         paymentMethodOptionChosed = intent.getExtras().getString("PaymentOption") ;
         shippingOptionChosed = intent.getExtras().getString("ShippingOption") ;
-        subtotal = intent.getExtras().getString("Subtotal") ;
+        subtotal = String.valueOf(((LoggedUser) this.getApplication()).getSubtotal());
 
         RecyclerView cartView = (RecyclerView) findViewById(R.id.recycler_listPurchaseSummary);
         RecyclerMyCartView cartAdapter = new RecyclerMyCartView(this,productsToPurchase);
@@ -58,6 +65,12 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
     }
 
 
+    /**
+     * Toolbar Menu.
+     *
+     * @param menu The menu
+     * @return Return an boolean of the menu.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -66,6 +79,12 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
     }
 
 
+    /**
+     * Toolbar menu action buttons.
+     *
+     * @param item The item of menu
+     * @return Return an boolean of the item menu.
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){

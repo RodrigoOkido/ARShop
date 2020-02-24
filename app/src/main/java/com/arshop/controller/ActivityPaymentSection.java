@@ -15,21 +15,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.arshop.model.Product;
+import com.arshop.model.User;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * This class activity is the second step to user purchase the products (After the
+ * ActivityProductPurchase). Here all the informations about the payment method is dealt.
+ */
 public class ActivityPaymentSection extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     // Private attributes.
     private List<Product> productsToPurchase;
     private String shippingOption, paymentMethodOption ,subtotal;
+    private User logged_user;
     
     // Attributes to Spinner of credit card.
     private Spinner creditCardSpinnerValues;
     private List<String> optionValues;
-    
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +47,14 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
         toolbar.setTitle("Pagamento");
         setSupportActionBar(toolbar);
 
+
         // Recieve the data of the products to be purchased.
+        logged_user = ((LoggedUser) this.getApplication()).getUser();
+        subtotal = String.valueOf(((LoggedUser) this.getApplication()).getSubtotal());
+
         Intent intent = getIntent();
-        productsToPurchase = (List<Product>) intent.getExtras().getSerializable("PurchasingProducts");
         shippingOption = intent.getExtras().getString("ShippingOption") ;
         paymentMethodOption = intent.getExtras().getString("PaymentOption") ;
-        subtotal = intent.getExtras().getString("Subtotal") ;
 
         // Spinner giving options about how much user wants to afford per month.
         creditCardSpinnerValues = (Spinner) findViewById(R.id.creditCardSpinner);
@@ -65,6 +74,12 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
     }
 
 
+    /**
+     * Toolbar Menu.
+     *
+     * @param menu The menu
+     * @return Return an boolean of the menu.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -73,6 +88,12 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
     }
 
 
+    /**
+     * Toolbar menu action buttons.
+     *
+     * @param item The item of menu
+     * @return Return an boolean of the item menu.
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -116,6 +137,7 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
 
     }
 
+
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
@@ -131,10 +153,8 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
     public void proceedConfirmationPurchase(View view){
         // Create intent
         Intent intent = new Intent(view.getContext(), ActivityFinishPurchaseSection.class);
-        intent.putExtra("PurchasingProducts", (Serializable)productsToPurchase);
         intent.putExtra("ShippingOption", shippingOption);
         intent.putExtra("PaymentOption", paymentMethodOption);
-        intent.putExtra("Subtotal", subtotal);
 
         // Start FinishPurchaseSection activity.
         this.startActivity(intent);

@@ -18,8 +18,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.arshop.adapters.ImageSliderView;
 import com.arshop.model.Product;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,6 +25,10 @@ import java.util.List;
  * Class responsible to show a detailed product information to the user.
  */
 public class ActivityProductDetail extends AppCompatActivity {
+
+    // Private attributes.
+    private Product productPicked;
+    private static List<Product> productWanted;
 
     // ViewPager for the product images and button to check the product in AR.
     private ViewPager prodImagesPager;
@@ -37,14 +39,14 @@ public class ActivityProductDetail extends AppCompatActivity {
     private TextView prodPrice, prodName, prodQuantity;
     private TextView prodBrand, prodWarranty, prodMP, prodLocation, prodDimensions;
 
-    // Private attributes.
-    private Product productPicked;
-    private static List<Product> productWanted = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
+
+        // Attributes the logged user
+        productWanted = ((LoggedUser) this.getApplication()).getUsersCart();
 
         //Load the toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
@@ -88,6 +90,12 @@ public class ActivityProductDetail extends AppCompatActivity {
     }
 
 
+    /**
+     * Toolbar Menu.
+     *
+     * @param menu The menu
+     * @return Return an boolean of the menu.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -96,6 +104,12 @@ public class ActivityProductDetail extends AppCompatActivity {
     }
 
 
+    /**
+     * Toolbar menu action buttons.
+     *
+     * @param item The item of menu
+     * @return Return an boolean of the item menu.
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -144,7 +158,6 @@ public class ActivityProductDetail extends AppCompatActivity {
 
         // Create intent
         Intent intent = new Intent(view.getContext(), ActivityMyCart.class);
-        intent.putExtra("ProductWanted", (Serializable)productWanted);
 
         // Start MyCart activity.
         this.startActivity(intent);

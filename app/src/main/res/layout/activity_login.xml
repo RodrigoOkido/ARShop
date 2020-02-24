@@ -20,11 +20,14 @@
     <TextView
         android:id="@+id/arshopBrandText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="50dp"
+        android:layout_height="200dp"
+        android:background="@drawable/login_app_bg"
+        android:padding="60dp"
         android:text="ARShop"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textColor="#000"
+        android:textStyle="bold"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,8 +44,8 @@
             tools:layout_editor_absoluteY="119dp" />
 
         <EditText
-            android:id="@+id/editText3"
-            android:layout_width="wrap_content"
+            android:id="@+id/userEmailInput"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:ems="10"
@@ -60,8 +63,8 @@
             tools:layout_editor_absoluteY="230dp" />
 
         <EditText
-            android:id="@+id/editText2"
-            android:layout_width="wrap_content"
+            android:id="@+id/userPasswordInput"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             android:ems="10"
@@ -76,6 +79,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
             android:backgroundTint="@color/defaultButton"
+            android:onClick="login"
             android:text="Login"
             android:textColor="@color/buttonTextColor"
             tools:layout_editor_absoluteX="161dp"
@@ -86,6 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="10dp"
             android:text="Esqueceu sua senha?"
             tools:layout_editor_absoluteX="137dp"
             tools:layout_editor_absoluteY="480dp" />

@@ -18,16 +18,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.arshop.model.Product;
+import com.arshop.model.User;
 
-import java.io.Serializable;
 import java.util.List;
 
+
+/**
+ * Class responsible to deal with the user purchases. This class activity is the first step
+ * to user complete the products to purchase. All the information about the user, shipping and
+ * payment method are informed here.
+ */
 public class ActivityProductPurchase extends AppCompatActivity {
 
+    // Private attributes to control the list of products to purchase and subtotal.
     private List<Product> productsToPurchase;
     private String subtotal;
+    private User logged_user;
 
     private TextView subtotalValue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +49,21 @@ public class ActivityProductPurchase extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Recieve the data of the products to be purchased.
-        Intent intent = getIntent();
-        productsToPurchase = (List<Product>) intent.getExtras().getSerializable("PurchasingProducts");
-        subtotal = intent.getExtras().getString("Subtotal") ;
+        logged_user = ((LoggedUser) this.getApplication()).getUser();
+        productsToPurchase = ((LoggedUser) this.getApplication()).getUsersCart();
+        subtotal = String.valueOf(((LoggedUser) this.getApplication()).getSubtotal());
 
         subtotalValue = findViewById(R.id.subtotalValue);
         subtotalValue.append(subtotal);
     }
 
 
+    /**
+     * Toolbar Menu.
+     *
+     * @param menu The menu
+     * @return Return an boolean of the menu.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -57,6 +72,12 @@ public class ActivityProductPurchase extends AppCompatActivity {
     }
 
 
+    /**
+     * Toolbar menu action buttons.
+     *
+     * @param item The item of menu
+     * @return Return an boolean of the item menu.
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -104,10 +125,9 @@ public class ActivityProductPurchase extends AppCompatActivity {
 
         // Create intent and guards all the necessary informations to pass to the next Activity.
         Intent intent = new Intent(view.getContext(), ActivityPaymentSection.class);
-        intent.putExtra("PurchasingProducts", (Serializable)productsToPurchase);
         intent.putExtra("ShippingOption", shippingOption);
         intent.putExtra("PaymentOption", paymentOption);
-        intent.putExtra("Subtotal", subtotal);
+
 
 
         // Start PaymentSection activity.

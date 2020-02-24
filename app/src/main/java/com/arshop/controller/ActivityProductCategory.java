@@ -20,9 +20,9 @@ import java.util.List;
 
 
 /**
- * This is the starter activity class. The app when opened starts here. This class is
- * responsible to exhibits all the categories of products. From here, the user can access almost
- * all other areas of the app.
+ * This is the starter activity class. The app when opened starts here. This class is responsible
+ * to exhibits all the categories of products. From here, the user can access almost all other areas
+ * of the app.
  */
 public class ActivityProductCategory extends AppCompatActivity {
 
@@ -58,6 +58,12 @@ public class ActivityProductCategory extends AppCompatActivity {
     }
 
 
+    /**
+     * Toolbar Menu.
+     *
+     * @param menu The menu
+     * @return Return an boolean of the menu.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -66,6 +72,12 @@ public class ActivityProductCategory extends AppCompatActivity {
     }
 
 
+    /**
+     * Toolbar menu action buttons.
+     *
+     * @param item The item of menu
+     * @return Return an boolean of the item menu.
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){

@@ -113,6 +113,15 @@
                         android:textColor="@color/buttonTextColor"
                         android:textStyle="bold" />
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/cartEmptyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Seu carrinho está vazio"
+                    tools:layout_editor_absoluteX="176dp"
+                    tools:layout_editor_absoluteY="292dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

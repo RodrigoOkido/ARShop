@@ -11,21 +11,21 @@
 
     <application
         android:allowBackup="true"
+        android:name=".LoggedUser"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityLogin"></activity>
-        <activity android:name=".ActivityProductPurchase" />
-        <activity android:name=".ActivityMyCart" />
-        <activity android:name=".ActivityProductCategory">
+        <activity android:name=".ActivityLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ActivityProductPurchase" />
+        <activity android:name=".ActivityMyCart" />
+        <activity android:name=".ActivityProductCategory"/>
         <activity android:name=".ActivityProductList" />
         <activity android:name=".ActivityModelDisplay" />
         <activity android:name=".ActivityProductDetail" />

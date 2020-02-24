@@ -6,22 +6,18 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.arshop.model.Product;
 import com.arshop.recyclers.RecyclerMyCartView;
 
-import java.io.Serializable;
 import java.util.List;
 
 
@@ -37,6 +33,7 @@ public class ActivityMyCart extends AppCompatActivity {
 
     // Variables to get layout elements.
     private TextView cartSubtotal;
+    private TextView cartEmptyTextStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,22 +46,29 @@ public class ActivityMyCart extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Recieve the data of the products.
-        Intent intent = getIntent();
-        productInCart = (List<Product>) intent.getExtras().getSerializable("ProductWanted");
+        productInCart = ((LoggedUser) this.getApplication()).getUsersCart();
+        cartEmptyTextStatus = findViewById(R.id.cartEmptyText);
 
-        Log.d("CART", productInCart.get(0).getName());
+        if (productInCart.size() != 0) {
+            // Remove the text about the empty cart.
+            cartEmptyTextStatus.setText("");
 
-
-        // Create the Recycler of the cart view
-        RecyclerView cartView = (RecyclerView) findViewById(R.id.recycler_cart_list);
-        RecyclerMyCartView cartAdapter = new RecyclerMyCartView(this,productInCart);
-        cartView.setLayoutManager(new LinearLayoutManager(this));
-        cartView.setAdapter(cartAdapter);
-
+            // Create the Recycler of the cart view
+            RecyclerView cartView = (RecyclerView) findViewById(R.id.recycler_cart_list);
+            RecyclerMyCartView cartAdapter = new RecyclerMyCartView(this, productInCart);
+            cartView.setLayoutManager(new LinearLayoutManager(this));
+            cartView.setAdapter(cartAdapter);
+        }
         setSubtotal(productInCart);
     }
 
 
+    /**
+     * Toolbar Menu.
+     *
+     * @param menu The menu
+     * @return Return an boolean of the menu.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -73,6 +77,12 @@ public class ActivityMyCart extends AppCompatActivity {
     }
 
 
+    /**
+     * Toolbar menu action buttons.
+     *
+     * @param item The item of menu
+     * @return Return an boolean of the item menu.
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -103,8 +113,13 @@ public class ActivityMyCart extends AppCompatActivity {
             subtotal = subtotal + Double.valueOf(productInCart.get(i).getPrice());
         }
 
+        // Set the subtotal value to the view.
         cartSubtotal = (TextView)findViewById(R.id.subtotal_price);
         cartSubtotal.setText(String.valueOf(subtotal));
+
+        // Set subtotal to global logged user.
+        ((LoggedUser) this.getApplication()).setSubtotal(subtotal);
+
     }
 
 
@@ -141,8 +156,6 @@ public class ActivityMyCart extends AppCompatActivity {
 
             // Create intent to ProductPurchase Activity
             Intent intent = new Intent(view.getContext(), ActivityProductPurchase.class);
-            intent.putExtra("PurchasingProducts", (Serializable) productInCart);
-            intent.putExtra("Subtotal", cartSubtotal.getText());
 
             // Start ProductPurchase activity.
             this.startActivity(intent);
