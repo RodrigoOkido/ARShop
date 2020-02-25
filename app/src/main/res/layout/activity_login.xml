@@ -22,12 +22,13 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@drawable/login_app_bg"
+        android:fontFamily="@font/lato"
         android:padding="60dp"
         android:text="ARShop"
         android:textAlignment="center"
-        android:textSize="30sp"
         android:textColor="#000"
-        android:textStyle="bold"/>
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,6 +40,7 @@
             android:id="@+id/usernameEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
             android:text="Seu Email:"
             tools:layout_editor_absoluteX="83dp"
             tools:layout_editor_absoluteY="119dp" />
@@ -58,6 +60,7 @@
             android:id="@+id/passwordText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
             android:text="Informe sua Senha:"
             tools:layout_editor_absoluteX="84dp"
             tools:layout_editor_absoluteY="230dp" />

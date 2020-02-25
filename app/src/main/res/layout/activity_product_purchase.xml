@@ -50,6 +50,7 @@
                         android:id="@+id/addressInformationText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Endereço de Entrega"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -131,6 +132,29 @@
                             android:textSize="14sp" />
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/editAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Editar endereço"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/alertAddressMsg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:textColor="#F01010"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -146,6 +170,7 @@
                         android:id="@+id/shippingFormText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Informação do Frete"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -155,7 +180,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
                         <RadioGroup
                             android:id="@+id/shippingRadioGroup"
@@ -168,6 +194,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/lato"
                                 android:text="Comum" />
                         </RadioGroup>
 
@@ -175,6 +202,7 @@
                             android:id="@+id/shippingValue1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato"
                             android:text="R$15" />
 
                     </LinearLayout>
@@ -193,6 +221,7 @@
                         android:id="@+id/paymentFormText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Forma de Pagamento"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -207,12 +236,14 @@
                             android:id="@+id/paymentCreditCard"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato"
                             android:text="Cartão de Crédito" />
 
                         <RadioButton
                             android:id="@+id/paymentBoleto"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato"
                             android:text="Boleto Bancário" />
                     </RadioGroup>
 
@@ -232,6 +263,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Subtotal"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -240,6 +272,7 @@
                         android:id="@+id/subtotalValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
                         android:text="R$" />
                 </LinearLayout>
 
@@ -250,6 +283,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="@color/defaultButton"
+                    android:fontFamily="@font/lato"
                     android:onClick="proceedPurchase"
                     android:text="Prosseguir"
                     android:textColor="@color/buttonTextColor" />

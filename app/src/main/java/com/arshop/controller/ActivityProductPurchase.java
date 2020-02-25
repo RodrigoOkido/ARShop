@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -31,11 +32,13 @@ import java.util.List;
 public class ActivityProductPurchase extends AppCompatActivity {
 
     // Private attributes to control the list of products to purchase and subtotal.
-    private List<Product> productsToPurchase;
     private String subtotal;
     private User logged_user;
 
-    private TextView subtotalValue;
+    // Attributes to manipulate the XML elements
+    private TextView subtotalValue, alertAddressMessage;
+    private EditText userName, userAddress, userAddressNumber, userAddressComplement, userCep,
+            userNeighborhood;
 
 
     @Override
@@ -50,11 +53,50 @@ public class ActivityProductPurchase extends AppCompatActivity {
 
         // Recieve the data of the products to be purchased.
         logged_user = ((LoggedUser) this.getApplication()).getUser();
-        productsToPurchase = ((LoggedUser) this.getApplication()).getUsersCart();
         subtotal = String.valueOf(((LoggedUser) this.getApplication()).getSubtotal());
+
+        fillUserAddressBasicInformations(logged_user);
 
         subtotalValue = findViewById(R.id.subtotalValue);
         subtotalValue.append(subtotal);
+    }
+
+
+    /**
+     * If registered, fill all the users basic address informations automatically. Otherwise a
+     * message will pop informing that the user needs to register at least one address.
+     *
+     * @param logged_user Actual user logged to the app.
+     */
+    public void fillUserAddressBasicInformations(User logged_user) {
+        getUserAddressFields();
+
+        if (!userAddress.getText().toString().equals(null)) {
+            //Fill all basic fields
+            userName.setText(logged_user.getName());
+            userAddress.setText(logged_user.getAddress());
+            userAddressNumber.setText(String.valueOf(logged_user.getAddress_number()));
+            userAddressComplement.setText(logged_user.getAddress_complement());
+            userCep.setText(logged_user.getCEP());
+            userNeighborhood.setText(logged_user.getNeighborhood());
+        } else {
+            alertAddressMessage.setText("Endereço não identificado. Para adicionar clique em " +
+                    "Editar Endereço.");
+        }
+    }
+
+
+    /**
+     * Get all the EditText fields from the Product Purchase Layout to manipulate.
+     */
+    public void getUserAddressFields() {
+        userName = findViewById(R.id.userName);
+        userAddress = findViewById(R.id.userAddress);
+        userAddressNumber = findViewById(R.id.userAddressNumber);
+        userAddressComplement = findViewById(R.id.userAddressComplement);
+        userCep = findViewById(R.id.userCep);
+        userNeighborhood = findViewById(R.id.userNeighborhood);
+        alertAddressMessage = findViewById(R.id.alertAddressMsg);
     }
 
 

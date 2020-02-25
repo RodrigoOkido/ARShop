@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#FF04304D</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#FFFF7165</color>
 
     <!-- Toolbar -->
     <color name="toolbarColor">#04446c</color>
@@ -16,9 +16,11 @@
     <color name="textColor">#000000</color>
     <color name="buttonTextColor">#ffffff</color>
 
+    <color name="LayoutDivider">#2D1470</color>
+
     <!-- Buttons -->
-    <color name="addToCart">#00FF00</color>
-    <color name="keepPurchasing">#00FF00</color>
+    <color name="addToCart">#51aa3a</color>
+    <color name="keepPurchasing">#51aa3a</color>
     <color name="finishPurchasing">#d40d0d</color>
     <color name="defaultButton">#04446c</color>
 </resources>

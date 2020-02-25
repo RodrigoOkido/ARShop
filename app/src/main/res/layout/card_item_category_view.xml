@@ -26,10 +26,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="My Category"
+            android:textColor="#fff"
             android:textSize="25dp"
             android:textStyle="bold"
-            android:textColor="#000"
-            android:text="My Category" />
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:background="@drawable/category_style"
+            android:padding="10dp"/>
 
     </FrameLayout>
 

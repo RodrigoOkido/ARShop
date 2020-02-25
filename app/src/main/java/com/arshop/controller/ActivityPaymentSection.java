@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,10 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
     private Spinner creditCardSpinnerValues;
     private List<String> optionValues;
 
+    // Attributes to deal with the EditText fields of layout.
+    private EditText userCreditCardName, userCreditCardNumber, userCreditCardExpiringDate,
+        userCreditCardCvv, userBornDate, userCpf;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,10 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
         shippingOption = intent.getExtras().getString("ShippingOption") ;
         paymentMethodOption = intent.getExtras().getString("PaymentOption") ;
 
+
+        fillUserCreditCardInfo(logged_user);
+
+
         // Spinner giving options about how much user wants to afford per month.
         creditCardSpinnerValues = (Spinner) findViewById(R.id.creditCardSpinner);
         creditCardSpinnerValues.setOnItemSelectedListener(this);
@@ -70,6 +79,42 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
 
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         creditCardSpinnerValues.setAdapter(dataAdapter);
+
+    }
+
+
+    /**
+     * If registered, fill all the user credit card information automatically. Otherwise a
+     * message will pop informing that the user needs to register at least one credit card.
+     *
+     * @param logged_user Actual user logged to the app.
+     */
+    public void fillUserCreditCardInfo(User logged_user) {
+        getCreditCardFields();
+
+        if(!userCreditCardNumber.getText().equals(null)){
+            userCreditCardName.setText(logged_user.getUser_cards().get(0).getTitularName());
+            userCreditCardNumber.setText(logged_user.getUser_cards().get(0).getCardNumber());
+            userCreditCardExpiringDate.setText(logged_user.getUser_cards().get(0).getExpirationDate());
+            userCreditCardCvv.setText(String.valueOf(logged_user.getUser_cards().get(0).getCvv()));
+            userBornDate.setText(logged_user.getUser_cards().get(0).getBornDate());
+            userCpf.setText(logged_user.getUser_cards().get(0).getCPF());
+        }
+
+
+    }
+
+
+    /**
+     * Get all the EditText fields from the Payment Section Layout to manipulate.
+     */
+    public void getCreditCardFields() {
+        userCreditCardName = findViewById(R.id.userCreditCardName);
+        userCreditCardNumber = findViewById(R.id.userCreditCardNumber);
+        userCreditCardExpiringDate = findViewById(R.id.userCreditCardExpiringDate);
+        userCreditCardCvv = findViewById(R.id.userCreditCardCvv);
+        userBornDate = findViewById(R.id.userBornDate);
+        userCpf = findViewById(R.id.userCpf);
 
     }
 

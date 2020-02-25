@@ -3,7 +3,7 @@ package com.arshop.model;
 public class CreditCard {
 
     // Enum the types of Credit Cards.
-    enum Credit {
+    public enum Credit {
         MASTERCARD,
         VISA
     }

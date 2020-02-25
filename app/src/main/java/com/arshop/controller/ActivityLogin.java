@@ -7,13 +7,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.arshop.model.CreditCard;
 import com.arshop.model.Product;
 import com.arshop.model.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -32,6 +35,7 @@ public class ActivityLogin extends AppCompatActivity {
 
     // Interface XML elements.
     private EditText email, password;
+    private Button loginButton;
     
 
     @Override
@@ -66,17 +70,20 @@ public class ActivityLogin extends AppCompatActivity {
         userEmail = email.getText().toString();
         userPassword = password.getText().toString();
 
-        if (userEmail.equals("admin@owner.com")){
-            if(userPassword.equals("admin")){
-                enterToApp(view);
-            } else {
-                Context context = getApplicationContext();
-                CharSequence text = "Email ou Senha Inválida";
-                int duration = Toast.LENGTH_SHORT;
-                Toast.makeText(context, text, duration).show();
-                return;
-            }
+        if (superUserActivated){
+            enterToApp(view);
         }
+//        if (userEmail.equals("admin@owner.com")){
+//            if(userPassword.equals("admin")){
+//                enterToApp(view);
+//            } else {
+//                Context context = getApplicationContext();
+//                CharSequence text = "Email ou Senha Inválida";
+//                int duration = Toast.LENGTH_SHORT;
+//                Toast.makeText(context, text, duration).show();
+//                return;
+//            }
+//        }
     }
 
 
@@ -98,16 +105,28 @@ public class ActivityLogin extends AppCompatActivity {
     /**
      * Load super admin function. This is only for developer mode purpose. This gives an unique
      * access to the developer to login the application easily. The access created to the developer
-     * has only the email and password.
+     * has a bunch of fictional information only for debugging purpose.
      */
     public void loadSuperAdmin(){
-        superUser = new User ("admin@owner.com", "admin", null,null
-        , null, null, null, null,26, 0,
-                null);
+        CreditCard cc = new CreditCard(CreditCard.Credit.MASTERCARD, "Admin App Developer",
+                "000000000","12/99",901, "02/02/94",
+                "123.456.789-00");
+
+        List<CreditCard> creditCards = new ArrayList<>();
+        creditCards.add(cc);
+
+        superUser = new User ("admin@owner.com", "admin", "Admin App Developer",
+                "Street 7", "Block 10", "00000-00", "987654321",
+                "No Complement",26, 0,
+                 creditCards);
 
 
         ((LoggedUser) this.getApplication()).setUser(superUser);
         ((LoggedUser) this.getApplication()).setUsersCart(new ArrayList<Product>());
+
+        loginButton = findViewById(R.id.loginButton);
+        loginButton.setText("SUPER USER LOGIN");
+
 
     }
 
