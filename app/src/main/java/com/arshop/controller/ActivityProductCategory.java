@@ -44,9 +44,9 @@ public class ActivityProductCategory extends AppCompatActivity {
         // Create a list of categories and populate the list with categories of products.
         categoriesList = new ArrayList<>();
         categoriesList.add(new Category("Cadeiras", R.drawable.cadeira_thumb));
-        categoriesList.add(new Category("Sofas", R.drawable.sofa_thumb));
+        categoriesList.add(new Category("Sofás", R.drawable.sofa_thumb));
         categoriesList.add(new Category("Mesas", R.drawable.mesa_thumb));
-        categoriesList.add(new Category("Eletrodomesticos", R.drawable.eletro_thumb));
+        categoriesList.add(new Category("Eletrodomésticos", R.drawable.eletro_thumb));
         categoriesList.add(new Category("Decorativos", R.drawable.decorativo_thumb));
 
 

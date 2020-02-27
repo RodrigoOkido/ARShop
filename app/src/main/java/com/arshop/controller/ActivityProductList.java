@@ -131,11 +131,11 @@ public class ActivityProductList extends AppCompatActivity {
                     "MLB1091011505","MLB880663138","MLB1142593979","MLB778945078","MLB688334853",
                     "MLB998765671","MLB840808616"));
                 break;
-            case "Eletrodomesticos": productsIds = new ArrayList<String>(Arrays.asList("MLB771468129",
+            case "Eletrodomésticos": productsIds = new ArrayList<String>(Arrays.asList("MLB771468129",
                     "MLB805104535","MLB937652025","MLB1108379810","MLB869005659","MLB747292932",
                     "MLB967263695","MLB1143116459"));
                 break;
-            case "Sofas": productsIds = new ArrayList<String>(Arrays.asList("MLB830687652",
+            case "Sofás": productsIds = new ArrayList<String>(Arrays.asList("MLB830687652",
                     "MLB1130894410","MLB830692038","MLB830688004","MLB925457196","MLB1178661430",
                     "MLB1178204238","MLB1178665106"));
                 break;

@@ -28,33 +28,41 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-              <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintImages"
-                android:layout_width="match_parent"
-                android:layout_height="300dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+              android:id="@+id/constraintImages"
+              android:layout_width="match_parent"
+              android:layout_height="300dp">
 
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/prodImages_ViewPager"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    >
 
                 </androidx.viewpager.widget.ViewPager>
 
                 <ImageView
-                    android:id="@+id/prodImages"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
-                    android:background="@null"
-                    tools:srcCompat="@tools:sample/avatars" />
+                  android:id="@+id/prodImages"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_centerInParent="true"
+                  android:adjustViewBounds="true"
+                  android:background="@null"
+                  android:gravity="center"
+                  android:scaleType="centerCrop"
+                  tools:srcCompat="@tools:sample/avatars" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabDots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                app:tabBackground="@drawable/selector_tab"
+                app:tabGravity="center"
+                app:tabIndicatorGravity="bottom"
+                app:tabIndicatorHeight="0dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

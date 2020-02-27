@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Context;
 import android.content.Intent;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -79,6 +80,10 @@ public class ActivityProductPurchase extends AppCompatActivity {
             userAddressComplement.setText(logged_user.getAddress_complement());
             userCep.setText(logged_user.getCEP());
             userNeighborhood.setText(logged_user.getNeighborhood());
+
+            // Simple alert message in case the address do not corresponds to the users wishes.
+            alertAddressMessage.setText("Não é este? Clique em editar endereço para alterar.");
+            alertAddressMessage.setTextColor(Color.parseColor("#6B6E6F"));
         } else {
             alertAddressMessage.setText("Endereço não identificado. Para adicionar clique em " +
                     "Editar Endereço.");

@@ -171,7 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_bold"
-                        android:text="Informação do Frete"
+                        android:text="Opções de Frete"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -193,7 +193,6 @@
                                 android:id="@+id/shippingOption1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:fontFamily="@font/lato"
                                 android:text="Comum" />
                         </RadioGroup>

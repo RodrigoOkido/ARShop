@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.arshop.adapters.ImageSliderView;
 import com.arshop.model.Product;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 
@@ -64,6 +65,9 @@ public class ActivityProductDetail extends AppCompatActivity {
         // Setting all fields from XML with values
         slider = new ImageSliderView(this, productPicked.getImages());
         prodImagesPager.setAdapter(slider);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabDots);
+        tabLayout.setupWithViewPager(prodImagesPager, true);
         prodARView.setImageResource(R.drawable.ar_button);
 
         prodPrice.append(productPicked.getPrice());
