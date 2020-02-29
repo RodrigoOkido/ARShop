@@ -70,16 +70,16 @@ public class ActivityProductPurchase extends AppCompatActivity {
      * @param logged_user Actual user logged to the app.
      */
     public void fillUserAddressBasicInformations(User logged_user) {
-        getUserAddressFields();
+        getLayoutElements();
 
         if (!userAddress.getText().toString().equals(null)) {
             //Fill all basic fields
             userName.setText(logged_user.getName());
-            userAddress.setText(logged_user.getAddress());
-            userAddressNumber.setText(String.valueOf(logged_user.getAddress_number()));
-            userAddressComplement.setText(logged_user.getAddress_complement());
-            userCep.setText(logged_user.getCEP());
-            userNeighborhood.setText(logged_user.getNeighborhood());
+            userAddress.setText(logged_user.getAddresses().get(0).getAddress());
+            userAddressNumber.setText(String.valueOf(logged_user.getAddresses().get(0).getAddress_number()));
+            userAddressComplement.setText(logged_user.getAddresses().get(0).getAddress_complement());
+            userCep.setText(logged_user.getAddresses().get(0).getCEP());
+            userNeighborhood.setText(logged_user.getAddresses().get(0).getNeighborhood());
 
             // Simple alert message in case the address do not corresponds to the users wishes.
             alertAddressMessage.setText("Não é este? Clique em editar endereço para alterar.");
@@ -88,20 +88,6 @@ public class ActivityProductPurchase extends AppCompatActivity {
             alertAddressMessage.setText("Endereço não identificado. Para adicionar clique em " +
                     "Editar Endereço.");
         }
-    }
-
-
-    /**
-     * Get all the EditText fields from the Product Purchase Layout to manipulate.
-     */
-    public void getUserAddressFields() {
-        userName = findViewById(R.id.userName);
-        userAddress = findViewById(R.id.userAddress);
-        userAddressNumber = findViewById(R.id.userAddressNumber);
-        userAddressComplement = findViewById(R.id.userAddressComplement);
-        userCep = findViewById(R.id.userCep);
-        userNeighborhood = findViewById(R.id.userNeighborhood);
-        alertAddressMessage = findViewById(R.id.alertAddressMsg);
     }
 
 
@@ -149,23 +135,23 @@ public class ActivityProductPurchase extends AppCompatActivity {
      */
     public void proceedPurchase(View view){
 
-        // Check if the user selected the shipping and payment method options
+        // Context for toast if necessary.
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+
+        // Check if the user selected the shipping and payment method options.
         String shippingOption = checkShipping();
         String paymentOption = checkPaymentMethod();
 
         // Check each option. If Null a toast will be generated.
         if (shippingOption == null) {
-            Context context = getApplicationContext();
             CharSequence text = "Frete não selecionado.";
-            int duration = Toast.LENGTH_SHORT;
             Toast.makeText(context, text, duration).show();
             return;
         }
 
         else if (paymentOption == null) {
-            Context context = getApplicationContext();
             CharSequence text = "Forma de pagamento não selecionado.";
-            int duration = Toast.LENGTH_SHORT;
             Toast.makeText(context, text, duration).show();
             return;
         }
@@ -221,6 +207,20 @@ public class ActivityProductPurchase extends AppCompatActivity {
         }
 
         return selectedOption;
+    }
+
+
+    /**
+     * Get all the EditText fields from the Product Purchase Layout to manipulate.
+     */
+    public void getLayoutElements() {
+        userName = findViewById(R.id.userName);
+        userAddress = findViewById(R.id.userAddress);
+        userAddressNumber = findViewById(R.id.userAddressNumber);
+        userAddressComplement = findViewById(R.id.userAddressComplement);
+        userCep = findViewById(R.id.userCep);
+        userNeighborhood = findViewById(R.id.userNeighborhood);
+        alertAddressMessage = findViewById(R.id.alertAddressMsg);
     }
 
 }

@@ -164,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/defaultButton"
+                    android:backgroundTint="@color/defaultButtonBackground"
                     android:onClick="proceedConfirmationPurchase"
                     android:text="Confirmar"
                     android:textColor="@color/buttonTextColor" />

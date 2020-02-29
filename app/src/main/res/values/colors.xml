@@ -4,28 +4,35 @@
     <color name="colorPrimaryDark">#FF04304D</color>
     <color name="colorAccent">#FFFF7165</color>
 
+
     <!-- Toolbar -->
     <color name="toolbarColor">#04446c</color>
     <color name="toolbarTextColorr">#fff</color>
+
 
     <!-- Avtivities background Gradient -->
     <color name="backgroundGradientPrimary">#EAECED</color>
     <color name="backgroundGradientSecondary">#FFFCFC</color>
 
+
     <!-- Text Color -->
     <color name="textColor">#000000</color>
     <color name="buttonTextColor">#ffffff</color>
+    <color name="buttonFirstTimeLoginTextColor">#04446c</color>
+
 
     <!-- Layout Divider (Product Detail Activity) -->
     <color name="LayoutDivider">#2D1470</color>
+
 
     <!-- ViewPager dots - Page Indicator -->
     <color name="defaultDot">#a9a9a9</color>
     <color name="selectedDot">#5e5e5e</color>
 
-    <!-- Buttons -->
-    <color name="addToCart">#51aa3a</color>
-    <color name="keepPurchasing">#51aa3a</color>
-    <color name="finishPurchasing">#d40d0d</color>
-    <color name="defaultButton">#04446c</color>
+
+    <!-- Buttons Background Colors -->
+    <color name="addToCartBackground">#51aa3a</color>
+    <color name="keepPurchasingBackground">#51aa3a</color>
+    <color name="finishPurchasingBackground">#d40d0d</color>
+    <color name="defaultButtonBackground">#04446c</color>
 </resources>

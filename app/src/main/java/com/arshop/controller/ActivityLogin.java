@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.arshop.model.Address;
 import com.arshop.model.CreditCard;
 import com.arshop.model.Product;
 import com.arshop.model.User;
@@ -36,12 +37,14 @@ public class ActivityLogin extends AppCompatActivity {
     // Interface XML elements.
     private EditText email, password;
     private Button loginButton;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        getLayoutElements();
 
         //Developer Super User Mode.
         if(superUserActivated) {
@@ -64,26 +67,20 @@ public class ActivityLogin extends AppCompatActivity {
      * @param view The view.
      */
     public void login(View view){
-        email = findViewById(R.id.userEmailInput);
-        password = findViewById(R.id.userPasswordInput);
 
         userEmail = email.getText().toString();
         userPassword = password.getText().toString();
 
         if (superUserActivated){
             enterToApp(view);
+        } else {
+
+            // Checks login Information
+
+
+
         }
-//        if (userEmail.equals("admin@owner.com")){
-//            if(userPassword.equals("admin")){
-//                enterToApp(view);
-//            } else {
-//                Context context = getApplicationContext();
-//                CharSequence text = "Email ou Senha Inválida";
-//                int duration = Toast.LENGTH_SHORT;
-//                Toast.makeText(context, text, duration).show();
-//                return;
-//            }
-//        }
+
     }
 
 
@@ -103,31 +100,69 @@ public class ActivityLogin extends AppCompatActivity {
 
 
     /**
+     * If user do not have an account associated. Clicking in the "Primeira vez?" button leaves
+     * to the user registration activity.
+     *
+     * @param view The view.
+     */
+    public void registerNewUser(View view) {
+        // Create intent
+        Intent intent = new Intent(view.getContext(), ActivityCreateUser.class);
+
+        // Start CreateUser Activity.
+        this.startActivity(intent);
+    }
+
+
+    /**
      * Load super admin function. This is only for developer mode purpose. This gives an unique
      * access to the developer to login the application easily. The access created to the developer
      * has a bunch of fictional information only for debugging purpose.
      */
     public void loadSuperAdmin(){
+
+        // Creates and add an generic Credit Card.
         CreditCard cc = new CreditCard(CreditCard.Credit.MASTERCARD, "Admin App Developer",
                 "000000000","12/99",901, "02/02/94",
                 "123.456.789-00");
 
-        List<CreditCard> creditCards = new ArrayList<>();
-        creditCards.add(cc);
+        List<CreditCard> superCreditCards = new ArrayList<>();
+        superCreditCards.add(cc);
+
+
+        // Creates and add an generic Address.
+        Address adr = new Address("Street 10", "Block 7", "00000-00",
+                "No Complement.", 0);
+
+        List<Address> superAddresses = new ArrayList<>();
+        superAddresses.add(adr);
+
 
         superUser = new User ("admin@owner.com", "admin", "Admin App Developer",
-                "Street 7", "Block 10", "00000-00", "987654321",
-                "No Complement",26, 0,
-                 creditCards);
+                "123.456.789-00", "02/02/94", "00000-00", 26,
+                superAddresses, superCreditCards);
 
 
         ((LoggedUser) this.getApplication()).setUser(superUser);
         ((LoggedUser) this.getApplication()).setUsersCart(new ArrayList<Product>());
 
+
+        // Fill the fields automatically for the SUPER USER.
+        email.setText("admin@owner.com");
+        password.setText("admin");
+
         loginButton = findViewById(R.id.loginButton);
         loginButton.setText("SUPER USER LOGIN");
 
+    }
 
+
+    /**
+     * Get all the EditText fields from the Login Layout to manipulate.
+     */
+    public void getLayoutElements() {
+        email = findViewById(R.id.userEmailInput);
+        password = findViewById(R.id.userPasswordInput);
     }
 
 }

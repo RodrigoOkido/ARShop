@@ -62,14 +62,26 @@ public class ActivityProductDetail extends AppCompatActivity {
         getLayoutElements();
 
 
-        // Setting all fields from XML with values
+        // Setting images of the products
         slider = new ImageSliderView(this, productPicked.getImages());
         prodImagesPager.setAdapter(slider);
 
+        // Configures the images page indicator.
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabDots);
         tabLayout.setupWithViewPager(prodImagesPager, true);
+
         prodARView.setImageResource(R.drawable.ar_button);
 
+        // Set all the informations about the product.
+        setProductInfo();
+
+    }
+
+
+    /**
+     * Product information is set to each field.
+     */
+    public void setProductInfo () {
         prodPrice.append(productPicked.getPrice());
         prodName.setText(productPicked.getName());
         prodQuantity.setText(productPicked.getQuantity() + " disponíveis");
@@ -132,24 +144,6 @@ public class ActivityProductDetail extends AppCompatActivity {
 
 
     /**
-     * Associates each field of the Layout (from the xml) to the variables.
-     */
-    public void getLayoutElements() {
-        prodImagesPager = (ViewPager)findViewById((R.id.prodImages_ViewPager));
-        prodARView = (ImageButton)findViewById(R.id.ar_view_product);
-        prodPrice = (TextView)findViewById(R.id.prodPrice);
-        prodName = (TextView)findViewById(R.id.prodName);
-        prodQuantity = (TextView)findViewById(R.id.prodAvailableQty);
-
-        prodBrand = (TextView)findViewById(R.id.prodBrand);
-        prodWarranty = (TextView)findViewById(R.id.prodWarranty);
-        prodMP = (TextView)findViewById(R.id.MP_available);
-        prodLocation = (TextView)findViewById(R.id.prodLocation);
-        prodDimensions = (TextView)findViewById(R.id.prodDimensions);
-    }
-
-
-    /**
      * This function is called when the user clicks the button to add the product in the cart.
      * Once added to the cart, the Cart Activity starts with this (or more) product inside the list.
      *
@@ -184,4 +178,21 @@ public class ActivityProductDetail extends AppCompatActivity {
         this.startActivity(intent);
     }
 
+
+    /**
+     * Associates each field of the Layout (from the xml) to the variables.
+     */
+    public void getLayoutElements() {
+        prodImagesPager = (ViewPager)findViewById((R.id.prodImages_ViewPager));
+        prodARView = (ImageButton)findViewById(R.id.ar_view_product);
+        prodPrice = (TextView)findViewById(R.id.prodPrice);
+        prodName = (TextView)findViewById(R.id.prodName);
+        prodQuantity = (TextView)findViewById(R.id.prodAvailableQty);
+
+        prodBrand = (TextView)findViewById(R.id.prodBrand);
+        prodWarranty = (TextView)findViewById(R.id.prodWarranty);
+        prodMP = (TextView)findViewById(R.id.MP_available);
+        prodLocation = (TextView)findViewById(R.id.prodLocation);
+        prodDimensions = (TextView)findViewById(R.id.prodDimensions);
+    }
 }

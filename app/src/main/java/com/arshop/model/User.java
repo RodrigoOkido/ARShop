@@ -13,8 +13,11 @@ public class User {
     private String email, password;
 
     // Informations about the user.
-    private String name, address, neighborhood, CEP, contact, address_complement;
-    private int age, address_number;
+    private String name, cpf, bornDate, contact;
+    private int age;
+
+    // Addresses List
+    private List<Address> addresses;
 
     // Credit Card list.
     private List<CreditCard> user_cards;
@@ -26,31 +29,40 @@ public class User {
      * @param email Email of the user.
      * @param password Password of the user.
      * @param name Name of the user.
-     * @param address Address of the user.
-     * @param neighborhood Neighborhood of this address.
-     * @param CEP CEP of this address.
      * @param contact Contact information of the user.
-     * @param address_complement Address complementation if needed.
      * @param age User age.
-     * @param address_number User address number.
      * @param user_cards User cards.
      */
-    public User(String email, String password, String name, String address, String neighborhood,
-                String CEP, String contact, String address_complement, int age, int address_number,
-                List<CreditCard> user_cards){
+    public User(String email, String password, String name, String cpf, String bornDate,
+                String contact, int age, List<Address> addresses, List<CreditCard> user_cards){
 
         this.email = email;
         this.password = password;
         this.name = name;
-        this.address = address;
-        this.neighborhood = neighborhood;
-        this.CEP = CEP;
+        this.cpf = cpf;
+        this.bornDate = bornDate;
         this.contact = contact;
-        this.address_complement = address_complement;
         this.age = age;
-        this.address_number = address_number;
+        this.addresses = addresses;
         this.user_cards = user_cards;
 
+    }
+
+
+    /**
+     * Add new Address to the addresses list.
+     *
+     * @param address New address name.
+     * @param neighborhood Address neighborhood.
+     * @param CEP Address CEP.
+     * @param address_complement Address complement.
+     * @param address_number Address number.
+     */
+    public void addAddress (String address, String neighborhood, String CEP, String address_complement,
+                            int address_number) {
+
+        Address newAddress = new Address (address, neighborhood, CEP, address_complement, address_number);
+        addresses.add(newAddress);
     }
 
 
@@ -76,16 +88,26 @@ public class User {
 
 
     /**
-     * Remove one credit card from the user list.
+     * Remove one address from the addresses list.
      *
-     * @param index
+     * @param index Index of the addresses list.
+     */
+    public void deleteAddress (int index) {
+        addresses.remove(index);
+    }
+
+
+    /**
+     * Remove one credit card from the credit card list.
+     *
+     * @param index Index of the credit card list.
      */
     public void deleteCreditCard (int index) {
         user_cards.remove(index);
     }
 
 
-    // User GETTERS functions
+    // User GETTERS functions.
     public String getEmail() {
         return email;
     }
@@ -101,18 +123,13 @@ public class User {
     }
 
 
-    public String getAddress() {
-        return address;
+    public String getCpf() {
+        return cpf;
     }
 
 
-    public String getNeighborhood() {
-        return neighborhood;
-    }
-
-
-    public String getCEP() {
-        return CEP;
+    public String getBornDate() {
+        return bornDate;
     }
 
 
@@ -121,18 +138,13 @@ public class User {
     }
 
 
-    public String getAddress_complement() {
-        return address_complement;
-    }
-
-
-    public int getAddress_number() {
-        return address_number;
-    }
-
-
     public int getAge() {
         return age;
+    }
+
+
+    public List<Address> getAddresses() {
+        return addresses;
     }
 
 
@@ -142,7 +154,7 @@ public class User {
 
 
 
-    // User SETTERS functions
+    // User SETTERS functions.
     public void setEmail(String email) {
         this.email = email;
     }
@@ -158,18 +170,13 @@ public class User {
     }
 
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
 
-    public void setNeighborhood(String neighborhood) {
-        this.neighborhood = neighborhood;
-    }
-
-
-    public void setCEP(String CEP) {
-        this.CEP = CEP;
+    public void setBornDate(String bornDate) {
+        this.bornDate = bornDate;
     }
 
 
@@ -178,22 +185,19 @@ public class User {
     }
 
 
-    public void setAddress_complement(String address_complement) {
-        this.address_complement = address_complement;
-    }
-
-
-    public void setAddress_number(int address_number) {
-        this.address_number = address_number;
-    }
-
-
     public void setAge(int age) {
         this.age = age;
+    }
+
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
     }
 
 
     public void setUser_cards(List<CreditCard> user_cards) {
         this.user_cards = user_cards;
     }
+
+
 }

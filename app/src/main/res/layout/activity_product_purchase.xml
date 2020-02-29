@@ -281,7 +281,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/defaultButton"
+                    android:backgroundTint="@color/defaultButtonBackground"
                     android:fontFamily="@font/lato"
                     android:onClick="proceedPurchase"
                     android:text="Prosseguir"

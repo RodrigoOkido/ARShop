@@ -81,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
-            android:backgroundTint="@color/defaultButton"
+            android:backgroundTint="@color/defaultButtonBackground"
             android:onClick="login"
             android:text="Login"
             android:textColor="@color/buttonTextColor"
@@ -95,8 +95,21 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:text="Esqueceu sua senha?"
+            android:textSize="12sp"
+            android:fontFamily="@font/lato"
             tools:layout_editor_absoluteX="137dp"
             tools:layout_editor_absoluteY="480dp" />
+
+        <Button
+            android:id="@+id/firstTimeLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/lato"
+            android:onClick="registerNewUser"
+            android:text="Primeira vez?"
+            android:textSize="10sp" />
 
     </LinearLayout>
 

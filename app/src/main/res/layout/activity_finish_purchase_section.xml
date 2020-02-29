@@ -129,7 +129,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_weight="0"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/defaultButton"
+                    android:backgroundTint="@color/defaultButtonBackground"
                     android:text="Finalizar Compra"
                     android:textColor="@color/buttonTextColor" />
 
