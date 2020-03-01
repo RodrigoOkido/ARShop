@@ -75,7 +75,6 @@ public class CreditCard {
     }
 
 
-
     // CreditCard SETTERS functions
     public void setCredit(Credit credit) {
         this.credit = credit;

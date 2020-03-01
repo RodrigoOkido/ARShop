@@ -63,46 +63,55 @@ public class Product implements Serializable {
         return id;
     }
 
+
     public String getName() {
         return name;
     }
+
 
     public String getBrand() {
         return brand;
     }
 
+
     public ArrayList<String> getImages() {
         return images;
     }
+
 
     public String getPrice() {
         return price;
     }
 
+
     public String getQuantity() {
         return quantity;
     }
+
 
     public String getWarranty() {
         return warranty;
     }
 
+
     public boolean isMercadoPagoCondition() {
         return mercadoPagoCondition;
     }
+
 
     public String getProductLocationCity() {
         return productLocationCity;
     }
 
+
     public String getProductLocationState() {
         return productLocationState;
     }
 
+
     public String getDimensions() {
         return dimensions;
     }
-
 
 
     // Product SETTERS functions
@@ -110,41 +119,51 @@ public class Product implements Serializable {
         this.id = id;
     }
 
+
     public void setName(String name) {
         this.name = name;
     }
+
 
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
+
     public void setPrice(String price) {
         this.price = price;
     }
+
 
     public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 
+
     public void setWarranty(String warranty) {
         this.warranty = warranty;
     }
+
 
     public void setMercadoPagoCondition(boolean mercadoPagoCondition) {
         this.mercadoPagoCondition = mercadoPagoCondition;
     }
 
+
     public void setProductLocationCity(String productLocationCity) {
         this.productLocationCity = productLocationCity;
     }
+
 
     public void setImages(ArrayList<String> images) {
         this.images = images;
     }
 
+
     public void setProductLocationState(String productLocationState) {
         this.productLocationState = productLocationState;
     }
+
 
     public void setDimensions(String dimensions) {
         this.dimensions = dimensions;

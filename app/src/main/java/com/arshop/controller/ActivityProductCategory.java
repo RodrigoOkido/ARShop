@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import com.arshop.model.Category;
 import com.arshop.recyclers.RecyclerCategoryView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,11 @@ public class ActivityProductCategory extends AppCompatActivity {
         toolbar.setTitle("Categorias");
         setSupportActionBar(toolbar);
 
+        // Configure the Bottom Navigation Menu
+        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
+        bottomMenu.setOnNavigationItemSelectedListener(listener);
+
+
         // Create a list of categories and populate the list with categories of products.
         categoriesList = new ArrayList<>();
         categoriesList.add(new Category("Cadeiras", R.drawable.cadeira_thumb));
@@ -48,7 +54,6 @@ public class ActivityProductCategory extends AppCompatActivity {
         categoriesList.add(new Category("Mesas", R.drawable.mesa_thumb));
         categoriesList.add(new Category("Eletrodomésticos", R.drawable.eletro_thumb));
         categoriesList.add(new Category("Decorativos", R.drawable.decorativo_thumb));
-
 
         // Creates the recycler of the categories.
         RecyclerView initialView = (RecyclerView) findViewById(R.id.recycler_categories_list);
@@ -59,38 +64,28 @@ public class ActivityProductCategory extends AppCompatActivity {
 
 
     /**
-     * Toolbar Menu.
-     *
-     * @param menu The menu
-     * @return Return an boolean of the menu.
+     * Bottom navigation menu actions.
      */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.toolbar_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+    public BottomNavigationView.OnNavigationItemSelectedListener listener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId()){
+                        case R.id.menuHome: break;
+                        case R.id.menuCart:
+                            // Create intent
+                            Intent intent = new Intent(ActivityProductCategory.this,
+                                    ActivityMyCart.class);
 
+                            // Start MyCart activity.
+                            startActivity(intent);
+                            break;
+                        case R.id.menuFavorite: break;
+                        case R.id.menuProfile: break;
+                    }
 
-    /**
-     * Toolbar menu action buttons.
-     *
-     * @param item The item of menu
-     * @return Return an boolean of the item menu.
-     */
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menuCart:
-                // Create intent
-                Intent intent = new Intent(this, ActivityMyCart.class);
+                    return true;
+                }
+            };
 
-                // Start MyCart activity.
-                this.startActivity(intent);
-                break;
-            case R.id.menuProfile: break;
-
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

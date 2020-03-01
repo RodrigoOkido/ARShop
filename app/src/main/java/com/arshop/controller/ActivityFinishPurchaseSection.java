@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.arshop.model.Product;
 import com.arshop.recyclers.RecyclerMyCartView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -44,6 +45,10 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
         toolbar.setTitle("Confirmar Compra");
         setSupportActionBar(toolbar);
 
+        // Configure the Bottom Navigation Menu
+        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
+        bottomMenu.setOnNavigationItemSelectedListener(listener);
+
         // Associates each field of the layout to a variable
         getLayoutElements();
 
@@ -66,44 +71,41 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
 
 
     /**
-     * Toolbar Menu.
-     *
-     * @param menu The menu
-     * @return Return an boolean of the menu.
+     * Bottom navigation menu actions.
      */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.toolbar_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+    public BottomNavigationView.OnNavigationItemSelectedListener listener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent intent;
+                    switch (item.getItemId()){
+                        case R.id.menuHome:
+                            // Create intent
+                            intent = new Intent(ActivityFinishPurchaseSection.this,
+                                    ActivityProductCategory.class);
+
+                            // Start MyCart activity.
+                            startActivity(intent);
+                            break;
+                        case R.id.menuCart:
+                            // Create intent
+                            intent = new Intent(ActivityFinishPurchaseSection.this,
+                                    ActivityMyCart.class);
+
+                            // Start MyCart activity.
+                            startActivity(intent);
+                            break;
+                        case R.id.menuFavorite: break;
+                        case R.id.menuProfile: break;
+                    }
+
+                    return true;
+                }
+            };
 
 
     /**
-     * Toolbar menu action buttons.
-     *
-     * @param item The item of menu
-     * @return Return an boolean of the item menu.
-     */
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menuCart:
-                // Create intent
-                Intent intent = new Intent(this, ActivityMyCart.class);
-
-                // Start MyCart activity.
-                this.startActivity(intent);
-                break;
-            case R.id.menuProfile: break;
-
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-    /**
-     * Associates each field of the Layout (from the xml) to the variables.
+     * Associates each element of the Layout (from the xml) to a variable.
      */
     public void getLayoutElements() {
         paymentFormValue = (TextView)findViewById(R.id.paymentFormSummaryValue);

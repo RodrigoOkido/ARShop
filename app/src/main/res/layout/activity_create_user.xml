@@ -36,7 +36,7 @@
             android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/newUserName"
+            android:id="@+id/newUserFirstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -45,7 +45,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/newUserLastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

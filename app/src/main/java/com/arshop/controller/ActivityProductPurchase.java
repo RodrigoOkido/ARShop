@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.arshop.model.Product;
 import com.arshop.model.User;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -51,6 +52,12 @@ public class ActivityProductPurchase extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
         toolbar.setTitle("Identificação");
         setSupportActionBar(toolbar);
+
+        // Configure the Bottom Navigation Menu
+        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
+        bottomMenu.setOnNavigationItemSelectedListener(listener);
+        bottomMenu.getMenu().getItem(0).setChecked(false);
+
 
         // Recieve the data of the products to be purchased.
         logged_user = ((LoggedUser) this.getApplication()).getUser();
@@ -88,43 +95,6 @@ public class ActivityProductPurchase extends AppCompatActivity {
             alertAddressMessage.setText("Endereço não identificado. Para adicionar clique em " +
                     "Editar Endereço.");
         }
-    }
-
-
-    /**
-     * Toolbar Menu.
-     *
-     * @param menu The menu
-     * @return Return an boolean of the menu.
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.toolbar_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-    /**
-     * Toolbar menu action buttons.
-     *
-     * @param item The item of menu
-     * @return Return an boolean of the item menu.
-     */
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menuCart:
-                // Create intent
-                Intent intent = new Intent(this, ActivityMyCart.class);
-
-                // Start MyCart activity.
-                this.startActivity(intent);
-                break;
-            case R.id.menuProfile: break;
-
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 
@@ -211,7 +181,41 @@ public class ActivityProductPurchase extends AppCompatActivity {
 
 
     /**
-     * Get all the EditText fields from the Product Purchase Layout to manipulate.
+     * Bottom navigation menu actions.
+     */
+    public BottomNavigationView.OnNavigationItemSelectedListener listener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent intent;
+                    switch (item.getItemId()){
+                        case R.id.menuHome:
+                            // Create intent
+                            intent = new Intent(ActivityProductPurchase.this,
+                                    ActivityProductCategory.class);
+
+                            // Start MyCart activity.
+                            startActivity(intent);
+                            break;
+                        case R.id.menuCart:
+                            // Create intent
+                            intent = new Intent(ActivityProductPurchase.this,
+                                    ActivityMyCart.class);
+
+                            // Start MyCart activity.
+                            startActivity(intent);
+                            break;
+                        case R.id.menuFavorite: break;
+                        case R.id.menuProfile: break;
+                    }
+
+                    return true;
+                }
+            };
+
+
+    /**
+     * Associates each element of the Layout (from the xml) to a variable.
      */
     public void getLayoutElements() {
         userName = findViewById(R.id.userName);

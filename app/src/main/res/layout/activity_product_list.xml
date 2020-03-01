@@ -24,15 +24,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="5dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_products_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/toolbar_menu"
+            app:elevation="12dp"
+            android:background="?android:attr/windowBackground"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

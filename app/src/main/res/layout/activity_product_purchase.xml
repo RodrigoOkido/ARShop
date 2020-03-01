@@ -7,13 +7,7 @@
     android:background="@drawable/gradient_background"
     tools:context=".ActivityProductPurchase">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
-
-        <LinearLayout
+           <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -30,17 +24,15 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_layout"
                     android:elevation="8dp"
                     android:orientation="vertical"
@@ -160,7 +152,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_layout"
                     android:elevation="8dp"
                     android:orientation="vertical"
@@ -178,8 +170,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal"
                         android:padding="5dp">
 
@@ -210,7 +200,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_layout"
                     android:elevation="8dp"
                     android:orientation="vertical"
@@ -287,7 +277,15 @@
                     android:text="Prosseguir"
                     android:textColor="@color/buttonTextColor" />
             </LinearLayout>
+
+               <com.google.android.material.bottomnavigation.BottomNavigationView
+                   android:id="@+id/bottom_menu"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="?android:attr/windowBackground"
+                   app:elevation="12dp"
+                   app:menu="@menu/toolbar_menu" />
+
         </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

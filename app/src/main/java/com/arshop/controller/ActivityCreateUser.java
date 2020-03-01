@@ -20,7 +20,6 @@ import com.arshop.model.User;
  */
 public class ActivityCreateUser extends AppCompatActivity {
 
-
     // Private attributes to get the EditText fields.
     private EditText newUserFirstName, newUserLastName, newUserCpf, newUserBornDate, newUserEmail,
             newUserPassword, newUserPasswordConfirmation;
@@ -58,19 +57,22 @@ public class ActivityCreateUser extends AppCompatActivity {
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
 
-        // Take each field value.
+        // Take each EditText field value.
         userFirstName = newUserFirstName.getText().toString();
+        userLastName = newUserLastName.getText().toString();
         userCpf = newUserCpf.getText().toString();
         userBornDate = newUserBornDate.getText().toString();
         userEmail = newUserEmail.getText().toString();
         userPassword = newUserPassword.getText().toString();
         userPasswordConfirmation = newUserPasswordConfirmation.getText().toString();
 
-        if ( checkFieldsIntegrity(userFirstName, userCpf, userBornDate, userEmail, userPassword,
-                userPasswordConfirmation) == true ) {
+        if ( checkFieldsIntegrity(userFirstName, userLastName, userCpf, userBornDate, userEmail,
+                userPassword, userPasswordConfirmation) == true ) {
 
-            User newUser = new User(userEmail, userPassword, userFirstName, userCpf, userBornDate,
-                    null, 0, null, null);
+            // Create new user with the basic users informations. Other info is filled with
+            // null. This need to be correctly informed after.
+            User newUser = new User(userEmail, userPassword, userFirstName + " " + userLastName
+                    , userCpf, userBornDate,null, 0, null, null);
 
             CharSequence text = "Conta criada com sucesso! Use o login cadastrado para entrar no app.";
             Toast.makeText(context, text, duration).show();
@@ -82,7 +84,6 @@ public class ActivityCreateUser extends AppCompatActivity {
             this.startActivity(intent);
 
         }
-
     }
 
 
@@ -90,15 +91,16 @@ public class ActivityCreateUser extends AppCompatActivity {
      * Check all the fields of the new User registration. All fields CANNOT be empty.
      *
      * @return True if all fields are minimal acceptable. False otherwise.
-     * @param userName User name.
+     * @param userFirsname User name.
+     * @param userLastname User lastname.
      * @param userCpf User CPF.
      * @param userBornDate User born date.
      * @param userEmail User email.
      * @param userPassword User password.
      * @param userPasswordConfirmation User password confirmation.
      */
-    private boolean checkFieldsIntegrity(String userName, String userCpf, String userBornDate,
-                                         String userEmail, String userPassword,
+    private boolean checkFieldsIntegrity(String userFirsname, String userLastname, String userCpf,
+                                         String userBornDate, String userEmail, String userPassword,
                                          String userPasswordConfirmation) {
         // Context for toast if necessary.
         Context context = getApplicationContext();
@@ -106,8 +108,10 @@ public class ActivityCreateUser extends AppCompatActivity {
 
 
         // First checks if any fields are empty.
-        if (this.userFirstName.equals("") || this.userCpf.equals("")  || this.userBornDate.equals("")  || this.userEmail.equals("")
-                || this.userPassword.equals("")  || this.userPasswordConfirmation.equals("") ){
+        if (userFirsname.equals("") || userLastname.equals("") || userCpf.equals("")  ||
+                userBornDate.equals("")  || userEmail.equals("") || userPassword.equals("")
+                || userPasswordConfirmation.equals("") ){
+
             CharSequence text = "Todos campos devem ser preenchidos.";
             Toast.makeText(context, text, duration).show();
             return false;
@@ -140,10 +144,11 @@ public class ActivityCreateUser extends AppCompatActivity {
 
 
     /**
-     * Associates each field of the Layout (from the xml) to the variables.
+     * Associates each element of the Layout (from the xml) to a variable.
      */
     public void getLayoutElements() {
-        newUserFirstName = (EditText)findViewById(R.id.newUserName);
+        newUserFirstName = (EditText)findViewById(R.id.newUserFirstname);
+        newUserLastName = (EditText)findViewById(R.id.newUserLastname);
         newUserCpf = (EditText)findViewById(R.id.newUserCpf);
         newUserBornDate = (EditText)findViewById(R.id.newUserBornDate);
         newUserEmail = (EditText)findViewById(R.id.newUserEmail);

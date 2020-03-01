@@ -138,11 +138,13 @@ public class ActivityLogin extends AppCompatActivity {
         superAddresses.add(adr);
 
 
+        // Create that super user with generic informations.
         superUser = new User ("admin@owner.com", "admin", "Admin App Developer",
                 "123.456.789-00", "02/02/94", "00000-00", 26,
                 superAddresses, superCreditCards);
 
 
+        // Associates the super user to the logged user application.
         ((LoggedUser) this.getApplication()).setUser(superUser);
         ((LoggedUser) this.getApplication()).setUsersCart(new ArrayList<Product>());
 
@@ -158,7 +160,7 @@ public class ActivityLogin extends AppCompatActivity {
 
 
     /**
-     * Get all the EditText fields from the Login Layout to manipulate.
+     * Associates each element of the Layout (from the xml) to a variable.
      */
     public void getLayoutElements() {
         email = findViewById(R.id.userEmailInput);

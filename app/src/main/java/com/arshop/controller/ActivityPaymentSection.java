@@ -17,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.arshop.model.Product;
 import com.arshop.model.User;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,10 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
         toolbar.setTitle("Pagamento");
         setSupportActionBar(toolbar);
 
+        // Configure the Bottom Navigation Menu
+        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
+        bottomMenu.setOnNavigationItemSelectedListener(listener);
+        bottomMenu.getMenu().getItem(0).setChecked(false);
 
         // Recieve the data of the products to be purchased.
         logged_user = ((LoggedUser) this.getApplication()).getUser();
@@ -90,7 +95,7 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
      * @param logged_user Actual user logged to the app.
      */
     public void fillUserCreditCardInfo(User logged_user) {
-        getCreditCardFields();
+        getLayoutElements();
 
         if(!userCreditCardNumber.getText().equals(null)){
             userCreditCardName.setText(logged_user.getUser_cards().get(0).getTitularName());
@@ -102,57 +107,6 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
         }
 
 
-    }
-
-
-    /**
-     * Get all the EditText fields from the Payment Section Layout to manipulate.
-     */
-    public void getCreditCardFields() {
-        userCreditCardName = findViewById(R.id.userCreditCardName);
-        userCreditCardNumber = findViewById(R.id.userCreditCardNumber);
-        userCreditCardExpiringDate = findViewById(R.id.userCreditCardExpiringDate);
-        userCreditCardCvv = findViewById(R.id.userCreditCardCvv);
-        userBornDate = findViewById(R.id.userBornDate);
-        userCpf = findViewById(R.id.userCpf);
-
-    }
-
-
-    /**
-     * Toolbar Menu.
-     *
-     * @param menu The menu
-     * @return Return an boolean of the menu.
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.toolbar_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-    /**
-     * Toolbar menu action buttons.
-     *
-     * @param item The item of menu
-     * @return Return an boolean of the item menu.
-     */
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menuCart:
-                // Create intent
-                Intent intent = new Intent(this, ActivityMyCart.class);
-
-                // Start MyCart activity.
-                this.startActivity(intent);
-                break;
-            case R.id.menuProfile: break;
-
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 
@@ -203,6 +157,53 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
 
         // Start FinishPurchaseSection activity.
         this.startActivity(intent);
+    }
+
+
+    /**
+     * Bottom navigation menu actions.
+     */
+    public BottomNavigationView.OnNavigationItemSelectedListener listener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent intent;
+                    switch (item.getItemId()){
+                        case R.id.menuHome:
+                            // Create intent
+                            intent = new Intent(ActivityPaymentSection.this,
+                                    ActivityProductCategory.class);
+
+                            // Start MyCart activity.
+                            startActivity(intent);
+                            break;
+                        case R.id.menuCart:
+                            // Create intent
+                            intent = new Intent(ActivityPaymentSection.this,
+                                    ActivityMyCart.class);
+
+                            // Start MyCart activity.
+                            startActivity(intent);
+                            break;
+                        case R.id.menuFavorite: break;
+                        case R.id.menuProfile: break;
+                    }
+
+                    return true;
+                }
+            };
+
+
+    /**
+     * Associates each element of the Layout (from the xml) to a variable.
+     */
+    public void getLayoutElements() {
+        userCreditCardName = findViewById(R.id.userCreditCardName);
+        userCreditCardNumber = findViewById(R.id.userCreditCardNumber);
+        userCreditCardExpiringDate = findViewById(R.id.userCreditCardExpiringDate);
+        userCreditCardCvv = findViewById(R.id.userCreditCardCvv);
+        userBornDate = findViewById(R.id.userBornDate);
+        userCpf = findViewById(R.id.userCpf);
     }
 
 }

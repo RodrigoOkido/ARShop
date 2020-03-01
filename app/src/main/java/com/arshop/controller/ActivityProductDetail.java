@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.arshop.adapters.ImageSliderView;
 import com.arshop.model.Product;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
@@ -54,7 +55,13 @@ public class ActivityProductDetail extends AppCompatActivity {
         toolbar.setTitle("Sobre o Produto");
         setSupportActionBar(toolbar);
 
-         // Recieve the data of the category selected.
+        // Configure the Bottom Navigation Menu
+        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
+        bottomMenu.setOnNavigationItemSelectedListener(listener);
+        bottomMenu.getMenu().getItem(0).setChecked(false);
+
+
+        // Recieve the data of the category selected.
         Intent intent = getIntent();
         productPicked = (Product) intent.getExtras().getSerializable("ProductCheck");
 
@@ -107,43 +114,6 @@ public class ActivityProductDetail extends AppCompatActivity {
 
 
     /**
-     * Toolbar Menu.
-     *
-     * @param menu The menu
-     * @return Return an boolean of the menu.
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.toolbar_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-    /**
-     * Toolbar menu action buttons.
-     *
-     * @param item The item of menu
-     * @return Return an boolean of the item menu.
-     */
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menuCart:
-                // Create intent
-                Intent intent = new Intent(this, ActivityMyCart.class);
-
-                // Start MyCart activity.
-                this.startActivity(intent);
-                break;
-            case R.id.menuProfile: break;
-
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-    /**
      * This function is called when the user clicks the button to add the product in the cart.
      * Once added to the cart, the Cart Activity starts with this (or more) product inside the list.
      *
@@ -180,7 +150,41 @@ public class ActivityProductDetail extends AppCompatActivity {
 
 
     /**
-     * Associates each field of the Layout (from the xml) to the variables.
+     * Bottom navigation menu actions.
+     */
+    public BottomNavigationView.OnNavigationItemSelectedListener listener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent intent;
+                    switch (item.getItemId()){
+                        case R.id.menuHome:
+                            // Create intent
+                            intent = new Intent(ActivityProductDetail.this,
+                                    ActivityProductCategory.class);
+
+                            // Start MyCart activity.
+                            startActivity(intent);
+                            break;
+                        case R.id.menuCart:
+                            // Create intent
+                            intent = new Intent(ActivityProductDetail.this,
+                                    ActivityMyCart.class);
+
+                            // Start MyCart activity.
+                            startActivity(intent);
+                            break;
+                        case R.id.menuFavorite: break;
+                        case R.id.menuProfile: break;
+                    }
+
+                    return true;
+                }
+            };
+
+
+    /**
+     * Associates each element of the Layout (from the xml) to a variable.
      */
     public void getLayoutElements() {
         prodImagesPager = (ViewPager)findViewById((R.id.prodImages_ViewPager));

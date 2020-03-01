@@ -3,15 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menuHome"
+        android:icon="@drawable/icon_home"
+        android:title="Home"
+        app:showAsAction="always"/>
+
+    <item
         android:id="@+id/menuCart"
         android:icon="@drawable/icon_cart"
-        android:title="Profile"
+        android:title="Meu Carrinho"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menuFavorite"
+        android:icon="@drawable/icon_favorite"
+        android:title="Favoritos"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/menuProfile"
         android:icon="@drawable/icon_profile"
-        android:title="Profile"
+        android:title="Perfil"
         app:showAsAction="always"/>
 
 </menu>

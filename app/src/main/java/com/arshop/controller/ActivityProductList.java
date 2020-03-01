@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.arshop.model.Category;
 import com.arshop.model.Product;
 import com.arshop.recyclers.RecyclerProductCardView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,6 +58,12 @@ public class ActivityProductList extends AppCompatActivity {
         toolbar.setTitle("Produtos");
         setSupportActionBar(toolbar);
 
+        // Configure the Bottom Navigation Menu
+        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
+        bottomMenu.setOnNavigationItemSelectedListener(listener);
+        bottomMenu.getMenu().getItem(0).setChecked(false);
+
+
         req = Volley.newRequestQueue(this);
 
 
@@ -75,43 +82,6 @@ public class ActivityProductList extends AppCompatActivity {
         }
 //        Log.d("CHECKING", String.valueOf(categoryPicked.getProductList().get(0)));
 
-    }
-
-
-    /**
-     * Toolbar Menu.
-     *
-     * @param menu The menu
-     * @return Return an boolean of the menu.
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.toolbar_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-    /**
-     * Toolbar menu action buttons.
-     *
-     * @param item The item of menu
-     * @return Return an boolean of the item menu.
-     */
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menuCart:
-                // Create intent
-                Intent intent = new Intent(this, ActivityMyCart.class);
-
-                // Start MyCart activity.
-                this.startActivity(intent);
-                break;
-            case R.id.menuProfile: break;
-
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 
@@ -277,4 +247,38 @@ public class ActivityProductList extends AppCompatActivity {
         productExhibition.setLayoutManager(new GridLayoutManager(this,2));
         productExhibition.setAdapter(prodCardAdapter);
     }
+
+
+    /**
+     * Bottom navigation menu actions.
+     */
+    public BottomNavigationView.OnNavigationItemSelectedListener listener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent intent;
+                    switch (item.getItemId()){
+                        case R.id.menuHome:
+                            // Create intent
+                            intent = new Intent(ActivityProductList.this,
+                                    ActivityProductCategory.class);
+
+                            // Start MyCart activity.
+                            startActivity(intent);
+                            break;
+                        case R.id.menuCart:
+                            // Create intent
+                            intent = new Intent(ActivityProductList.this,
+                                    ActivityMyCart.class);
+
+                            // Start MyCart activity.
+                            startActivity(intent);
+                            break;
+                        case R.id.menuFavorite: break;
+                        case R.id.menuProfile: break;
+                    }
+
+                    return true;
+                }
+            };
 }

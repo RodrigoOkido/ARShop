@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -17,6 +15,7 @@ import android.widget.Toast;
 
 import com.arshop.model.Product;
 import com.arshop.recyclers.RecyclerMyCartView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -26,7 +25,6 @@ import java.util.List;
  */
 public class ActivityMyCart extends AppCompatActivity {
 
-
     // Variables which deals with the users cart information.
     private List<Product> productInCart;
     private double subtotal;
@@ -35,15 +33,21 @@ public class ActivityMyCart extends AppCompatActivity {
     private TextView cartSubtotal;
     private TextView cartEmptyTextStatus;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_cart);
 
-        //Load the toolbar
+        // Load the toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
         toolbar.setTitle("Meu Carrinho");
         setSupportActionBar(toolbar);
+
+        // Configure the Bottom Navigation Menu
+        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
+        bottomMenu.setOnNavigationItemSelectedListener(listener);
+        bottomMenu.getMenu().findItem(R.id.menuCart).setChecked(true);
 
         // Recieve the data of the products.
         productInCart = ((LoggedUser) this.getApplication()).getUsersCart();
@@ -60,43 +64,6 @@ public class ActivityMyCart extends AppCompatActivity {
             cartView.setAdapter(cartAdapter);
         }
         setSubtotal(productInCart);
-    }
-
-
-    /**
-     * Toolbar Menu.
-     *
-     * @param menu The menu
-     * @return Return an boolean of the menu.
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.toolbar_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-    /**
-     * Toolbar menu action buttons.
-     *
-     * @param item The item of menu
-     * @return Return an boolean of the item menu.
-     */
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menuCart:
-                // Create intent
-                Intent intent = new Intent(this, ActivityMyCart.class);
-
-                // Start MyCart activity.
-                this.startActivity(intent);
-                break;
-            case R.id.menuProfile: break;
-
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 
@@ -161,5 +128,31 @@ public class ActivityMyCart extends AppCompatActivity {
             this.startActivity(intent);
 
     }
+
+
+    /**
+     * Bottom navigation menu actions.
+     */
+    public BottomNavigationView.OnNavigationItemSelectedListener listener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId()){
+                        case R.id.menuHome:
+                            // Create intent
+                            Intent intent = new Intent(ActivityMyCart.this,
+                                    ActivityProductCategory.class);
+
+                            // Start MyCart activity.
+                            startActivity(intent);
+                            break;
+                        case R.id.menuCart: break;
+                        case R.id.menuFavorite: break;
+                        case R.id.menuProfile: break;
+                    }
+
+                    return true;
+                }
+            };
 
 }
