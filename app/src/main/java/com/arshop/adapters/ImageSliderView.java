@@ -38,30 +38,26 @@ public class ImageSliderView extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return (view == (LinearLayout) object);
+        return (view == object);
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View prodImageView = inflater.inflate(R.layout.activity_product_detail, container, false);
 
-        ImageView productImg = (ImageView) prodImageView.findViewById(R.id.prodImages);
-
+        ImageView productImg = new ImageView(context);
 
         Glide.with(context)
                 .load(productImages.get(position).trim())
                 .into(productImg);
 
+        container.addView(productImg);
 
-        container.addView(prodImageView);
-
-        return prodImageView;
+        return productImg;
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-       container.removeView((LinearLayout) object);
+       container.removeView((View) object);
     }
 }
