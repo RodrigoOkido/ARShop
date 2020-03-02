@@ -38,7 +38,7 @@ public class RecyclerMyCartView extends RecyclerView.Adapter<RecyclerMyCartView.
     public RecyclerMyCartView.CartView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view ;
         LayoutInflater mInflater = LayoutInflater.from(context);
-        view = mInflater.inflate(R.layout.card_item_cart_view,parent,false);
+        view = mInflater.inflate(R.layout.card_item_view,parent,false);
         return new CartView(view);
     }
 
@@ -76,10 +76,10 @@ public class RecyclerMyCartView extends RecyclerView.Adapter<RecyclerMyCartView.
         public CartView(View cartItem){
             super(cartItem);
 
-            cartCardView = (CardView) cartItem.findViewById(R.id.cart_item_view);
-            productInCartName = (TextView) cartItem.findViewById(R.id.cartItem);
-            productInCartPrice = (TextView) cartItem.findViewById(R.id.cartItemPrice);
-            deleteProductFromCart = (ImageButton) cartItem.findViewById(R.id.removeFromCart);
+            cartCardView = (CardView) cartItem.findViewById(R.id.generic_item_view);
+            productInCartName = (TextView) cartItem.findViewById(R.id.itemName);
+            productInCartPrice = (TextView) cartItem.findViewById(R.id.itemPrice);
+            deleteProductFromCart = (ImageButton) cartItem.findViewById(R.id.removeItem);
 
         }
 

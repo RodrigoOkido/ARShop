@@ -9,8 +9,6 @@ import android.content.Intent;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -18,8 +16,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.arshop.model.Product;
 import com.arshop.model.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -194,7 +190,7 @@ public class ActivityProductPurchase extends AppCompatActivity {
                             intent = new Intent(ActivityProductPurchase.this,
                                     ActivityProductCategory.class);
 
-                            // Start MyCart activity.
+                            // Start ProductCategory activity.
                             startActivity(intent);
                             break;
                         case R.id.menuCart:
@@ -205,7 +201,14 @@ public class ActivityProductPurchase extends AppCompatActivity {
                             // Start MyCart activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuFavorite: break;
+                        case R.id.menuFavorite:
+                            // Create intent
+                            intent = new Intent(ActivityProductPurchase.this,
+                                    ActivityMyFavorite.class);
+
+                            // Start MyFavorite activity.
+                            startActivity(intent);
+                            break;
                         case R.id.menuProfile: break;
                     }
 

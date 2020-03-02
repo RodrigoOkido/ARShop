@@ -137,17 +137,26 @@ public class ActivityMyCart extends AppCompatActivity {
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent intent;
                     switch (item.getItemId()){
                         case R.id.menuHome:
                             // Create intent
-                            Intent intent = new Intent(ActivityMyCart.this,
+                            intent = new Intent(ActivityMyCart.this,
                                     ActivityProductCategory.class);
 
-                            // Start MyCart activity.
+                            // Start ProductCategory activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuCart: break;
-                        case R.id.menuFavorite: break;
+                        case R.id.menuCart:
+                            break;
+                        case R.id.menuFavorite:
+                            // Create intent
+                            intent = new Intent(ActivityMyCart.this,
+                                    ActivityMyFavorite.class);
+
+                            // Start MyFavorite activity.
+                            startActivity(intent);
+                            break;
                         case R.id.menuProfile: break;
                     }
 

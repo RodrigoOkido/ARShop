@@ -15,6 +15,7 @@ public class LoggedUser extends Application {
 
     private User user;
     private List<Product> usersCart;
+    private List<Product> usersFavoritesProducts;
     private double subtotal;
 
 
@@ -25,6 +26,11 @@ public class LoggedUser extends Application {
 
     public List<Product> getUsersCart() {
         return usersCart;
+    }
+
+
+    public List<Product> getUsersFavoritesProducts() {
+        return usersFavoritesProducts;
     }
 
 
@@ -45,5 +51,10 @@ public class LoggedUser extends Application {
 
     public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
+    }
+
+
+    public void setUsersFavoritesProducts(List<Product> usersFavoritesProducts) {
+        this.usersFavoritesProducts = usersFavoritesProducts;
     }
 }

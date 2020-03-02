@@ -3,8 +3,6 @@ package com.arshop.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -163,7 +161,7 @@ public class ActivityProductDetail extends AppCompatActivity {
                             intent = new Intent(ActivityProductDetail.this,
                                     ActivityProductCategory.class);
 
-                            // Start MyCart activity.
+                            // Start ProductCategory activity.
                             startActivity(intent);
                             break;
                         case R.id.menuCart:
@@ -174,7 +172,14 @@ public class ActivityProductDetail extends AppCompatActivity {
                             // Start MyCart activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuFavorite: break;
+                        case R.id.menuFavorite:
+                            // Create intent
+                            intent = new Intent(ActivityProductDetail.this,
+                                    ActivityMyFavorite.class);
+
+                            // Start MyFavorite activity.
+                            startActivity(intent);
+                            break;
                         case R.id.menuProfile: break;
                     }
 

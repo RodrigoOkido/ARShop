@@ -3,7 +3,6 @@ package com.arshop.controller;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -147,6 +146,7 @@ public class ActivityLogin extends AppCompatActivity {
         // Associates the super user to the logged user application.
         ((LoggedUser) this.getApplication()).setUser(superUser);
         ((LoggedUser) this.getApplication()).setUsersCart(new ArrayList<Product>());
+        ((LoggedUser) this.getApplication()).setUsersFavoritesProducts(new ArrayList<Product>());
 
 
         // Fill the fields automatically for the SUPER USER.

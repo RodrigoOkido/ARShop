@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 
@@ -263,7 +261,7 @@ public class ActivityProductList extends AppCompatActivity {
                             intent = new Intent(ActivityProductList.this,
                                     ActivityProductCategory.class);
 
-                            // Start MyCart activity.
+                            // Start ProductCategory activity.
                             startActivity(intent);
                             break;
                         case R.id.menuCart:
@@ -274,7 +272,14 @@ public class ActivityProductList extends AppCompatActivity {
                             // Start MyCart activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuFavorite: break;
+                        case R.id.menuFavorite:
+                            // Create intent
+                            intent = new Intent(ActivityProductList.this,
+                                    ActivityMyFavorite.class);
+
+                            // Start MyFavorite activity.
+                            startActivity(intent);
+                            break;
                         case R.id.menuProfile: break;
                     }
 

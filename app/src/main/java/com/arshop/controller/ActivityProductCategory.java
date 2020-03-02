@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.arshop.model.Category;
@@ -70,17 +68,26 @@ public class ActivityProductCategory extends AppCompatActivity {
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent intent;
                     switch (item.getItemId()){
-                        case R.id.menuHome: break;
+                        case R.id.menuHome:
+                            break;
                         case R.id.menuCart:
                             // Create intent
-                            Intent intent = new Intent(ActivityProductCategory.this,
+                            intent = new Intent(ActivityProductCategory.this,
                                     ActivityMyCart.class);
 
                             // Start MyCart activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuFavorite: break;
+                        case R.id.menuFavorite:
+                            // Create intent
+                            intent = new Intent(ActivityProductCategory.this,
+                                    ActivityMyFavorite.class);
+
+                            // Start MyFavorite activity.
+                            startActivity(intent);
+                            break;
                         case R.id.menuProfile: break;
                     }
 

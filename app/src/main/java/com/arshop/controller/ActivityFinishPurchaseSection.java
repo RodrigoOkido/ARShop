@@ -2,8 +2,6 @@ package com.arshop.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -84,7 +82,7 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
                             intent = new Intent(ActivityFinishPurchaseSection.this,
                                     ActivityProductCategory.class);
 
-                            // Start MyCart activity.
+                            // Start ProductCategory activity.
                             startActivity(intent);
                             break;
                         case R.id.menuCart:
@@ -95,7 +93,14 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
                             // Start MyCart activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuFavorite: break;
+                        case R.id.menuFavorite:
+                            // Create intent
+                            intent = new Intent(ActivityFinishPurchaseSection.this,
+                                    ActivityMyFavorite.class);
+
+                            // Start MyFavorite activity.
+                            startActivity(intent);
+                            break;
                         case R.id.menuProfile: break;
                     }
 

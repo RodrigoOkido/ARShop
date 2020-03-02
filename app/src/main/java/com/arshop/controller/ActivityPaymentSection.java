@@ -2,8 +2,6 @@ package com.arshop.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -174,7 +172,7 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
                             intent = new Intent(ActivityPaymentSection.this,
                                     ActivityProductCategory.class);
 
-                            // Start MyCart activity.
+                            // Start ProductCategory activity.
                             startActivity(intent);
                             break;
                         case R.id.menuCart:
@@ -185,7 +183,14 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
                             // Start MyCart activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuFavorite: break;
+                        case R.id.menuFavorite:
+                            // Create intent
+                            intent = new Intent(ActivityPaymentSection.this,
+                                    ActivityMyFavorite.class);
+
+                            // Start MyFavorite activity.
+                            startActivity(intent);
+                            break;
                         case R.id.menuProfile: break;
                     }
 
