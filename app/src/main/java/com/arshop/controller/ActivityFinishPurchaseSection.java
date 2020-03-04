@@ -38,15 +38,10 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish_purchase_section);
 
-        //Load the toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
-        toolbar.setTitle("Confirmar Compra");
-        setSupportActionBar(toolbar);
-
-        // Configure the Bottom Navigation Menu
-        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
-        bottomMenu.setOnNavigationItemSelectedListener(listener);
-
+        // Load the activity toolbar
+        loadToolbar();
+        // Load and configure the Bottom Navigation Menu
+        loadBottomMenuNavigation();
         // Associates each field of the layout to a variable
         getLayoutElements();
 
@@ -101,12 +96,42 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
                             // Start MyFavorite activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuProfile: break;
+                        case R.id.menuProfile:
+                            // Create intent
+                            intent = new Intent(ActivityFinishPurchaseSection.this,
+                                    ActivityMySettings.class);
+
+                            // Start MySettings activity.
+                            startActivity(intent);
+                            break;
                     }
 
                     return true;
                 }
             };
+
+
+    /**
+     * Load the toolbar of the Activity. This is the function where the name of the
+     * Activity can be set in the toolbar.
+     */
+    public void loadToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
+        toolbar.setTitle("Confirmar Compra");
+        setSupportActionBar(toolbar);
+
+    }
+
+
+    /**
+     * Load the bottom navigation menu to the Activity. Adds an listener to the item selected
+     * listener where all the actions will be defined (Search for "listener" in this class to
+     * check more about this).
+     */
+    public void loadBottomMenuNavigation() {
+        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
+        bottomMenu.setOnNavigationItemSelectedListener(listener);
+    }
 
 
     /**

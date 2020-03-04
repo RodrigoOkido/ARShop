@@ -19,8 +19,6 @@ import android.widget.Toast;
 import com.arshop.model.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.List;
-
 
 /**
  * Class responsible to deal with the user purchases. This class activity is the first step
@@ -44,16 +42,10 @@ public class ActivityProductPurchase extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_purchase);
 
-        //Load the toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
-        toolbar.setTitle("Identificação");
-        setSupportActionBar(toolbar);
-
-        // Configure the Bottom Navigation Menu
-        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
-        bottomMenu.setOnNavigationItemSelectedListener(listener);
-        bottomMenu.getMenu().getItem(0).setChecked(false);
-
+        // Load the activity toolbar
+        loadToolbar();
+        // Load and configure the Bottom Navigation Menu
+        loadBottomMenuNavigation();
 
         // Recieve the data of the products to be purchased.
         logged_user = ((LoggedUser) this.getApplication()).getUser();
@@ -209,12 +201,42 @@ public class ActivityProductPurchase extends AppCompatActivity {
                             // Start MyFavorite activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuProfile: break;
+                        case R.id.menuProfile:
+                            // Create intent
+                            intent = new Intent(ActivityProductPurchase.this,
+                                    ActivityMySettings.class);
+
+                            // Start MySettings activity.
+                            startActivity(intent);
+                            break;
                     }
 
                     return true;
                 }
             };
+
+
+    /**
+     * Load the toolbar of the Activity. This is the function where the name of the
+     * Activity can be set in the toolbar.
+     */
+    public void loadToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
+        toolbar.setTitle("Identificação");
+        setSupportActionBar(toolbar);
+
+    }
+
+
+    /**
+     * Load the bottom navigation menu to the Activity. Adds an listener to the item selected
+     * listener where all the actions will be defined (Search for "listener" in this class to
+     * check more about this).
+     */
+    public void loadBottomMenuNavigation() {
+        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
+        bottomMenu.setOnNavigationItemSelectedListener(listener);
+    }
 
 
     /**

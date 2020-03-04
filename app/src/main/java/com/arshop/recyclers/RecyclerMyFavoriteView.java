@@ -22,9 +22,9 @@ public class RecyclerMyFavoriteView extends RecyclerView.Adapter<RecyclerMyFavor
     private Context context;
     private List<Product> myFavoriteProducts;
 
-    public RecyclerMyFavoriteView (Context context, List<Product> myCart) {
+    public RecyclerMyFavoriteView (Context context, List<Product> myFavorites) {
         this.context = context;
-        this.myFavoriteProducts = myCart;
+        this.myFavoriteProducts = myFavorites;
     }
 
 

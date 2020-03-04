@@ -9,50 +9,50 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-import com.arshop.model.Category;
-import com.arshop.recyclers.RecyclerCategoryView;
+import com.arshop.model.User;
+import com.arshop.recyclers.RecyclerMySettingView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+public class ActivityMySettings extends AppCompatActivity {
 
-/**
- * This is the starter activity class. The app when opened starts here. This class is responsible
- * to exhibits all the categories of products. From here, the user can access almost all other areas
- * of the app.
- */
-public class ActivityProductCategory extends AppCompatActivity {
+    // Variables which deals with the users settings.
+    private List<String> settingOptions;
+    private User logged_user;
 
-    // Variable list of categories. Each category wanted to be created, need to be added in this
-    // array.
-    private List<Category> categoriesList;
-
+    private TextView logged_user_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_category);
+        setContentView(R.layout.activity_my_settings);
 
         // Load the activity toolbar
         loadToolbar();
         // Load and configure the Bottom Navigation Menu
         loadBottomMenuNavigation();
 
-        // Create a list of categories and populate the list with categories of products.
-        categoriesList = new ArrayList<>();
-        categoriesList.add(new Category("Cadeiras", R.drawable.cadeira_thumb));
-        categoriesList.add(new Category("Sofás", R.drawable.sofa_thumb));
-        categoriesList.add(new Category("Mesas", R.drawable.mesa_thumb));
-        categoriesList.add(new Category("Eletrodomésticos", R.drawable.eletro_thumb));
-        categoriesList.add(new Category("Decorativos", R.drawable.decorativo_thumb));
+        logged_user= ((LoggedUser) this.getApplication()).getUser();
+        logged_user_text = findViewById(R.id.settingOptionText);
+        logged_user_text.append(logged_user.getName() + "! O que deseja fazer?");
 
-        // Creates the recycler of the categories.
-        RecyclerView initialView = (RecyclerView) findViewById(R.id.recycler_categories_list);
-        RecyclerCategoryView categoryAdapter = new RecyclerCategoryView(this,categoriesList);
-        initialView.setLayoutManager(new LinearLayoutManager(this));
-        initialView.setAdapter(categoryAdapter);
+        settingOptions = new ArrayList<>();
+        settingOptions.add("Meus dados");
+        settingOptions.add("Minhas Compras");
+        settingOptions.add("Meu Endereço");
+        settingOptions.add("Cartões");
+
+
+        // Create the Recycler of the favorite view
+        RecyclerView settingView = (RecyclerView) findViewById(R.id.recycler_my_settings);
+        RecyclerMySettingView settingAdapter =
+                new RecyclerMySettingView(this, settingOptions);
+        settingView.setLayoutManager(new LinearLayoutManager(this));
+        settingView.setAdapter(settingAdapter);
     }
 
 
@@ -63,13 +63,18 @@ public class ActivityProductCategory extends AppCompatActivity {
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Intent intent;
                     switch (item.getItemId()){
                         case R.id.menuHome:
+                            // Create intent
+                            Intent intent = new Intent(ActivityMySettings.this,
+                                    ActivityProductCategory.class);
+
+                            // Start Product Category activity.
+                            startActivity(intent);
                             break;
                         case R.id.menuCart:
                             // Create intent
-                            intent = new Intent(ActivityProductCategory.this,
+                            intent = new Intent(ActivityMySettings.this,
                                     ActivityMyCart.class);
 
                             // Start MyCart activity.
@@ -77,20 +82,13 @@ public class ActivityProductCategory extends AppCompatActivity {
                             break;
                         case R.id.menuFavorite:
                             // Create intent
-                            intent = new Intent(ActivityProductCategory.this,
+                            intent = new Intent(ActivityMySettings.this,
                                     ActivityMyFavorite.class);
 
                             // Start MyFavorite activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuProfile:
-                            // Create intent
-                            intent = new Intent(ActivityProductCategory.this,
-                                    ActivityMySettings.class);
-
-                            // Start MySettings activity.
-                            startActivity(intent);
-                            break;
+                        case R.id.menuProfile: break;
                     }
 
                     return true;
@@ -104,7 +102,7 @@ public class ActivityProductCategory extends AppCompatActivity {
      */
     public void loadToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
-        toolbar.setTitle("Categorias");
+        toolbar.setTitle("Meu Perfil");
         setSupportActionBar(toolbar);
 
     }
@@ -118,6 +116,6 @@ public class ActivityProductCategory extends AppCompatActivity {
     public void loadBottomMenuNavigation() {
         BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
         bottomMenu.setOnNavigationItemSelectedListener(listener);
+        bottomMenu.getMenu().findItem(R.id.menuProfile).setChecked(true);
     }
-
 }

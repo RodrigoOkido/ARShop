@@ -46,15 +46,11 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_section);
 
-        //Load the toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
-        toolbar.setTitle("Pagamento");
-        setSupportActionBar(toolbar);
+        // Load the activity toolbar
+        loadToolbar();
+        // Load and configure the Bottom Navigation Menu
+        loadBottomMenuNavigation();
 
-        // Configure the Bottom Navigation Menu
-        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
-        bottomMenu.setOnNavigationItemSelectedListener(listener);
-        bottomMenu.getMenu().getItem(0).setChecked(false);
 
         // Recieve the data of the products to be purchased.
         logged_user = ((LoggedUser) this.getApplication()).getUser();
@@ -191,12 +187,42 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
                             // Start MyFavorite activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuProfile: break;
+                        case R.id.menuProfile:
+                            // Create intent
+                            intent = new Intent(ActivityPaymentSection.this,
+                                    ActivityMySettings.class);
+
+                            // Start MySettings activity.
+                            startActivity(intent);
+                            break;
                     }
 
                     return true;
                 }
             };
+
+
+    /**
+     * Load the toolbar of the Activity. This is the function where the name of the
+     * Activity can be set in the toolbar.
+     */
+    public void loadToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
+        toolbar.setTitle("Pagamento");
+        setSupportActionBar(toolbar);
+
+    }
+
+
+    /**
+     * Load the bottom navigation menu to the Activity. Adds an listener to the item selected
+     * listener where all the actions will be defined (Search for "listener" in this class to
+     * check more about this).
+     */
+    public void loadBottomMenuNavigation() {
+        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
+        bottomMenu.setOnNavigationItemSelectedListener(listener);
+    }
 
 
     /**

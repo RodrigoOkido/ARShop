@@ -35,15 +35,10 @@ public class ActivityMyFavorite extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_favorite);
 
-        // Load the toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
-        toolbar.setTitle("Meus Favoritos");
-        setSupportActionBar(toolbar);
-
-        // Configure the Bottom Navigation Menu
-        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
-        bottomMenu.setOnNavigationItemSelectedListener(listener);
-        bottomMenu.getMenu().findItem(R.id.menuFavorite).setChecked(true);
+        // Load the activity toolbar
+        loadToolbar();
+        // Load and configure the Bottom Navigation Menu
+        loadBottomMenuNavigation();
 
         // Recieve the data of the products.
         productInMyFavorites = ((LoggedUser) this.getApplication()).getUsersFavoritesProducts();
@@ -55,10 +50,10 @@ public class ActivityMyFavorite extends AppCompatActivity {
 
             // Create the Recycler of the favorite view
             RecyclerView favoriteView = (RecyclerView) findViewById(R.id.recycler_favorite_list);
-            RecyclerMyFavoriteView cartAdapter =
+            RecyclerMyFavoriteView favoriteAdapter =
                     new RecyclerMyFavoriteView(this, productInMyFavorites);
             favoriteView.setLayoutManager(new LinearLayoutManager(this));
-            favoriteView.setAdapter(cartAdapter);
+            favoriteView.setAdapter(favoriteAdapter);
         }
     }
 
@@ -88,10 +83,42 @@ public class ActivityMyFavorite extends AppCompatActivity {
                             startActivity(intent);
                             break;
                         case R.id.menuFavorite: break;
-                        case R.id.menuProfile: break;
+                        case R.id.menuProfile:
+                            // Create intent
+                            intent = new Intent(ActivityMyFavorite.this,
+                                    ActivityMySettings.class);
+
+                            // Start MySettings activity.
+                            startActivity(intent);
+                            break;
                     }
 
                     return true;
                 }
             };
+
+
+    /**
+     * Load the toolbar of the Activity. This is the function where the name of the
+     * Activity can be set in the toolbar.
+     */
+    public void loadToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
+        toolbar.setTitle("Meus Favoritos");
+        setSupportActionBar(toolbar);
+
+    }
+
+
+    /**
+     * Load the bottom navigation menu to the Activity. Adds an listener to the item selected
+     * listener where all the actions will be defined (Search for "listener" in this class to
+     * check more about this).
+     */
+    public void loadBottomMenuNavigation() {
+        BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
+        bottomMenu.setOnNavigationItemSelectedListener(listener);
+        bottomMenu.getMenu().findItem(R.id.menuFavorite).setChecked(true);
+    }
+
 }
