@@ -2,11 +2,13 @@ package com.arshop.controller;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,12 +30,12 @@ public class ActivityProductDetail extends AppCompatActivity {
 
     // Private attributes.
     private Product productPicked;
-    private static List<Product> productWanted;
+    private static List<Product> productWanted, productFavorite;
 
     // ViewPager for the product images and button to check the product in AR.
     private ViewPager prodImagesPager;
     private ImageSliderView slider;
-    private ImageButton prodARView;
+    private ImageButton prodARViewButton, addToFavoriteButton;
 
     // Layout TextView fields.
     private TextView prodPrice, prodName, prodQuantity;
@@ -47,19 +49,18 @@ public class ActivityProductDetail extends AppCompatActivity {
 
         // Attributes the logged user
         productWanted = ((LoggedUser) this.getApplication()).getUsersCart();
+        productFavorite = ((LoggedUser) this.getApplication()).getUsersFavoritesProducts();
 
         // Load the activity toolbar
         loadToolbar();
         // Load and configure the Bottom Navigation Menu
         loadBottomMenuNavigation();
+        // Associates each field of the layout to a variable
+        getLayoutElements();
 
         // Recieve the data of the category selected.
         Intent intent = getIntent();
         productPicked = (Product) intent.getExtras().getSerializable("ProductCheck");
-
-        // Get each field of the product detail activity layout XML.
-        getLayoutElements();
-
 
         // Setting images of the products
         slider = new ImageSliderView(this, productPicked.getImages());
@@ -69,7 +70,8 @@ public class ActivityProductDetail extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabDots);
         tabLayout.setupWithViewPager(prodImagesPager, true);
 
-        prodARView.setImageResource(R.drawable.ar_button);
+        prodARViewButton.setImageResource(R.drawable.ar_button);
+        addToFavoriteButton.setImageResource(R.drawable.icon_favorite_bordered_64dp);
 
         // Set all the informations about the product.
         setProductInfo();
@@ -121,6 +123,21 @@ public class ActivityProductDetail extends AppCompatActivity {
 
         // Start MyCart activity.
         this.startActivity(intent);
+
+    }
+
+
+    /**
+     * Add an product wanted by the user to the users favorite list. Shows an toast informing
+     * that product was added to the users wishlist.
+     *
+     * @param view The view.
+     */
+    public void addProductToFavorite (View view) {
+        productFavorite.add(productPicked);
+        Toast.makeText(getApplicationContext(), "Produto adicionado aos favoritos!",
+                Toast.LENGTH_SHORT).show();
+        addToFavoriteButton.setImageResource(R.drawable.icon_favorite_64dp);
 
     }
 
@@ -217,7 +234,8 @@ public class ActivityProductDetail extends AppCompatActivity {
      */
     public void getLayoutElements() {
         prodImagesPager = (ViewPager)findViewById((R.id.prodImages_ViewPager));
-        prodARView = (ImageButton)findViewById(R.id.ar_view_product);
+        prodARViewButton = (ImageButton)findViewById(R.id.ar_view_product);
+        addToFavoriteButton = (ImageButton) findViewById(R.id.addToFavorite);
         prodPrice = (TextView)findViewById(R.id.prodPrice);
         prodName = (TextView)findViewById(R.id.prodName);
         prodQuantity = (TextView)findViewById(R.id.prodAvailableQty);
