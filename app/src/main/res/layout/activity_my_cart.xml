@@ -124,6 +124,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="Seu carrinho está vazio"
+                    android:fontFamily="@font/roboto"
                     tools:layout_editor_absoluteX="176dp"
                     tools:layout_editor_absoluteY="292dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>

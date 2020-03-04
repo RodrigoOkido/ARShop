@@ -29,6 +29,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="Olá "
+            android:fontFamily="@font/montserrat_bold"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="5dp" />
 

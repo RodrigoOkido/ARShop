@@ -39,6 +39,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Não há produtos nos favoritos."
+            android:fontFamily="@font/roboto"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="5dp" />
 
