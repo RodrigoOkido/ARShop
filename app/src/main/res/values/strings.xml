@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ARShop</string>
     <string name="textview">TextView</string>
+    
 </resources>

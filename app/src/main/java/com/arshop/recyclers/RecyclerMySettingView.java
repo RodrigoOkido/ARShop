@@ -1,6 +1,7 @@
 package com.arshop.recyclers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.arshop.controller.ActivityMySettingOption;
 import com.arshop.controller.R;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class RecyclerMySettingView extends RecyclerView.Adapter<RecyclerMySettingView.SettingeView>  {
@@ -38,8 +41,21 @@ public class RecyclerMySettingView extends RecyclerView.Adapter<RecyclerMySettin
     public void onBindViewHolder(@NonNull RecyclerMySettingView.SettingeView holder, int position) {
 
         holder.settingOptionName.setText(settingOptions.get(position).toString());
+        holder.settingsCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ActivityMySettingOption.class);
+
+                // Passing the category name chose by the user to ProductList Activity
+                intent.putExtra("SettingName", (Serializable) settingOptions.get(position));
+                // start the activity
+                context.startActivity(intent);
+
+            }
+        });
 
     }
+
 
     @Override
     public int getItemCount() {
