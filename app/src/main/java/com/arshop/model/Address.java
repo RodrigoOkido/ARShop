@@ -3,27 +3,27 @@ package com.arshop.model;
 
 /**
  * Address class. Class responsible to create an Address associated to the user. Any user can have
- * one or more address to receive your purchased products (home, workplace, ...).
+ * one or more addressName to receive your purchased products (home, workplace, ...).
  */
 public class Address {
 
-    // Private attributes for basic information about the address.
-    private String address, neighborhood, CEP, address_complement;
+    // Private attributes for basic information about the addressName.
+    private String addressName, neighborhood, CEP, address_complement;
     private int address_number;
 
 
     /**
      * Address constructor.
      *
-     * @param address Address name.
+     * @param addressName Address name.
      * @param neighborhood Address neighborhood.
      * @param CEP Address CEP.
      * @param address_complement Address complement. (Block x, sector y, etc...).
      * @param address_number Address number.
      */
-    public Address(String address, String neighborhood, String CEP, String address_complement,
+    public Address(String addressName, String neighborhood, String CEP, String address_complement,
                    int address_number){
-        this.address = address;
+        this.addressName = addressName;
         this.neighborhood = neighborhood;
         this.CEP = CEP;
         this.address_complement = address_complement;
@@ -32,8 +32,8 @@ public class Address {
 
 
     // Address GETTERS functions.
-    public String getAddress() {
-        return address;
+    public String getAddressName() {
+        return addressName;
     }
 
 
@@ -59,8 +59,8 @@ public class Address {
 
 
     // Address SETTERS functions.
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddressName(String addressName) {
+        this.addressName = addressName;
     }
 
 

@@ -18,12 +18,19 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * MySettings activity. This is a generic class where defines all configurations options. This
+ * activity is only to show the options for the users. The configuration options itself is defined
+ * in ActivityMySettingOption.
+ */
 public class ActivityMySettings extends AppCompatActivity {
 
     // Variables which deals with the users settings.
     private List<String> settingOptions;
     private User logged_user;
 
+    // Variables to deal layout elements.
     private TextView logged_user_text;
 
     @Override
@@ -41,10 +48,11 @@ public class ActivityMySettings extends AppCompatActivity {
         logged_user_text.append(logged_user.getName() + "! O que deseja fazer?");
 
         settingOptions = new ArrayList<>();
-        settingOptions.add("Meus dados");
-        settingOptions.add("Minhas Compras");
+        settingOptions.add("Meus Dados");
         settingOptions.add("Meu Endereço");
-        settingOptions.add("Cartões");
+        settingOptions.add("Meus Cartões");
+        settingOptions.add("Minhas Compras");
+        settingOptions.add("Sair da Conta (Deslogar)");
 
 
         // Create the Recycler of the favorite view

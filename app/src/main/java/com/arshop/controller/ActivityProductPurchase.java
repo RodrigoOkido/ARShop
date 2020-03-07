@@ -70,7 +70,7 @@ public class ActivityProductPurchase extends AppCompatActivity {
         if (!userAddress.getText().toString().equals(null)) {
             //Fill all basic fields
             userName.setText(logged_user.getName());
-            userAddress.setText(logged_user.getAddresses().get(0).getAddress());
+            userAddress.setText(logged_user.getAddresses().get(0).getAddressName());
             userAddressNumber.setText(String.valueOf(logged_user.getAddresses().get(0).getAddress_number()));
             userAddressComplement.setText(logged_user.getAddresses().get(0).getAddress_complement());
             userCep.setText(logged_user.getAddresses().get(0).getCEP());
@@ -83,6 +83,18 @@ public class ActivityProductPurchase extends AppCompatActivity {
             alertAddressMessage.setText("Endereço não identificado. Para adicionar clique em " +
                     "Editar Endereço.");
         }
+    }
+
+
+    /**
+     * If user press the button to change the address of the product delivery, this will take to
+     * the user profile configuration. There user can modify his address.
+     *
+     * @param view The view context.
+     */
+    public void editMyAddress(View view){
+        Intent intent = new Intent (this, ActivityMySettings.class);
+        this.startActivity(intent);
     }
 
 

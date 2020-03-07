@@ -122,7 +122,7 @@ public class ActivityLogin extends AppCompatActivity {
 
         // Creates and add an generic Credit Card.
         CreditCard cc = new CreditCard(CreditCard.Credit.MASTERCARD, "Admin App Developer",
-                "000000000","12/99",901, "02/02/94",
+                "0000000000001234","12/99",901, "02/02/94",
                 "123.456.789-00");
 
         List<CreditCard> superCreditCards = new ArrayList<>();

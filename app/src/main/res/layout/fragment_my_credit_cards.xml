@@ -1,88 +1,54 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
     tools:context="com.arshop.fragments.FragmentMyCreditCards">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_layout"
-        android:elevation="8dp"
-        android:orientation="vertical"
-        android:padding="5dp">
 
-        <TextView
-            android:id="@+id/userCreditCardInformationText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="Meu Cartão de Crédito"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/userCreditCardProfileName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:fontFamily="@font/roboto"
-                    android:hint="Titular Name"
-                    android:inputType="textPersonName"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/userCreditCardProfileNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:fontFamily="@font/roboto"
-                    android:hint="Card Number"
-                    android:inputType="number"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/userCreditCardProfileExpiringDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:fontFamily="@font/roboto"
-                    android:hint="Card expiring date"
-                    android:inputType="date"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_my_credit_cards"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_weight="1" />
 
-                <ImageView
-                    android:id="@+id/creditCardLogo"
-                    android:layout_width="256px"
-                    android:layout_height="256px"
-                    android:background="@drawable/neutral_card"
-                    tools:src="@tools:sample/avatars" />
-            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/creditCardEmptyText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="Não há cartões cadastrados"
+            tools:layout_editor_absoluteX="176dp"
+            tools:layout_editor_absoluteY="292dp" />
+
+        <Button
+            android:id="@+id/addCreditCardButton"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/defaultButtonBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="+"
+            android:textSize="16sp"
+            android:textColor="@color/buttonTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -15,6 +15,10 @@ import com.arshop.fragments.FragmentMyCreditCards;
 import com.arshop.fragments.FragmentMyProfile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
+/**
+ * MySettingOption activity. This is the Activity where the options views is displayed to the user.
+ */
 public class ActivityMySettingOption extends AppCompatActivity {
 
     @Override
@@ -27,7 +31,7 @@ public class ActivityMySettingOption extends AppCompatActivity {
         // Load and configure the Bottom Navigation Menu
         loadBottomMenuNavigation();
 
-        // Recieve the data of the category selected.
+        // Recieve the data of the option item selected.
         Intent intent = getIntent();
         String optionText = (String) intent.getExtras().getString("SettingName");
 
@@ -46,28 +50,36 @@ public class ActivityMySettingOption extends AppCompatActivity {
 
         switch (option) {
 
-            case "Meus dados":
+            case "Meus Dados":
                 Fragment myProfileData = new FragmentMyProfile();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_option_view,
                         myProfileData).commit();
-                break;
-            case "Minhas Compras":
-                Toast.makeText(getApplicationContext(), "Content not available."
-                        , Toast.LENGTH_SHORT).show();
                 break;
             case "Meu Endereço":
                 Fragment myAddressData = new FragmentMyAddress();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_option_view,
                         myAddressData).commit();
                 break;
-            case "Cartões":
+            case "Meus Cartões":
                 Fragment myCardsData = new FragmentMyCreditCards();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_option_view,
                         myCardsData).commit();
                 break;
+            case "Minhas Compras":
+                Toast.makeText(getApplicationContext(), "Content not available."
+                        , Toast.LENGTH_SHORT).show();
+                break;
+            case "Sair da Conta (Deslogar)":
+                ((LoggedUser) this.getApplication()).setUser(null);
+                ((LoggedUser) this.getApplication()).setUsersCart(null);
+                ((LoggedUser) this.getApplication()).setUsersFavoritesProducts(null);
+                Intent intent = new Intent(this, ActivityLogin.class);
+                this.startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Conta deslogada com sucesso!"
+                        , Toast.LENGTH_SHORT).show();
+                break;
 
         }
-
 
     }
 

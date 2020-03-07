@@ -38,7 +38,7 @@
 
             <EditText
                 android:id="@+id/userProfileName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Name"
@@ -159,21 +159,28 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/editAddress"
+                android:id="@+id/editMyDataButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/defaultButtonBackground"
+                android:padding="5dp"
                 android:text="Editar Meus Dados"
+                android:textColor="@color/buttonTextColor"
                 android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/alertAddressMsg"
+            <Button
+                android:id="@+id/canceEditDataButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:padding="2dp"
-                android:textColor="#F01010"
-                android:textSize="12sp" />
+                android:layout_margin="5dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/defaultButtonBackground"
+                android:text="Cancelar"
+                android:textColor="@color/buttonTextColor"
+                android:visibility="invisible" />
+
         </LinearLayout>
 
     </LinearLayout>

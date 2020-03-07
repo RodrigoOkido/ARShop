@@ -2,6 +2,7 @@ package com.arshop.controller;
 
 import android.app.Application;
 
+import com.arshop.model.CreditCard;
 import com.arshop.model.Product;
 import com.arshop.model.User;
 
@@ -57,4 +58,6 @@ public class LoggedUser extends Application {
     public void setUsersFavoritesProducts(List<Product> usersFavoritesProducts) {
         this.usersFavoritesProducts = usersFavoritesProducts;
     }
+
+
 }

@@ -100,7 +100,6 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
             userCpf.setText(logged_user.getUser_cards().get(0).getCPF());
         }
 
-
     }
 
 

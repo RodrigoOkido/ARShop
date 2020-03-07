@@ -64,14 +64,12 @@ public class ActivityProductList extends AppCompatActivity {
 
         // Load the products which belongs to the category chosen by the user
         loadProdcutsId(categoryPicked);
-//        Log.d("CHECKING", productsIds.toString());
 
         // Process the products informations givin this ID to the API.
         // This ID will be append to an URL and be processed as an request to the server.
         for (int i = 0; i < productsIds.size(); i++) {
             processProductsJsonUrl(productsIds.get(i));
         }
-//        Log.d("CHECKING", String.valueOf(categoryPicked.getProductList().get(0)));
 
     }
 
