@@ -1,4 +1,4 @@
-package com.arshop.fragments;
+package com.arshop.controller.fragments;
 
 
 import android.os.Bundle;
@@ -10,13 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import com.arshop.controller.LoggedUser;
+import com.arshop.controller.activities.LoggedUser;
 import com.arshop.controller.R;
 import com.arshop.model.CreditCard;
-import com.arshop.recyclers.RecyclerMyCreditCardsView;
+import com.arshop.support.recyclers.RecyclerMyCreditCardsView;
 
 import java.util.List;
 

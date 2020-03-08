@@ -10,32 +10,32 @@
         android:required="true" />
 
     <application
-        android:name=".LoggedUser"
+        android:name=".activities.LoggedUser"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityMySettingOption"></activity>
-        <activity android:name=".ActivityMySettings" />
-        <activity android:name=".ActivityMyFavorite" />
-        <activity android:name=".ActivityCreateUser" />
-        <activity android:name=".ActivityLogin">
+        <activity android:name=".activities.ActivityMySettingOption"></activity>
+        <activity android:name=".activities.ActivityMySettings" />
+        <activity android:name=".activities.ActivityMyFavorite" />
+        <activity android:name=".activities.ActivityCreateUser" />
+        <activity android:name=".activities.ActivityLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityProductPurchase" />
-        <activity android:name=".ActivityMyCart" />
-        <activity android:name=".ActivityProductCategory" />
-        <activity android:name=".ActivityProductList" />
-        <activity android:name=".ActivityModelDisplay" />
-        <activity android:name=".ActivityProductDetail" />
-        <activity android:name=".ActivityPaymentSection" />
-        <activity android:name=".ActivityFinishPurchaseSection" />
+        <activity android:name=".activities.ActivityProductPurchase" />
+        <activity android:name=".activities.ActivityMyCart" />
+        <activity android:name=".activities.ActivityProductCategory" />
+        <activity android:name=".activities.ActivityProductList" />
+        <activity android:name=".activities.ActivityModelDisplay" />
+        <activity android:name=".activities.ActivityProductDetail" />
+        <activity android:name=".activities.ActivityPaymentSection" />
+        <activity android:name=".activities.ActivityFinishPurchaseSection" />
 
         <meta-data
             android:name="com.google.ar.core"

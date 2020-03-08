@@ -1,4 +1,4 @@
-package com.arshop.controller;
+package com.arshop.controller.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,9 +10,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.arshop.fragments.FragmentMyAddress;
-import com.arshop.fragments.FragmentMyCreditCards;
-import com.arshop.fragments.FragmentMyProfile;
+import com.arshop.controller.R;
+import com.arshop.controller.fragments.FragmentMyAddress;
+import com.arshop.controller.fragments.FragmentMyCreditCards;
+import com.arshop.controller.fragments.FragmentMyProfile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -36,7 +37,6 @@ public class ActivityMySettingOption extends AppCompatActivity {
         String optionText = (String) intent.getExtras().getString("SettingName");
 
         loadFragmentSettingOption(optionText);
-
 
     }
 

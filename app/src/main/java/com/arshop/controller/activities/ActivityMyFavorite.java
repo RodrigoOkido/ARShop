@@ -1,4 +1,4 @@
-package com.arshop.controller;
+package com.arshop.controller.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,56 +11,64 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.arshop.model.User;
-import com.arshop.recyclers.RecyclerMySettingView;
+import com.arshop.controller.R;
+import com.arshop.model.Product;
+import com.arshop.support.recyclers.RecyclerMyFavoriteView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * MySettings activity. This is a generic class where defines all configurations options. This
- * activity is only to show the options for the users. The configuration options itself is defined
- * in ActivityMySettingOption.
+ * MyFavorite activity. Activity responsible to show users favorite products.
  */
-public class ActivityMySettings extends AppCompatActivity {
+public class ActivityMyFavorite extends AppCompatActivity {
 
-    // Variables which deals with the users settings.
-    private List<String> settingOptions;
-    private User logged_user;
+    // Variables which deals with the users favorite products.
+    private List<Product> productInMyFavorites;
 
-    // Variables to deal layout elements.
-    private TextView logged_user_text;
+    // Variables to get layout elements.
+    private TextView favoriteEmptyTextStatus;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_settings);
+        setContentView(R.layout.activity_my_favorite);
 
         // Load the activity toolbar
         loadToolbar();
         // Load and configure the Bottom Navigation Menu
         loadBottomMenuNavigation();
 
-        logged_user= ((LoggedUser) this.getApplication()).getUser();
-        logged_user_text = findViewById(R.id.settingOptionText);
-        logged_user_text.append(logged_user.getName() + "! O que deseja fazer?");
+        // Recieve the data of the products.
+        productInMyFavorites = ((LoggedUser) this.getApplication()).getUsersFavoritesProducts();
+        favoriteEmptyTextStatus = findViewById(R.id.favoriteEmptyText);
 
-        settingOptions = new ArrayList<>();
-        settingOptions.add("Meus Dados");
-        settingOptions.add("Meu Endereço");
-        settingOptions.add("Meus Cartões");
-        settingOptions.add("Minhas Compras");
-        settingOptions.add("Sair da Conta (Deslogar)");
+        if (productInMyFavorites.size() != 0) {
+            // Remove the text about the empty products in my favorites.
+            favoriteEmptyTextStatus.setText("");
 
+            // Show users favorites.
+            showFavorites(productInMyFavorites);
+        }
+    }
+
+
+    /**
+     * Show the favorite product list on the screen added by the user.
+     *
+     * @param favoriteList The list of the user favorite products.
+     */
+    private void showFavorites(List<Product> favoriteList) {
 
         // Create the Recycler of the favorite view
-        RecyclerView settingView = (RecyclerView) findViewById(R.id.recycler_my_settings);
-        RecyclerMySettingView settingAdapter =
-                new RecyclerMySettingView(this, settingOptions);
-        settingView.setLayoutManager(new LinearLayoutManager(this));
-        settingView.setAdapter(settingAdapter);
+        RecyclerView favoriteView = (RecyclerView) findViewById(R.id.recycler_favorite_list);
+        RecyclerMyFavoriteView favoriteAdapter =
+                new RecyclerMyFavoriteView(this, favoriteList);
+        favoriteView.setLayoutManager(new LinearLayoutManager(this));
+        favoriteView.setAdapter(favoriteAdapter);
+
     }
 
 
@@ -74,7 +82,7 @@ public class ActivityMySettings extends AppCompatActivity {
                     switch (item.getItemId()){
                         case R.id.menuHome:
                             // Create intent
-                            Intent intent = new Intent(ActivityMySettings.this,
+                            Intent intent = new Intent(ActivityMyFavorite.this,
                                     ActivityProductCategory.class);
 
                             // Start Product Category activity.
@@ -82,21 +90,21 @@ public class ActivityMySettings extends AppCompatActivity {
                             break;
                         case R.id.menuCart:
                             // Create intent
-                            intent = new Intent(ActivityMySettings.this,
+                            intent = new Intent(ActivityMyFavorite.this,
                                     ActivityMyCart.class);
 
                             // Start MyCart activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuFavorite:
+                        case R.id.menuFavorite: break;
+                        case R.id.menuProfile:
                             // Create intent
-                            intent = new Intent(ActivityMySettings.this,
-                                    ActivityMyFavorite.class);
+                            intent = new Intent(ActivityMyFavorite.this,
+                                    ActivityMySettings.class);
 
-                            // Start MyFavorite activity.
+                            // Start MySettings activity.
                             startActivity(intent);
                             break;
-                        case R.id.menuProfile: break;
                     }
 
                     return true;
@@ -110,7 +118,7 @@ public class ActivityMySettings extends AppCompatActivity {
      */
     public void loadToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
-        toolbar.setTitle("Meu Perfil");
+        toolbar.setTitle("Meus Favoritos");
         setSupportActionBar(toolbar);
 
     }
@@ -124,6 +132,7 @@ public class ActivityMySettings extends AppCompatActivity {
     public void loadBottomMenuNavigation() {
         BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
         bottomMenu.setOnNavigationItemSelectedListener(listener);
-        bottomMenu.getMenu().findItem(R.id.menuProfile).setChecked(true);
+        bottomMenu.getMenu().findItem(R.id.menuFavorite).setChecked(true);
     }
+
 }

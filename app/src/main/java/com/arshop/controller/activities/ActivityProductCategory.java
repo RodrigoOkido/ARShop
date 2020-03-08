@@ -1,9 +1,4 @@
-package com.arshop.controller;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.TextView;
+package com.arshop.controller.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,55 +6,66 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.arshop.model.Product;
-import com.arshop.recyclers.RecyclerMyCartView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+
+import com.arshop.controller.R;
+import com.arshop.model.Category;
+import com.arshop.support.recyclers.RecyclerCategoryView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * This class activity represents the final step of the product purchases. Called after the
- * ActivityPaymentSection class, here is where the user can check and confirm all the summary
- * about what is being purchased, the subtotal and how this will be payed.
+ * This is the starter activity class. The app when opened starts here. This class is responsible
+ * to exhibits all the categories of products. From here, the user can access almost all other areas
+ * of the app.
  */
-public class ActivityFinishPurchaseSection extends AppCompatActivity {
+public class ActivityProductCategory extends AppCompatActivity {
 
-    // Private attributes.
-    private List<Product> productsToPurchase;
-    private String paymentMethodOptionChosed, shippingOptionChosed, subtotal;
-
-    // Layout TextView fields.
-    private TextView paymentFormValue, shippingValue, subtotalValue;
+    // Variable list of categories. Each category wanted to be created, need to be added in this
+    // array.
+    private List<Category> categoriesList;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_finish_purchase_section);
+        setContentView(R.layout.activity_product_category);
 
         // Load the activity toolbar
         loadToolbar();
         // Load and configure the Bottom Navigation Menu
         loadBottomMenuNavigation();
-        // Associates each field of the layout to a variable
-        getLayoutElements();
 
-        Intent intent = getIntent();
-        productsToPurchase = ((LoggedUser) this.getApplication()).getUsersCart();
-        paymentMethodOptionChosed = intent.getExtras().getString("PaymentOption") ;
-        shippingOptionChosed = intent.getExtras().getString("ShippingOption") ;
-        subtotal = String.valueOf(((LoggedUser) this.getApplication()).getSubtotal());
+        // Create a list of categories and populate the list with categories of products.
+        categoriesList = new ArrayList<>();
+        categoriesList.add(new Category("Cadeiras", R.drawable.cadeira_thumb));
+        categoriesList.add(new Category("Sofás", R.drawable.sofa_thumb));
+        categoriesList.add(new Category("Mesas", R.drawable.mesa_thumb));
+        categoriesList.add(new Category("Eletrodomésticos", R.drawable.eletro_thumb));
+        categoriesList.add(new Category("Decorativos", R.drawable.decorativo_thumb));
 
-        RecyclerView cartView = (RecyclerView) findViewById(R.id.recycler_listPurchaseSummary);
-        RecyclerMyCartView cartAdapter = new RecyclerMyCartView(this,productsToPurchase);
-        cartView.setLayoutManager(new LinearLayoutManager(this));
-        cartView.setAdapter(cartAdapter);
+        // Show the categories list.
+        showCategories(categoriesList);
 
-        paymentFormValue.setText(paymentMethodOptionChosed);
-        shippingValue.setText(shippingOptionChosed);
-        subtotalValue.append(subtotal);
+    }
 
+
+    /**
+     * Show the categories list on the screen. Here all the products categories will be listed.
+     *
+     * @param categoriesList The categories list.
+     */
+    private void showCategories(List<Category> categoriesList) {
+        // Creates the recycler of the categories.
+        RecyclerView initialView = (RecyclerView) findViewById(R.id.recycler_categories_list);
+        RecyclerCategoryView categoryAdapter = new RecyclerCategoryView(this,categoriesList);
+        initialView.setLayoutManager(new LinearLayoutManager(this));
+        initialView.setAdapter(categoryAdapter);
     }
 
 
@@ -73,16 +79,10 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
                     Intent intent;
                     switch (item.getItemId()){
                         case R.id.menuHome:
-                            // Create intent
-                            intent = new Intent(ActivityFinishPurchaseSection.this,
-                                    ActivityProductCategory.class);
-
-                            // Start ProductCategory activity.
-                            startActivity(intent);
                             break;
                         case R.id.menuCart:
                             // Create intent
-                            intent = new Intent(ActivityFinishPurchaseSection.this,
+                            intent = new Intent(ActivityProductCategory.this,
                                     ActivityMyCart.class);
 
                             // Start MyCart activity.
@@ -90,7 +90,7 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
                             break;
                         case R.id.menuFavorite:
                             // Create intent
-                            intent = new Intent(ActivityFinishPurchaseSection.this,
+                            intent = new Intent(ActivityProductCategory.this,
                                     ActivityMyFavorite.class);
 
                             // Start MyFavorite activity.
@@ -98,7 +98,7 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
                             break;
                         case R.id.menuProfile:
                             // Create intent
-                            intent = new Intent(ActivityFinishPurchaseSection.this,
+                            intent = new Intent(ActivityProductCategory.this,
                                     ActivityMySettings.class);
 
                             // Start MySettings activity.
@@ -117,7 +117,7 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
      */
     public void loadToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
-        toolbar.setTitle("Confirmar Compra");
+        toolbar.setTitle("Categorias");
         setSupportActionBar(toolbar);
 
     }
@@ -131,16 +131,6 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
     public void loadBottomMenuNavigation() {
         BottomNavigationView bottomMenu = findViewById(R.id.bottom_menu);
         bottomMenu.setOnNavigationItemSelectedListener(listener);
-    }
-
-
-    /**
-     * Associates each element of the Layout (from the xml) to a variable.
-     */
-    public void getLayoutElements() {
-        paymentFormValue = (TextView)findViewById(R.id.paymentFormSummaryValue);
-        shippingValue = (TextView)findViewById(R.id.shippingSummaryValue);
-        subtotalValue = (TextView)findViewById(R.id.subtotalSummaryValue);
     }
 
 }

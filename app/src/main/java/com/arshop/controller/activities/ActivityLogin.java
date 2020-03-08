@@ -1,4 +1,4 @@
-package com.arshop.controller;
+package com.arshop.controller.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
+import com.arshop.controller.R;
 import com.arshop.model.Address;
 import com.arshop.model.CreditCard;
 import com.arshop.model.Product;

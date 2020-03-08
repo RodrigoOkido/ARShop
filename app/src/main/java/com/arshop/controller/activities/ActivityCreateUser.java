@@ -1,4 +1,4 @@
-package com.arshop.controller;
+package com.arshop.controller.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,11 +10,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.arshop.controller.R;
 import com.arshop.model.User;
 
 
 /**
- * ActivityCreateUser class. This is an Activity responsible to register a new user to the
+ * CreateUser activity. This is an Activity responsible to register a new user to the
  * application. If user do not have an Account associated to the app, this is the class responsible
  * to register this user.
  */
@@ -55,7 +56,6 @@ public class ActivityCreateUser extends AppCompatActivity {
     public void confirmRegister(View view){
         // Context for toast if necessary.
         Context context = getApplicationContext();
-        int duration = Toast.LENGTH_SHORT;
 
         // Take each EditText field value.
         userFirstName = newUserFirstName.getText().toString();
@@ -75,7 +75,7 @@ public class ActivityCreateUser extends AppCompatActivity {
                     , userCpf, userBornDate,null, 0, null, null);
 
             CharSequence text = "Conta criada com sucesso! Use o login cadastrado para entrar no app.";
-            Toast.makeText(context, text, duration).show();
+            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
 
             // Create intent
             Intent intent = new Intent(view.getContext(), ActivityLogin.class);
@@ -104,8 +104,6 @@ public class ActivityCreateUser extends AppCompatActivity {
                                          String userPasswordConfirmation) {
         // Context for toast if necessary.
         Context context = getApplicationContext();
-        int duration = Toast.LENGTH_SHORT;
-
 
         // First checks if any fields are empty.
         if (userFirsname.equals("") || userLastname.equals("") || userCpf.equals("")  ||
@@ -113,28 +111,28 @@ public class ActivityCreateUser extends AppCompatActivity {
                 || userPasswordConfirmation.equals("") ){
 
             CharSequence text = "Todos campos devem ser preenchidos.";
-            Toast.makeText(context, text, duration).show();
+            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
             return false;
         }
 
         // Check if CPF field contains 11 numbers.
         else if (this.userCpf.length() != 11) {
             CharSequence text = "Campo CPF não contém 11 números (xxx.xxx.xxx-xx).";
-            Toast.makeText(context, text, duration).show();
+            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
             return false;
         }
 
         // Check if Email contains the "@" special key for email.
         else if (!this.userEmail.contains("@")) {
             CharSequence text = "Insira um email válido.";
-            Toast.makeText(context, text, duration).show();
+            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
             return false;
         }
 
         // Check if userPasswordConfirmation matches the password wanted.
         else if (!this.userPassword.equals(this.userPasswordConfirmation)){
             CharSequence text = "Senha de confirmação não confere a senha desejada.";
-            Toast.makeText(context, text, duration).show();
+            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
             return false;
         }
 

@@ -1,4 +1,4 @@
-package com.arshop.recyclers;
+package com.arshop.support.recyclers;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.arshop.controller.ActivityMyCart;
+import com.arshop.controller.activities.ActivityMyCart;
 import com.arshop.controller.R;
 import com.arshop.model.Product;
 

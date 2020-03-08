@@ -1,4 +1,4 @@
-package com.arshop.controller;
+package com.arshop.controller.activities;
 
 import android.app.Application;
 

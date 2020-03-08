@@ -1,8 +1,7 @@
-package com.arshop.controller;
+package com.arshop.controller.activities;
 
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
-import com.arshop.adapters.ImageSliderView;
+import com.arshop.support.adapters.ImageSliderView;
+import com.arshop.controller.R;
 import com.arshop.model.Product;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -24,7 +24,7 @@ import java.util.List;
 
 
 /**
- * Class responsible to show a detailed product information to the user.
+ * ProductDetail activity. Class responsible to show a detailed product information to the user.
  */
 public class ActivityProductDetail extends AppCompatActivity {
 
@@ -71,11 +71,27 @@ public class ActivityProductDetail extends AppCompatActivity {
         tabLayout.setupWithViewPager(prodImagesPager, true);
 
         prodARViewButton.setImageResource(R.drawable.ar_button);
-        addToFavoriteButton.setImageResource(R.drawable.icon_favorite_bordered_64dp);
 
+
+        if (checkProductInFavorite()) {
+            addToFavoriteButton.setImageResource(R.drawable.icon_favorite_64dp);
+        } else {
+            addToFavoriteButton.setImageResource(R.drawable.icon_favorite_bordered_64dp);
+        }
         // Set all the informations about the product.
         setProductInfo();
 
+    }
+
+
+    public boolean checkProductInFavorite(){
+        for (int i = 0; i < productFavorite.size(); i++) {
+            if (productPicked.getId().equals(productFavorite.get(i).getId())){
+                return true;
+            }
+        }
+
+        return false;
     }
 
 
@@ -111,7 +127,7 @@ public class ActivityProductDetail extends AppCompatActivity {
      * This function is called when the user clicks the button to add the product in the cart.
      * Once added to the cart, the Cart Activity starts with this (or more) product inside the list.
      *
-     * @param view The actual activity context.
+     * @param view The view context.
      */
     public void addToCart (View view) {
 
@@ -131,7 +147,7 @@ public class ActivityProductDetail extends AppCompatActivity {
      * Add an product wanted by the user to the users favorite list. Shows an toast informing
      * that product was added to the users wishlist.
      *
-     * @param view The view.
+     * @param view The view context.
      */
     public void addProductToFavorite (View view) {
         productFavorite.add(productPicked);

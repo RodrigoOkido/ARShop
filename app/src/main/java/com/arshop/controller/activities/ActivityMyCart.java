@@ -1,4 +1,4 @@
-package com.arshop.controller;
+package com.arshop.controller.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,15 +13,17 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.arshop.controller.R;
 import com.arshop.model.Product;
-import com.arshop.recyclers.RecyclerMyCartView;
+import com.arshop.support.recyclers.RecyclerMyCartView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
 
 /**
- * Class to show the users cart. Each product wanted to purchased will be added to this Activity.
+ * MyCart activity. Class to show the users cart. Each product wanted to purchased will be
+ * added to this Activity.
  */
 public class ActivityMyCart extends AppCompatActivity {
 
@@ -52,11 +54,9 @@ public class ActivityMyCart extends AppCompatActivity {
             // Remove the text about the empty cart.
             cartEmptyTextStatus.setText("");
 
-            // Create the Recycler of the cart view
-            RecyclerView cartView = (RecyclerView) findViewById(R.id.recycler_cart_list);
-            RecyclerMyCartView cartAdapter = new RecyclerMyCartView(this, productInCart);
-            cartView.setLayoutManager(new LinearLayoutManager(this));
-            cartView.setAdapter(cartAdapter);
+            // Show users cart.
+            showCart(productInCart);
+
         }
         setSubtotal(productInCart);
     }
@@ -122,6 +122,20 @@ public class ActivityMyCart extends AppCompatActivity {
             // Start ProductPurchase activity.
             this.startActivity(intent);
 
+    }
+
+
+    /**
+     * Show the product list in the cart added by the user.
+     *
+     * @param userCart The list of the products in the cart.
+     */
+    public void showCart(List<Product> userCart) {
+        // Create the Recycler of the cart view
+        RecyclerView cartView = (RecyclerView) findViewById(R.id.recycler_cart_list);
+        RecyclerMyCartView cartAdapter = new RecyclerMyCartView(this, userCart);
+        cartView.setLayoutManager(new LinearLayoutManager(this));
+        cartView.setAdapter(cartAdapter);
     }
 
 

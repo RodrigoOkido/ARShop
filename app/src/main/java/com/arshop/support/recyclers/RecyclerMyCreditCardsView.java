@@ -1,4 +1,4 @@
-package com.arshop.recyclers;
+package com.arshop.support.recyclers;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.arshop.controller;
+package com.arshop.controller.activities;
 
 import android.net.Uri;
 import android.util.Log;
@@ -10,7 +10,7 @@ import java.lang.ref.WeakReference;
 
 
 /**
- * Class ModelLoader. This class deal with the modelation of 3D objects (this case for Augmented
+ * ModelLoader class. This class deal with the modelation of 3D objects (this case for Augmented
  * Reality).
  */
 public class ModelLoader {

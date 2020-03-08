@@ -1,4 +1,4 @@
-package com.arshop.controller;
+package com.arshop.controller.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.arshop.controller.R;
 import com.arshop.model.Product;
 import com.arshop.model.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -22,8 +23,8 @@ import java.util.List;
 
 
 /**
- * This class activity is the second step to user purchase the products (After the
- * ActivityProductPurchase). Here all the informations about the payment method is dealt.
+ * PaymentSection activity. This class activity is the second step to user purchase the products
+ * (After the ActivityProductPurchase). Here all the informations about the payment method is dealt.
  */
 public class ActivityPaymentSection extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 

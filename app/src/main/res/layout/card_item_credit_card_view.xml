@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context="com.arshop.fragments.FragmentMyCreditCards">
+    tools:context=".fragments.FragmentMyCreditCards">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/creditCard_item_view"

@@ -1,4 +1,4 @@
-package com.arshop.controller;
+package com.arshop.controller.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,9 +18,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.arshop.controller.R;
 import com.arshop.model.Category;
 import com.arshop.model.Product;
-import com.arshop.recyclers.RecyclerProductCardView;
+import com.arshop.support.recyclers.RecyclerProductCardView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
@@ -33,7 +34,8 @@ import java.util.List;
 
 
 /**
- * Class responsible to parse and exhibits all the products by the chosen category.
+ * ProductList activity. Class responsible to parse and exhibits all the products by the chosen
+ * category.
  */
 public class ActivityProductList extends AppCompatActivity {
 
@@ -105,7 +107,6 @@ public class ActivityProductList extends AppCompatActivity {
              default: break;
         }
     }
-
 
 
     /**

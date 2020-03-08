@@ -1,4 +1,4 @@
-package com.arshop.recyclers;
+package com.arshop.support.recyclers;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.arshop.controller.ActivityProductList;
+import com.arshop.controller.activities.ActivityProductList;
 import com.arshop.controller.R;
 import com.arshop.model.Category;
 

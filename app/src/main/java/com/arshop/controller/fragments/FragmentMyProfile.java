@@ -1,4 +1,4 @@
-package com.arshop.fragments;
+package com.arshop.controller.fragments;
 
 
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.arshop.controller.LoggedUser;
+import com.arshop.controller.activities.LoggedUser;
 import com.arshop.controller.R;
 import com.arshop.model.User;
 

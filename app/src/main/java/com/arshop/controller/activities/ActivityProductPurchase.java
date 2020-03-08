@@ -1,4 +1,4 @@
-package com.arshop.controller;
+package com.arshop.controller.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,14 +16,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.arshop.controller.R;
 import com.arshop.model.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 /**
- * Class responsible to deal with the user purchases. This class activity is the first step
- * to user complete the products to purchase. All the information about the user, shipping and
- * payment method are informed here.
+ * ProductPurchase activity. Class responsible to deal with the user purchases. This class activity
+ * is the first step to user complete the products to purchase. All the information about the user,
+ * shipping and payment method are informed here.
  */
 public class ActivityProductPurchase extends AppCompatActivity {
 
@@ -107,7 +109,6 @@ public class ActivityProductPurchase extends AppCompatActivity {
 
         // Context for toast if necessary.
         Context context = getApplicationContext();
-        int duration = Toast.LENGTH_SHORT;
 
         // Check if the user selected the shipping and payment method options.
         String shippingOption = checkShipping();
@@ -116,13 +117,13 @@ public class ActivityProductPurchase extends AppCompatActivity {
         // Check each option. If Null a toast will be generated.
         if (shippingOption == null) {
             CharSequence text = "Frete não selecionado.";
-            Toast.makeText(context, text, duration).show();
+            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
             return;
         }
 
         else if (paymentOption == null) {
             CharSequence text = "Forma de pagamento não selecionado.";
-            Toast.makeText(context, text, duration).show();
+            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
             return;
         }
 

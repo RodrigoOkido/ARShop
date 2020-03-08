@@ -1,4 +1,4 @@
-package com.arshop.controller;
+package com.arshop.controller.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.arshop.controller.R;
 import com.arshop.model.ClickableDraw;
 import com.google.ar.core.Anchor;
 import com.google.ar.core.Frame;
