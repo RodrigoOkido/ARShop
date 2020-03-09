@@ -41,9 +41,9 @@ public class ActivityMyCart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_cart);
 
-        // Load the activity toolbar
+        // Load the activity toolbar.
         loadToolbar();
-        // Load and configure the Bottom Navigation Menu
+        // Load and configure the Bottom Navigation Menu.
         loadBottomMenuNavigation();
 
         // Recieve the data of the products.
@@ -110,9 +110,8 @@ public class ActivityMyCart extends AppCompatActivity {
     public void finishPurchase(View view){
 
         if (subtotal == 0) {
-            CharSequence text = "Seu Carrinho está vazio.";
-            int duration = Toast.LENGTH_SHORT;
-            Toast.makeText(view.getContext(), text, duration).show();
+            Toast.makeText(view.getContext(),
+                    "Seu Carrinho está vazio.", Toast.LENGTH_SHORT).show();
             return;
         }
 

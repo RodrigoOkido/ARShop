@@ -53,9 +53,9 @@ public class ActivityProductList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
 
-        // Load the activity toolbar
+        // Load the activity toolbar.
         loadToolbar();
-        // Load and configure the Bottom Navigation Menu
+        // Load and configure the Bottom Navigation Menu.
         loadBottomMenuNavigation();
 
         req = Volley.newRequestQueue(this);

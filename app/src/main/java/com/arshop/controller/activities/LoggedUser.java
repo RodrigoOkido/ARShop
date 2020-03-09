@@ -2,7 +2,6 @@ package com.arshop.controller.activities;
 
 import android.app.Application;
 
-import com.arshop.model.CreditCard;
 import com.arshop.model.Product;
 import com.arshop.model.User;
 

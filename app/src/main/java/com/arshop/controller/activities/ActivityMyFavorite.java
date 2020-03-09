@@ -36,9 +36,9 @@ public class ActivityMyFavorite extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_favorite);
 
-        // Load the activity toolbar
+        // Load the activity toolbar.
         loadToolbar();
-        // Load and configure the Bottom Navigation Menu
+        // Load and configure the Bottom Navigation Menu.
         loadBottomMenuNavigation();
 
         // Recieve the data of the products.

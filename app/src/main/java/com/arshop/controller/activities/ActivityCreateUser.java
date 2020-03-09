@@ -35,10 +35,8 @@ public class ActivityCreateUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
 
-        // Load the toolbar.
-        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
-        toolbar.setTitle("Cadastro");
-        setSupportActionBar(toolbar);
+        // Load the activity toolbar.
+        loadToolbar();
 
 
         // Load the layout element fields to use in the new account creation.
@@ -137,6 +135,18 @@ public class ActivityCreateUser extends AppCompatActivity {
         }
 
         return true;
+
+    }
+
+
+    /**
+     * Load the toolbar of the Activity. This is the function where the name of the
+     * Activity can be set in the toolbar.
+     */
+    public void loadToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
+        toolbar.setTitle("Cadastro");
+        setSupportActionBar(toolbar);
 
     }
 

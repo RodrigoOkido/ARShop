@@ -26,6 +26,7 @@ public class FragmentMyProfile extends Fragment implements View.OnClickListener 
 
     // Variables which deals with the user profile information.
     private View myProfileFragmentView;
+    private User logged_user;
 
     // Variables to deal with the layout elements.
     private EditText userNameField, userEmailField, userCpfField, userBornDateField, userAgeField,
@@ -46,8 +47,11 @@ public class FragmentMyProfile extends Fragment implements View.OnClickListener 
         myProfileFragmentView =
                 inflater.inflate(R.layout.fragment_my_profile, container, false);
 
-        // Get layout elements.
+        // Associates each field of the layout to a variable.
         getLayoutElements();
+
+        // Load the logged user.
+        logged_user = ((LoggedUser) getActivity().getApplication()).getUser();
 
         // Load user information data.
         loadUserData();
@@ -60,11 +64,9 @@ public class FragmentMyProfile extends Fragment implements View.OnClickListener 
 
 
     /**
-     * Load user information data.
+     * Load information data of the logged user.
      */
-    private void loadUserData() {
-        User logged_user = ((LoggedUser) getActivity().getApplication()).getUser();
-
+    public void loadUserData() {
         userNameField.setText(logged_user.getName());
         userEmailField.setText(logged_user.getEmail());
         userCpfField.setText(logged_user.getCpf());
@@ -73,9 +75,10 @@ public class FragmentMyProfile extends Fragment implements View.OnClickListener 
 
 
     /**
-     * Lock all EditText elements.
+     * Lock all EditText elements for edition. The fields are unlocked only when the user wants
+     * to modify and edit any data. Otherwise the fields keeps it only for readonly.
      */
-    private void lockElements() {
+    public void lockElements() {
         userNameField.setEnabled(false);
         userEmailField.setEnabled(false);
         userCpfField.setEnabled(false);
@@ -86,33 +89,73 @@ public class FragmentMyProfile extends Fragment implements View.OnClickListener 
 
 
     /**
+     * Unlock all EditText fields. This is unlocked when the user press the button to edit
+     * the data of the profile.
+     */
+    public void unlockElements() {
+        userNameField.setEnabled(true);
+        userEmailField.setEnabled(true);
+        userCpfField.setEnabled(true);
+        userBornDateField.setEnabled(true);
+        userAgeField.setEnabled(true);
+        userContactField.setEnabled(true);
+    }
+
+
+    /**
+     * Save user modification data of his/her profile.
+     */
+    public void saveModifications() {
+        logged_user.setName(userNameField.getText().toString());
+        logged_user.setEmail(userEmailField.getText().toString());
+        logged_user.setCpf(userCpfField.getText().toString());
+        logged_user.setBornDate(userBornDateField.getText().toString());
+        logged_user.setAge(Integer.parseInt(userAgeField.getText().toString()));
+        logged_user.setContact(userContactField.getText().toString());
+    }
+
+
+    /**
      * Unlock all fields to user edit any information wanted..
      *
-     * @param view
+     * @param view The view context.
      */
     public void editMyData(View view){
 
-        if (editMyDataButton.getText().equals("Editar Meus Dados")) {
-            userNameField.setEnabled(true);
-            userEmailField.setEnabled(true);
-            userCpfField.setEnabled(true);
-            userBornDateField.setEnabled(true);
-            userAgeField.setEnabled(true);
-            userContactField.setEnabled(true);
+        switch (view.getId()) {
+            case R.id.editMyDataButton:
+                if (editMyDataButton.getText().equals("Editar Meus Dados")) {
 
-            // Change Button text and show Cancel option.
-            editMyDataButton.setText("Salvar");
-            editCancelEditDataButton.setVisibility(View.VISIBLE);
+                    unlockElements();
+
+                    // Change Button text and show Cancel option.
+                    editMyDataButton.setText("Salvar");
+                    editCancelEditDataButton.setVisibility(View.VISIBLE);
 
 
-        } else {
-            Toast.makeText(getActivity(), "Ação realizada.",
-                    Toast.LENGTH_SHORT ).show();
-            lockElements();
-            editMyDataButton.setText("Editar Meus Dados");
-            editCancelEditDataButton.setVisibility(View.INVISIBLE);
+                } else {
+                    // Save editions made by the user.
+                    saveModifications();
+
+
+                    Toast.makeText(getActivity(), "Dados modificados com sucesso!",
+                            Toast.LENGTH_SHORT ).show();
+                    lockElements();
+                    editMyDataButton.setText("Editar Meus Dados");
+                    editCancelEditDataButton.setVisibility(View.INVISIBLE);
+
+                }
+
+                break;
+
+            case R.id.canceEditDataButton:
+                lockElements();
+                editCancelEditDataButton.setVisibility(View.INVISIBLE);
+                break;
+
 
         }
+
     }
 
 

@@ -51,11 +51,11 @@ public class ActivityProductDetail extends AppCompatActivity {
         productWanted = ((LoggedUser) this.getApplication()).getUsersCart();
         productFavorite = ((LoggedUser) this.getApplication()).getUsersFavoritesProducts();
 
-        // Load the activity toolbar
+        // Load the activity toolbar.
         loadToolbar();
-        // Load and configure the Bottom Navigation Menu
+        // Load and configure the Bottom Navigation Menu.
         loadBottomMenuNavigation();
-        // Associates each field of the layout to a variable
+        // Associates each field of the layout to a variable.
         getLayoutElements();
 
         // Recieve the data of the category selected.
@@ -84,6 +84,11 @@ public class ActivityProductDetail extends AppCompatActivity {
     }
 
 
+    /**
+     * Function to determine if the product is in the favorite user list.
+     *
+     * @return True if the product is in users favorite list. False otherwise.
+     */
     public boolean checkProductInFavorite(){
         for (int i = 0; i < productFavorite.size(); i++) {
             if (productPicked.getId().equals(productFavorite.get(i).getId())){

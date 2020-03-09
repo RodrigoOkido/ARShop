@@ -47,9 +47,9 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_section);
 
-        // Load the activity toolbar
+        // Load the activity toolbar.
         loadToolbar();
-        // Load and configure the Bottom Navigation Menu
+        // Load and configure the Bottom Navigation Menu.
         loadBottomMenuNavigation();
 
 

@@ -1,27 +1,20 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
-    tools:context=".fragments.FragmentMyAddress">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/rounded_layout"
-        android:elevation="8dp"
+        android:layout_marginEnd="9dp"
         android:orientation="vertical"
-        android:padding="5dp">
-
-        <TextView
-            android:id="@+id/addressInformationText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
-            android:text=" Endereço Principal"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,7 +22,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/userProfileAddressName"
+                android:id="@+id/userNewProfileAddressName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -39,7 +32,7 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/userProfileAddressNumber"
+                android:id="@+id/userNewProfileAddressNumber"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -50,7 +43,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/userProfileAddressCompliment"
+            android:id="@+id/userNewProfileAddressCompliment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -64,7 +57,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/userProfileAddressCep"
+                android:id="@+id/userNewProfileAddressCep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -82,7 +75,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/userProfileAddressNeighborhood"
+                android:id="@+id/userNewProfileAddressNeighborhood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -94,26 +87,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/addNewAddressButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Adicionar Endereço"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/alertAddressMsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:padding="2dp"
-                android:textColor="#F01010"
-                android:textSize="12sp" />
-        </LinearLayout>
+            android:orientation="horizontal" />
 
     </LinearLayout>
 
-</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

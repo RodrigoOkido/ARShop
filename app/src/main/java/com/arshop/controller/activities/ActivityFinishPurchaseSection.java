@@ -40,11 +40,11 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish_purchase_section);
 
-        // Load the activity toolbar
+        // Load the activity toolbar.
         loadToolbar();
-        // Load and configure the Bottom Navigation Menu
+        // Load and configure the Bottom Navigation Menu.
         loadBottomMenuNavigation();
-        // Associates each field of the layout to a variable
+        // Associates each field of the layout to a variable.
         getLayoutElements();
 
         Intent intent = getIntent();

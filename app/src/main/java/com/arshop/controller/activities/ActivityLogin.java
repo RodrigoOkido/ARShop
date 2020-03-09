@@ -43,17 +43,15 @@ public class ActivityLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Load the activity toolbar.
+        loadToolbar();
+        // Associates each field of the layout to a variable.
         getLayoutElements();
 
         //Developer Super User Mode.
         if(superUserActivated) {
             loadSuperAdmin();
         }
-
-        //Load the toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
-        toolbar.setTitle("Login");
-        setSupportActionBar(toolbar);
 
     }
 
@@ -155,6 +153,18 @@ public class ActivityLogin extends AppCompatActivity {
 
         loginButton = findViewById(R.id.loginButton);
         loginButton.setText("SUPER USER LOGIN");
+
+    }
+
+
+    /**
+     * Load the toolbar of the Activity. This is the function where the name of the
+     * Activity can be set in the toolbar.
+     */
+    public void loadToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
+        toolbar.setTitle("Login");
+        setSupportActionBar(toolbar);
 
     }
 
