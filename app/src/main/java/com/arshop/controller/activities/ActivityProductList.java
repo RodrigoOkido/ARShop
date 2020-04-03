@@ -84,11 +84,11 @@ public class ActivityProductList extends AppCompatActivity {
     private void loadProdcutsId(Category chosenCategory) {
 
         switch (chosenCategory.getCategoryName()){
-            case "Mesas": productsIds = new ArrayList<String>(Arrays.asList("MLB1040282676",
+            case "Mesas": productsIds = new ArrayList<String>(Arrays.asList("MLB1197287312",
                     "MLB810162721","MLB887866260","MLB1031104504","MLB1127456411",
-                    "MLB1134192837","MLB1122773422"));
+                    "MLB1134192837","MLB1060580939"));
                 break;
-            case "Cadeiras": productsIds = new ArrayList<String>(Arrays.asList("MLB898094955",
+            case "Cadeiras": productsIds = new ArrayList<String>(Arrays.asList("MLB1152392407",
                     "MLB1091011505","MLB880663138","MLB1142593979","MLB778945078","MLB688334853",
                     "MLB998765671","MLB840808616"));
                 break;
@@ -295,7 +295,16 @@ public class ActivityProductList extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
         toolbar.setTitle("Produtos");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+    }
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 
 

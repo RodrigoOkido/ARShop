@@ -59,3 +59,19 @@ sceneform.asset('sampledata/models/Cabin.obj',
         'default',
         'sampledata/models/Cabin.sfa',
         'src/main/assets/Cabin')
+
+
+sceneform.asset('sampledata/models/ModernDesk.FBX',
+        'default',
+        'sampledata/models/ModernDesk.sfa',
+        'src/main/assets/ModernDesk')
+
+sceneform.asset('sampledata/models/Wooden Chair.obj',
+        'default',
+        'sampledata/models/Wooden Chair.sfa',
+        'src/main/assets/Wooden Chair')
+
+sceneform.asset('sampledata/models/table.fbx',
+        'default',
+        'sampledata/models/table.sfa',
+        'src/main/assets/table')

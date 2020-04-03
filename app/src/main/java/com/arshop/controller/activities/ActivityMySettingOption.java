@@ -74,6 +74,7 @@ public class ActivityMySettingOption extends AppCompatActivity {
                 ((LoggedUser) this.getApplication()).setUsersCart(null);
                 ((LoggedUser) this.getApplication()).setUsersFavoritesProducts(null);
                 Intent intent = new Intent(this, ActivityLogin.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 this.startActivity(intent);
                 Toast.makeText(getApplicationContext(), "Conta deslogada com sucesso!"
                         , Toast.LENGTH_SHORT).show();
@@ -139,7 +140,16 @@ public class ActivityMySettingOption extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
         toolbar.setTitle("Meu Perfil");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+    }
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 
 

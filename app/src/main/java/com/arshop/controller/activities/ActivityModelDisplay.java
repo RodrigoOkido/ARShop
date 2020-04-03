@@ -1,6 +1,7 @@
 package com.arshop.controller.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlertDialog;
 import android.net.Uri;
@@ -38,9 +39,13 @@ public class ActivityModelDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_model_display);
+
+        // Load the activity toolbar.
+        loadToolbar();
+
+
         fragment = (ArFragment)
                 getSupportFragmentManager().findFragmentById(R.id.sceneform_fragment);
-
 
         fragment.getArSceneView().getScene().addOnUpdateListener(frameTime -> {
             fragment.onUpdate(frameTime);
@@ -110,29 +115,35 @@ public class ActivityModelDisplay extends AppCompatActivity {
     private void initializeGallery() {
         LinearLayout gallery = findViewById(R.id.gallery_layout);
 
-        ImageView andy = new ImageView(this);
-        andy.setImageResource(R.drawable.droid_thumb);
-        andy.setContentDescription("andy");
-        andy.setOnClickListener(view ->{addObject(Uri.parse("andy_dance.sfb"));});
-        gallery.addView(andy);
+//        ImageView andy = new ImageView(this);
+//        andy.setImageResource(R.drawable.droid_thumb);
+//        andy.setContentDescription("andy");
+//        andy.setOnClickListener(view ->{addObject(Uri.parse("andy_dance.sfb"));});
+//        gallery.addView(andy);
+//
+//        ImageView cabin = new ImageView(this);
+//        cabin.setImageResource(R.drawable.cabin_thumb);
+//        cabin.setContentDescription("cabin");
+//        cabin.setOnClickListener(view ->{addObject(Uri.parse("Cabin.sfb"));});
+//        gallery.addView(cabin);
 
-        ImageView cabin = new ImageView(this);
-        cabin.setImageResource(R.drawable.cabin_thumb);
-        cabin.setContentDescription("cabin");
-        cabin.setOnClickListener(view ->{addObject(Uri.parse("Cabin.sfb"));});
-        gallery.addView(cabin);
+        ImageView chair = new ImageView(this);
+        chair.setImageResource(R.drawable.house_thumb);
+        chair.setContentDescription("Cadeira de Madeira");
+        chair.setOnClickListener(view ->{addObject(Uri.parse("Wooden Chair.sfb"));});
+        gallery.addView(chair);
 
-        ImageView house = new ImageView(this);
-        house.setImageResource(R.drawable.house_thumb);
-        house.setContentDescription("house");
-        house.setOnClickListener(view ->{addObject(Uri.parse("House.sfb"));});
-        gallery.addView(house);
+        ImageView modernTable = new ImageView(this);
+        modernTable.setImageResource(R.drawable.igloo_thumb);
+        modernTable.setContentDescription("Mesa moderna L");
+        modernTable.setOnClickListener(view ->{addObject(Uri.parse("ModernDesk.sfb"));});
+        gallery.addView(modernTable);
 
-        ImageView igloo = new ImageView(this);
-        igloo.setImageResource(R.drawable.igloo_thumb);
-        igloo.setContentDescription("igloo");
-        igloo.setOnClickListener(view ->{addObject(Uri.parse("igloo.sfb"));});
-        gallery.addView(igloo);
+        ImageView table = new ImageView(this);
+        table.setImageResource(R.drawable.igloo_thumb);
+        table.setContentDescription("Mesa de Madeira");
+        table.setOnClickListener(view ->{addObject(Uri.parse("table.sfb"));});
+        gallery.addView(table);
     }
 
     private void addObject(Uri model) {
@@ -171,5 +182,26 @@ public class ActivityModelDisplay extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
         return;
+    }
+
+
+    /**
+     * Load the toolbar of the Activity. This is the function where the name of the
+     * Activity can be set in the toolbar.
+     */
+    public void loadToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
+        toolbar.setTitle("Visualizador AR");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+    }
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }
