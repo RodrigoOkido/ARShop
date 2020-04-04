@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_arshop"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ActivityMySettingOption"></activity>
+        <activity android:name=".activities.ActivityFinishedSection"></activity>
+        <activity android:name=".activities.ActivityMySettingOption" />
         <activity android:name=".activities.ActivityMySettings" />
         <activity android:name=".activities.ActivityMyFavorite" />
         <activity android:name=".activities.ActivityCreateUser" />

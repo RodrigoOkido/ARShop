@@ -121,6 +121,7 @@
             android:layout_weight="0"
             android:background="@drawable/rounded_button"
             android:backgroundTint="@color/defaultButtonBackground"
+            android:onClick="finishMyPurchase"
             android:text="Finalizar Compra"
             android:textColor="@color/buttonTextColor" />
 

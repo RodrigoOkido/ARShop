@@ -3,6 +3,7 @@ package com.arshop.controller.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -51,7 +52,7 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
         productsToPurchase = ((LoggedUser) this.getApplication()).getUsersCart();
         paymentMethodOptionChosed = intent.getExtras().getString("PaymentOption") ;
         shippingOptionChosed = intent.getExtras().getString("ShippingOption") ;
-        subtotal = String.valueOf(((LoggedUser) this.getApplication()).getSubtotal());
+        subtotal = String.valueOf(((LoggedUser) this.getApplication()).getSubtotal()+15);
 
         RecyclerView cartView = (RecyclerView) findViewById(R.id.recycler_listPurchaseSummary);
         RecyclerMyCartView cartAdapter = new RecyclerMyCartView(this,productsToPurchase);
@@ -62,6 +63,21 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
         shippingValue.setText(shippingOptionChosed);
         subtotalValue.append(subtotal);
 
+    }
+
+
+    /**
+     * If user clicks to finish purchase, this function is called to proceed the action and
+     * finish all user purchases.
+     *
+     * @param view The view context.
+     */
+    public void finishMyPurchase(View view){
+
+        Intent intent = new Intent(ActivityFinishPurchaseSection.this,
+                ActivityFinishedSection.class);
+
+        startActivity(intent);
     }
 
 

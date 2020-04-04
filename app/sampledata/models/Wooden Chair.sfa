@@ -63,7 +63,7 @@
     file: 'sampledata/models/Wooden Chair.obj',
     name: 'Wooden Chair',
     recenter: 'root',
-    scale: 0.022523000000000001,
+    scale: 0.50,
   },
   samplers: [
     {
