@@ -20,9 +20,11 @@ public class Product implements Serializable {
     private String brand;
     private String warranty;
     private boolean mercadoPagoCondition;
+    private String description;
     private String productLocationCity;
     private String productLocationState;
     private String dimensions;
+    private String prodARName;
 
 
 
@@ -43,8 +45,8 @@ public class Product implements Serializable {
      * @param dimensions Product dimensions.
      * */
     public Product(String id, String name, String brand, ArrayList<String> images, String price,
-                   String quantity, String warranty, boolean mercadoPagoCondition,
-                   String city, String state, String dimensions){
+                   String quantity, String warranty, boolean mercadoPagoCondition, String description,
+                   String city, String state, String dimensions, String prodARName){
         this.id = id;
         this.name = name;
         this.brand = brand;
@@ -53,10 +55,13 @@ public class Product implements Serializable {
         this.quantity = quantity;
         this.warranty = warranty;
         this.mercadoPagoCondition = mercadoPagoCondition;
+        this.description = description;
         this.productLocationCity = city;
         this.productLocationState = state;
         this.dimensions = dimensions;
+        this.prodARName = prodARName;
     }
+
 
     // Product GETTERS functions
     public String getId() {
@@ -99,6 +104,11 @@ public class Product implements Serializable {
     }
 
 
+    public String getDescription() {
+        return description;
+    }
+
+
     public String getProductLocationCity() {
         return productLocationCity;
     }
@@ -111,6 +121,11 @@ public class Product implements Serializable {
 
     public String getDimensions() {
         return dimensions;
+    }
+
+
+    public String getProdARName() {
+        return prodARName;
     }
 
 
@@ -150,6 +165,11 @@ public class Product implements Serializable {
     }
 
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
     public void setProductLocationCity(String productLocationCity) {
         this.productLocationCity = productLocationCity;
     }
@@ -167,5 +187,10 @@ public class Product implements Serializable {
 
     public void setDimensions(String dimensions) {
         this.dimensions = dimensions;
+    }
+
+
+    public void setProdARName(String prodAR) {
+        this.prodARName = prodAR;
     }
 }

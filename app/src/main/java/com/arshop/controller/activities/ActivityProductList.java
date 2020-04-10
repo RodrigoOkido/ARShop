@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 
 import com.android.volley.Request;
@@ -135,20 +136,20 @@ public class ActivityProductList extends AppCompatActivity {
                             JSONArray images = response.getJSONArray("pictures");
                             for (int image = 0; image < images.length(); image++){
                                 prodImages.add(images.getJSONObject(image).getString("secure_url"));
-                                Log.d("DEBUG", images.getJSONObject(image).getString("secure_url"));
+//                                Log.d("DEBUG", images.getJSONObject(image).getString("secure_url"));
                             }
 
                             // ID
                             String prodId = response.getString("id");
-                            Log.d("DEBUG", prodId);
+//                            Log.d("DEBUG", prodId);
 
                             // Thumb
                             String prodThumb = response.getString("secure_thumbnail");
-                            Log.d("DEBUG", prodThumb);
+//                            Log.d("DEBUG", prodThumb);
 
                             // Name
                             String prodName = response.getString(("title"));
-                            Log.d("DEBUG", prodName);
+//                            Log.d("DEBUG", prodName);
 
                             // Atributes array inside JSON.
                             // Brand and Dimension attributes will be taken here
@@ -176,22 +177,22 @@ public class ActivityProductList extends AppCompatActivity {
 
                             // Price
                             String prodPrice = response.getString("price");
-                            Log.d("DEBUG", prodPrice);
+//                            Log.d("DEBUG", prodPrice);
 
                             // Quantity Available
                             String prodQuantity = response.getString("available_quantity");
-                            Log.d("DEBUG", prodQuantity);
+//                            Log.d("DEBUG", prodQuantity);
 
                             // Warranty
                             String prodWarranty = response.getString("warranty");
                             if (prodWarranty == null || prodWarranty == "null") {
                                 prodWarranty = "Verificar no site do Fabricante";
                             }
-                            Log.d("DEBUG", prodWarranty);
+//                            Log.d("DEBUG", prodWarranty);
 
                             // Mercado Pago accepted?
                             boolean prodMercadoPago = response.getBoolean("accepts_mercadopago");
-                            Log.d("DEBUG", String.valueOf(prodMercadoPago));
+//                            Log.d("DEBUG", String.valueOf(prodMercadoPago));
 
                             // City and State
                             JSONObject prodLocation = response.getJSONObject("seller_address");
@@ -200,10 +201,18 @@ public class ActivityProductList extends AppCompatActivity {
                             String prodCity = prodLocationCity.getString("name");
                             String prodState = prodLocationState.getString("name");
 
+                            // AR Load file (this is supposed to be the file.sfb)
+                            String prodAR = "";
+
                             // Creates a new Product with all gathered information from the API
                             Product newProduct = new Product(prodId, prodName, prodBrand, prodImages,
                                     prodPrice, prodQuantity, prodWarranty, prodMercadoPago,
-                                    prodCity, prodState, prodDimensions);
+                                    "", prodCity, prodState, prodDimensions,
+                                    prodAR);
+
+                            //############  DEBUG TEMPORARY 3D ############
+                            setupAR(newProduct);
+
                             categoryPicked.addProduct(newProduct);
 
                         } catch (JSONException e) {
@@ -223,6 +232,28 @@ public class ActivityProductList extends AppCompatActivity {
 
             // Add the JSON object request in the request queue.
             req.add(jsonObjectRequest);
+    }
+
+
+    /**
+     * TEMPORARY FUNCTION TO DEAL WITH THE AR.
+     */
+    private void setupAR(Product product) {
+        switch (categoryPicked.getCategoryName()){
+
+            case "Mesas": product.setProdARName("ModernDesk.sfb");
+                break;
+            case "Cadeiras": product.setProdARName("Wooden Chair.sfb");
+                break;
+            case "Eletrodomésticos": product.setProdARName("ModernDesk.sfb") ;
+                break;
+            case "Sofás": product.setProdARName("table.sfb");
+                break;
+            case "Decorativos": product.setProdARName("ModernDesk.sfb");
+                break;
+            default: break;
+
+        }
     }
 
 
