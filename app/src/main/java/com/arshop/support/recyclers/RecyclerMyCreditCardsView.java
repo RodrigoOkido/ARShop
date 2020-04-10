@@ -15,6 +15,10 @@ import com.arshop.model.CreditCard;
 
 import java.util.List;
 
+
+/**
+ * RecyclerMyCreditCardsView class handles the exhibition of user credit card list in profile view.
+ */
 public class RecyclerMyCreditCardsView
         extends RecyclerView.Adapter<RecyclerMyCreditCardsView.CreditCardView>  {
 

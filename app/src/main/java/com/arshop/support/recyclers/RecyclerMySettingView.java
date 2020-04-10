@@ -17,6 +17,10 @@ import com.arshop.controller.R;
 import java.io.Serializable;
 import java.util.List;
 
+
+/**
+ * RecyclerMySettingView class handles the exhibition of each setting card of the profile view.
+ */
 public class RecyclerMySettingView extends RecyclerView.Adapter<RecyclerMySettingView.SettingeView>  {
     private Context context;
     private List<String> settingOptions;

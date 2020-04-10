@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -34,6 +36,8 @@ public class ActivityModelDisplay extends AppCompatActivity {
     private boolean isTracking;
     private boolean isHitting;
 
+    private String ARName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,10 @@ public class ActivityModelDisplay extends AppCompatActivity {
             fragment.onUpdate(frameTime);
             onUpdate();
         });
+
+
+        Intent intent = getIntent();
+        ARName = (String)intent.getExtras().getSerializable("ARName");
 
         modelLoader = new ModelLoader(new WeakReference<>(this));
         initializeGallery();
@@ -114,6 +122,13 @@ public class ActivityModelDisplay extends AppCompatActivity {
 
     private void initializeGallery() {
         LinearLayout gallery = findViewById(R.id.gallery_layout);
+        gallery.setPadding(5,5,5,5);
+        gallery.setGravity(17);
+
+        Button showAR = new Button(this);
+        showAR.setText("Pressione aqui após centralizar");
+        showAR.setOnClickListener(view ->{addObject(Uri.parse(ARName));});
+        gallery.addView(showAR);
 
 //        ImageView andy = new ImageView(this);
 //        andy.setImageResource(R.drawable.droid_thumb);
@@ -126,24 +141,18 @@ public class ActivityModelDisplay extends AppCompatActivity {
 //        cabin.setContentDescription("cabin");
 //        cabin.setOnClickListener(view ->{addObject(Uri.parse("Cabin.sfb"));});
 //        gallery.addView(cabin);
-
-        ImageView chair = new ImageView(this);
-        chair.setImageResource(R.drawable.house_thumb);
-        chair.setContentDescription("Cadeira de Madeira");
-        chair.setOnClickListener(view ->{addObject(Uri.parse("Wooden Chair.sfb"));});
-        gallery.addView(chair);
-
-        ImageView modernTable = new ImageView(this);
-        modernTable.setImageResource(R.drawable.igloo_thumb);
-        modernTable.setContentDescription("Mesa moderna L");
-        modernTable.setOnClickListener(view ->{addObject(Uri.parse("ModernDesk.sfb"));});
-        gallery.addView(modernTable);
-
-        ImageView table = new ImageView(this);
-        table.setImageResource(R.drawable.igloo_thumb);
-        table.setContentDescription("Mesa de Madeira");
-        table.setOnClickListener(view ->{addObject(Uri.parse("table.sfb"));});
-        gallery.addView(table);
+//
+//        ImageView modernTable = new ImageView(this);
+//        modernTable.setImageResource(R.drawable.igloo_thumb);
+//        modernTable.setContentDescription("Mesa moderna L");
+//        modernTable.setOnClickListener(view ->{addObject(Uri.parse("ModernDesk.sfb"));});
+//        gallery.addView(modernTable);
+//
+//        ImageView table = new ImageView(this);
+//        table.setImageResource(R.drawable.igloo_thumb);
+//        table.setContentDescription("Mesa de Madeira");
+//        table.setOnClickListener(view ->{addObject(Uri.parse("table.sfb"));});
+//        gallery.addView(table);
     }
 
     private void addObject(Uri model) {

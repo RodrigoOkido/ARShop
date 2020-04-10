@@ -35,6 +35,14 @@
             android:gravity="center"
             android:text="Obrigado por confiar e acreditar na ARShop! Seu produto foi processado e poderá ser acompanhado no seu perfil!" />
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="256px"
+            android:layout_height="256px"
+            android:layout_gravity="center"
+            android:background="@drawable/verify"
+            tools:srcCompat="@tools:sample/avatars" />
+
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"

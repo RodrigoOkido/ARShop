@@ -1,5 +1,9 @@
 package com.arshop.model;
 
+
+/**
+ * CreditCard class. This is the class which defines in a generic way a Credit Card.
+ */
 public class CreditCard {
 
     // Enum the types of Credit Cards.

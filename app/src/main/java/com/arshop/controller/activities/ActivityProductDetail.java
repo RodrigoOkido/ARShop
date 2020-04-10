@@ -3,8 +3,10 @@ package com.arshop.controller.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,11 +16,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.arshop.support.adapters.ImageSliderView;
 import com.arshop.controller.R;
 import com.arshop.model.Product;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -40,6 +51,11 @@ public class ActivityProductDetail extends AppCompatActivity {
     // Layout TextView fields.
     private TextView prodPrice, prodName, prodQuantity;
     private TextView prodBrand, prodWarranty, prodMP, prodLocation, prodDimensions;
+    private EditText prodDescription;
+
+    // Variable req to control all the requests from the API.
+    private RequestQueue req;
+
 
 
     @Override
@@ -57,6 +73,9 @@ public class ActivityProductDetail extends AppCompatActivity {
         loadBottomMenuNavigation();
         // Associates each field of the layout to a variable.
         getLayoutElements();
+
+
+        req = Volley.newRequestQueue(this);
 
         // Recieve the data of the category selected.
         Intent intent = getIntent();
@@ -101,7 +120,8 @@ public class ActivityProductDetail extends AppCompatActivity {
 
 
     /**
-     * Product information is set to each field.
+     * Product information is set to each field. Another request is made to the API here to take
+     * the product description informed by the vendor.
      */
     public void setProductInfo () {
         prodPrice.append(productPicked.getPrice());
@@ -114,6 +134,41 @@ public class ActivityProductDetail extends AppCompatActivity {
         } else {
             prodWarranty.setText("Não Informado");
         }
+
+
+        String url_description = "https://api.mercadolibre.com/items/"+productPicked.getId()+
+                "/description?access_token="+productPicked.getId();
+
+        // Request JSON Object given URL.
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url_description, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        try {
+
+                            String product_description = response.getString("plain_text");
+                            productPicked.setDescription(product_description);
+                            prodDescription.setText(productPicked.getDescription());
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+
+                    }
+                });
+
+        // Add the JSON object request in the request queue.
+        req.add(jsonObjectRequest);
+
 
         boolean prodMPAvailable = productPicked.isMercadoPagoCondition();
         if (prodMPAvailable) {
@@ -173,7 +228,7 @@ public class ActivityProductDetail extends AppCompatActivity {
 
         // Create intent
         Intent intent = new Intent(view.getContext(), ActivityModelDisplay.class);
-
+        intent.putExtra("ARName", productPicked.getProdARName());
         // Start MyCart activity.
         this.startActivity(intent);
     }
@@ -273,6 +328,8 @@ public class ActivityProductDetail extends AppCompatActivity {
         prodBrand = (TextView)findViewById(R.id.prodBrand);
         prodWarranty = (TextView)findViewById(R.id.prodWarranty);
         prodMP = (TextView)findViewById(R.id.MP_available);
+        prodDescription = (EditText) findViewById(R.id.prodTextDescription);
+        prodDescription.setEnabled(false);
         prodLocation = (TextView)findViewById(R.id.prodLocation);
         prodDimensions = (TextView)findViewById(R.id.prodDimensions);
     }

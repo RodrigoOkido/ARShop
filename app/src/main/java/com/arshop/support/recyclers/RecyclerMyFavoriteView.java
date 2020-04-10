@@ -17,6 +17,10 @@ import com.arshop.model.Product;
 
 import java.util.List;
 
+
+/**
+ * RecyclerMyFavoriteView class handles the exhibition of user fevorite product list.
+ */
 public class RecyclerMyFavoriteView extends RecyclerView.Adapter<RecyclerMyFavoriteView.FavoriteView> {
     private Context context;
     private List<Product> myFavoriteProducts;
