@@ -19,7 +19,7 @@ import java.util.List;
 
 
 /**
- * RecyclerMyFavoriteView class handles the exhibition of user fevorite product list.
+ * RecyclerMyFavoriteView class handles the exhibition of user favorite product list.
  */
 public class RecyclerMyFavoriteView extends RecyclerView.Adapter<RecyclerMyFavoriteView.FavoriteView> {
     private Context context;

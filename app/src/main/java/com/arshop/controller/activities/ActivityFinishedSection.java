@@ -9,6 +9,11 @@ import android.view.View;
 
 import com.arshop.controller.R;
 
+
+/**
+ * FinishedSection activity. Final page of the users purchases. From here user can return to tha
+ * main section of the app.
+ */
 public class ActivityFinishedSection extends AppCompatActivity {
 
     @Override
