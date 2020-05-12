@@ -35,7 +35,7 @@ public class FragmentMyCreditCards extends Fragment implements DialogCreditCardA
 
     // Variables to deal with the layout elements.
     private TextView creditCardEmptyText;
-    private Button addNewCarcButton;
+    private Button addNewCardButton;
 
 
     public FragmentMyCreditCards() {
@@ -54,7 +54,7 @@ public class FragmentMyCreditCards extends Fragment implements DialogCreditCardA
         getLayoutElements();
         creditCardList = ((LoggedUser) getActivity().getApplication()).getUser().getUser_cards();
 
-        addNewCarcButton.setOnClickListener(new View.OnClickListener() {
+        addNewCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                     openAddCreditCardDialog();
@@ -114,7 +114,7 @@ public class FragmentMyCreditCards extends Fragment implements DialogCreditCardA
      */
     public void getLayoutElements(){
         creditCardEmptyText = creditCardFragmentView.findViewById(R.id.creditCardEmptyText);
-        addNewCarcButton = creditCardFragmentView.findViewById(R.id.addCreditCardButton);
+        addNewCardButton = creditCardFragmentView.findViewById(R.id.addCreditCardButton);
     }
 
 

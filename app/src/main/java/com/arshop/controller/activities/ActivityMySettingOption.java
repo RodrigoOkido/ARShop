@@ -14,6 +14,7 @@ import com.arshop.controller.R;
 import com.arshop.controller.fragments.FragmentMyAddress;
 import com.arshop.controller.fragments.FragmentMyCreditCards;
 import com.arshop.controller.fragments.FragmentMyProfile;
+import com.arshop.controller.fragments.FragmentMyPurchases;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -66,8 +67,9 @@ public class ActivityMySettingOption extends AppCompatActivity {
                         myCardsData).commit();
                 break;
             case "Minhas Compras":
-                Toast.makeText(getApplicationContext(), "Content not available."
-                        , Toast.LENGTH_SHORT).show();
+                Fragment myPurchases = new FragmentMyPurchases();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_option_view,
+                        myPurchases).commit();
                 break;
             case "Sair da Conta (Deslogar)":
                 ((LoggedUser) this.getApplication()).setUser(null);

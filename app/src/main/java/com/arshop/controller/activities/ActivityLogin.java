@@ -145,6 +145,7 @@ public class ActivityLogin extends AppCompatActivity {
         ((LoggedUser) this.getApplication()).setUser(superUser);
         ((LoggedUser) this.getApplication()).setUsersCart(new ArrayList<Product>());
         ((LoggedUser) this.getApplication()).setUsersFavoritesProducts(new ArrayList<Product>());
+        ((LoggedUser) this.getApplication()).setUsersPurchases(new ArrayList<List<Product>>());
 
 
         // Fill the fields automatically for the SUPER USER.

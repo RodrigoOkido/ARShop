@@ -63,7 +63,7 @@ public class DialogAddressAdder extends DialogFragment {
                             listener.addNewAddress(addressName, addressNumber, addressComplement,
                                     addressCep, addressNeighborhood);
 
-                            Toast.makeText(getActivity(),"Endereço adicionado!",
+                            Toast.makeText(getActivity(),"Endereço Modificado!",
                                     Toast.LENGTH_SHORT).show();
 
                         } else {

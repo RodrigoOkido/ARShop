@@ -7,113 +7,237 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/rounded_layout"
-        android:elevation="8dp"
-        android:orientation="vertical"
-        android:padding="5dp">
-
-        <TextView
-            android:id="@+id/addressInformationText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
-            android:text=" Endereço Principal"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/userProfileAddressName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Address"
-                android:inputType="textPersonName"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/userProfileAddressNumber"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:ems="10"
-                android:hint="Number"
-                android:inputType="number"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/userProfileAddressCompliment"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Complement"
-            android:inputType="textPersonName"
-            android:textSize="14sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/userProfileAddressCep"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="CEP"
-                android:inputType="textPersonName"
-                android:textSize="14sp" />
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_layout"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/addressInformationText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:gravity="center"
-                android:text=" - "
-                android:textSize="18sp" />
+                android:fontFamily="@font/montserrat_bold"
+                android:text=" Endereço Principal"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/userProfileAddressName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Nome"
+                    android:inputType="textPersonName"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/userProfileAddressNumber"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:ems="10"
+                    android:hint="Número"
+                    android:inputType="number"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
             <EditText
-                android:id="@+id/userProfileAddressNeighborhood"
+                android:id="@+id/userProfileAddressCompliment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Neighborhood"
+                android:hint="Complemento"
                 android:inputType="textPersonName"
                 android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/userProfileAddressCep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="CEP"
+                    android:inputType="textPersonName"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:text=" - "
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/userProfileAddressNeighborhood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Bairro"
+                    android:inputType="textPersonName"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/editAddressButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/defaultButtonBackground"
+                    android:padding="5dp"
+                    android:text="Editar Endereço"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/alertAddressMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:padding="2dp"
+                    android:textColor="#F01010"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/addNewAddressButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Adicionar Endereço"
-                android:textSize="12sp" />
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_layout"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <TextView
-                android:id="@+id/alertAddressMsg"
+                android:id="@+id/addressSecondaryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:padding="2dp"
-                android:textColor="#F01010"
-                android:textSize="12sp" />
-        </LinearLayout>
+                android:fontFamily="@font/montserrat_bold"
+                android:text=" Endereço Secundário (Opcional)"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/userProfileSecondaryAddressName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Nome "
+                    android:inputType="textPersonName"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/userProfileSecondaryAddressNumber"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:ems="10"
+                    android:hint="Número"
+                    android:inputType="number"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/userProfileSecondaryAddressCompliment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Complemento"
+                android:inputType="textPersonName"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/userProfileSecondaryAddressCep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="CEP"
+                    android:inputType="textPersonName"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:text=" - "
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/userProfileSecondaryAddressNeighborhood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Bairro"
+                    android:inputType="textPersonName"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/editSecondaryAddressButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/defaultButtonBackground"
+                    android:text="Editar"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/alertSecondaryAddressMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:padding="2dp"
+                    android:textColor="#F01010"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
 </FrameLayout>

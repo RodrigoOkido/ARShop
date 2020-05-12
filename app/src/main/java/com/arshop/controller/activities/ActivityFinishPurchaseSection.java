@@ -30,6 +30,8 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
 
     // Private attributes.
     private List<Product> productsToPurchase;
+    private List<List<Product>> productsPurchased;
+
     private String paymentMethodOptionChosed, shippingOptionChosed, subtotal;
 
     // Layout TextView fields.
@@ -50,6 +52,7 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
 
         Intent intent = getIntent();
         productsToPurchase = ((LoggedUser) this.getApplication()).getUsersCart();
+        productsPurchased = ((LoggedUser) this.getApplication()).getUsersPurchases();
         paymentMethodOptionChosed = intent.getExtras().getString("PaymentOption") ;
         shippingOptionChosed = intent.getExtras().getString("ShippingOption") ;
         subtotal = String.valueOf(((LoggedUser) this.getApplication()).getSubtotal()+15);
@@ -76,6 +79,8 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
 
         Intent intent = new Intent(ActivityFinishPurchaseSection.this,
                 ActivityFinishedSection.class);
+
+        productsPurchased.add(productsToPurchase);
 
         startActivity(intent);
     }
