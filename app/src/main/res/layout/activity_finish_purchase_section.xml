@@ -133,6 +133,7 @@
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
         app:menu="@menu/toolbar_menu"
+        app:labelVisibilityMode="labeled"
         app:elevation="12dp"
         />
 

@@ -56,7 +56,7 @@ public class ActivityMySettingOption extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_option_view,
                         myProfileData).commit();
                 break;
-            case "Meu Endereço":
+            case "Meus Endereços":
                 Fragment myAddressData = new FragmentMyAddress();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_option_view,
                         myAddressData).commit();

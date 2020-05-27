@@ -50,7 +50,7 @@ public class ActivityMySettings extends AppCompatActivity {
 
         settingOptions = new ArrayList<>();
         settingOptions.add("Meus Dados");
-        settingOptions.add("Meu Endereço");
+        settingOptions.add("Meus Endereços");
         settingOptions.add("Meus Cartões");
         settingOptions.add("Minhas Compras");
         settingOptions.add("Sair da Conta (Deslogar)");

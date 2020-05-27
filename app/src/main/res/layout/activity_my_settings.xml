@@ -53,6 +53,7 @@
         android:layout_height="wrap_content"
         app:menu="@menu/toolbar_menu"
         app:elevation="12dp"
+        app:labelVisibilityMode="labeled"
         android:background="?android:attr/windowBackground"/>
 
 </LinearLayout>

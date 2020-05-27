@@ -71,6 +71,8 @@ public class FragmentMyProfile extends Fragment implements View.OnClickListener 
         userEmailField.setText(logged_user.getEmail());
         userCpfField.setText(logged_user.getCpf());
         userBornDateField.setText(logged_user.getBornDate());
+        userAgeField.setText("0");
+        userContactField.setText("");
     }
 
 
@@ -150,6 +152,7 @@ public class FragmentMyProfile extends Fragment implements View.OnClickListener 
 
             case R.id.canceEditDataButton:
                 lockElements();
+                editMyDataButton.setText("Editar Meus Dados");
                 editCancelEditDataButton.setVisibility(View.INVISIBLE);
                 break;
 

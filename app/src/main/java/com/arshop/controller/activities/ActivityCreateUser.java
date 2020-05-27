@@ -108,7 +108,7 @@ public class ActivityCreateUser extends AppCompatActivity {
                 userBornDate.equals("")  || userEmail.equals("") || userPassword.equals("")
                 || userPasswordConfirmation.equals("") ){
 
-            CharSequence text = "Todos campos devem ser preenchidos.";
+            CharSequence text = "Todos campos são obrigatórios!";
             Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
             return false;
         }

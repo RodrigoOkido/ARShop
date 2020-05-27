@@ -1,6 +1,7 @@
 package com.arshop.controller.fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.arshop.controller.activities.LoggedUser;
 import com.arshop.controller.R;
@@ -38,7 +40,7 @@ public class FragmentMyAddress extends Fragment implements DialogAddressAdder.Di
     private TextView alertMessage;
 
     // Variables to deal button
-    private Button addNewAddressButton, addSecondaryAddressButton;
+    private Button addNewAddressButton, addSecondaryAddressButton, cancelSecondaryAddress;
 
 
     public FragmentMyAddress() {
@@ -64,24 +66,57 @@ public class FragmentMyAddress extends Fragment implements DialogAddressAdder.Di
         lockMainAddressFields();
         lockSecondaryAddressFields();
 
-        // Put action to address
-        addNewAddressButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                openAddAddressDialog();
-            }
-        });
+
+        addNewAddressButton.setOnClickListener(mListener);
+        addSecondaryAddressButton.setOnClickListener(mListener);
+        cancelSecondaryAddress.setOnClickListener(mListener);
 
 
-        // Put action to secondary address
-        addSecondaryAddressButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                addSecondaryAddress();
-            }
-        });
+//        // Put action to secondary address
+//        addSecondaryAddressButton.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
 
         return myAddressFragmentView;
+    }
+
+    // Put action to address
+    private final View.OnClickListener mListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.editAddressButton:
+                    openAddAddressDialog();
+                    break;
+                case R.id.editSecondaryAddressButton:
+                    addSecondaryAddress();
+                    cancelSecondaryAddress.setVisibility(View.VISIBLE);
+                    break;
+                case R.id.cancelSecondaryAddress:
+                    cleanAllFields();
+                    lockSecondaryAddressFields();
+                    addSecondaryAddressButton.setText("Editar");
+                    cancelSecondaryAddress.setVisibility(View.INVISIBLE);
+                    break;
+
+            }
+        }
+    };
+
+
+    /**
+     * If user cancel the operation, clean all fields of the secondary address.
+     */
+    public void cleanAllFields() {
+        secAddressName.setText("");
+        secAddressNumber.setText("");
+        secAddressComplement.setText("");
+        secAddressCep.setText("");
+        secAddressNeighborhood.setText("");
     }
 
 
@@ -102,29 +137,53 @@ public class FragmentMyAddress extends Fragment implements DialogAddressAdder.Di
      */
     public void addSecondaryAddress() {
 
+        Context context = getActivity();
+
         if (addSecondaryAddressButton.getText().equals("Editar")) {
             unlockSecondaryAddressFields();
             addSecondaryAddressButton.setText("Salvar");
 
         } else {
             String secondAddressName = secAddressName.getText().toString();
-            int secondAddressNumber = Integer.parseInt(secAddressNumber.getText().toString());
+            int secondAddressNumber = 0;
+            if (secAddressNumber.getText().toString().equals("")){
+                secondAddressNumber = Integer.parseInt("0");
+            } else {
+                secondAddressNumber = Integer.parseInt(secAddressNumber.getText().toString());
+            }
+
             String secondAddressComplement = secAddressComplement.getText().toString();
             String secondAddressCep = secAddressCep.getText().toString();
             String secondAddressNeighborhood = secAddressNeighborhood.getText().toString();
 
-            secAddressName.setText(secondAddressName);
-            secAddressNumber.setText(String.valueOf(secondAddressNumber));
-            secAddressComplement.setText(secondAddressComplement);
-            secAddressCep.setText(secondAddressCep);
-            secAddressNeighborhood.setText(secondAddressNeighborhood);
+            if (secondAddressName.equals("") || secondAddressNumber == 0 ||
+                    secondAddressCep.equals("") ||
+                    secondAddressNeighborhood.equals("") ) {
 
-            Address newAddress = new Address (secondAddressName, secondAddressNeighborhood, secondAddressCep,
-                    secondAddressComplement, secondAddressNumber);
-            addressesList.add(newAddress);
+                CharSequence text = "Campos com * são obrigatórios!";
+                Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
 
-            addSecondaryAddressButton.setText("Editar");
-            lockSecondaryAddressFields();
+            } else {
+                secAddressName.setText(secondAddressName);
+                secAddressNumber.setText(String.valueOf(secondAddressNumber));
+                if(secondAddressComplement.equals("")){
+                    secAddressComplement.setText("Sem Complemento");
+                } else {
+                    secAddressComplement.setText(secondAddressComplement);
+                }
+                secAddressCep.setText(secondAddressCep);
+                secAddressNeighborhood.setText(secondAddressNeighborhood);
+
+                Address newAddress = new Address(secondAddressName, secondAddressNeighborhood, secondAddressCep,
+                        secondAddressComplement, secondAddressNumber);
+                addressesList.add(newAddress);
+
+                addSecondaryAddressButton.setText("Editar");
+                lockSecondaryAddressFields();
+
+                CharSequence text = "Endereço adicionado!";
+                Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -150,7 +209,6 @@ public class FragmentMyAddress extends Fragment implements DialogAddressAdder.Di
         secAddressComplement.setEnabled(false);
         secAddressCep.setEnabled(false);
         secAddressNeighborhood.setEnabled(false);
-        addSecondaryAddressButton.setEnabled(false);
     }
 
 
@@ -190,7 +248,7 @@ public class FragmentMyAddress extends Fragment implements DialogAddressAdder.Di
         // Add the new address to the user list.
         Address newAddress = new Address (newAddressName, newAddressNeighborhood, newAddressCep,
                 newAddressComplement, newAddressNumber);
-        addressesList.add(newAddress);
+        addressesList.add(0,newAddress);
     }
 
 
@@ -240,6 +298,7 @@ public class FragmentMyAddress extends Fragment implements DialogAddressAdder.Di
         secAddressCep = myAddressFragmentView.findViewById(R.id.userProfileSecondaryAddressCep);
         secAddressNeighborhood = myAddressFragmentView.findViewById(R.id.userProfileSecondaryAddressNeighborhood);
         addSecondaryAddressButton = myAddressFragmentView.findViewById(R.id.editSecondaryAddressButton);
+        cancelSecondaryAddress = myAddressFragmentView.findViewById(R.id.cancelSecondaryAddress);
 
 
     }

@@ -27,8 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Address"
-                android:inputType="textPersonName"
+                android:hint="Nome do Endereço *"
+                android:inputType="textPersonName|textCapSentences"
                 android:textSize="14sp" />
 
             <EditText
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:ems="10"
-                android:hint="Number"
+                android:hint="Número *"
                 android:inputType="number"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Complement"
+            android:hint="Complemento"
             android:inputType="textPersonName"
             android:textSize="14sp" />
 
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="CEP"
+                android:hint="CEP *"
                 android:inputType="textPersonName"
                 android:textSize="14sp" />
 
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Neighborhood"
+                android:hint="Bairro *"
                 android:inputType="textPersonName"
                 android:textSize="14sp" />
         </LinearLayout>

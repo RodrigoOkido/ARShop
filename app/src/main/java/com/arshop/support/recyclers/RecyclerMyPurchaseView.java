@@ -43,7 +43,7 @@ public class RecyclerMyPurchaseView
     @Override
     public void onBindViewHolder(@NonNull RecyclerMyPurchaseView.PurchasesView holder, int position) {
 
-        holder.cardPurchaseText.setText("#1");
+        holder.cardPurchaseText.setText("Compra cadastrada " + String.valueOf(position));
 
     }
 

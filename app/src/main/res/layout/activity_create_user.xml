@@ -40,8 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Primeiro Nome"
-            android:inputType="textPersonName"
+            android:hint="Primeiro Nome *"
+            android:inputType="textPersonName|textCapSentences"
             android:textSize="14sp" />
 
         <EditText
@@ -49,8 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Sobrenome"
-            android:inputType="textPersonName"
+            android:hint="Sobrenome *"
+            android:inputType="textPersonName|textCapSentences"
             android:textSize="14sp" />
 
         <EditText
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="CPF (Apenas números)"
+            android:hint="CPF (Apenas números) *"
             android:inputType="number"
             android:textSize="14sp" />
 
@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Data de Nascimento"
+            android:hint="Data de Nascimento (dd/mm/yy) *"
             android:inputType="date"
             android:textSize="14sp" />
 
@@ -96,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Seu email"
+            android:hint="Seu email *"
             android:inputType="textEmailAddress"
             android:textSize="14sp" />
 
@@ -105,7 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Informe sua Senha"
+            android:hint="Informe sua Senha *"
             android:inputType="textPassword"
             android:textSize="14sp" />
 
@@ -114,7 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Confirme sua Senha"
+            android:hint="Confirme sua Senha *"
             android:inputType="textPassword"
             android:textSize="14sp" />
 

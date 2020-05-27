@@ -83,7 +83,7 @@
             android:background="@drawable/rounded_button"
             android:backgroundTint="@color/defaultButtonBackground"
             android:onClick="login"
-            android:text="Login"
+            android:text="ENTRAR"
             android:textColor="@color/buttonTextColor"
             tools:layout_editor_absoluteX="161dp"
             tools:layout_editor_absoluteY="404dp" />
@@ -108,7 +108,7 @@
             android:background="@android:color/transparent"
             android:fontFamily="@font/lato"
             android:onClick="registerNewUser"
-            android:text="Primeira vez?"
+            android:text="Primeira vez? CLIQUE AQUI"
             android:textSize="10sp" />
 
     </LinearLayout>

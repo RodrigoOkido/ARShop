@@ -50,7 +50,7 @@ public class RecyclerMyFavoriteView extends RecyclerView.Adapter<RecyclerMyFavor
             @Override
             public void onClick(View v) {
                 myFavoriteProducts.remove(position);
-                notifyItemRemoved(position);
+                notifyDataSetChanged();
             }
         });
     }

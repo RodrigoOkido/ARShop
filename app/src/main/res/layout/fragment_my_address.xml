@@ -39,8 +39,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Nome"
-                    android:inputType="textPersonName"
+                    android:hint="Nome *"
+                    android:inputType="textPersonName|textCapSentences"
                     android:textSize="14sp" />
 
                 <EditText
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:ems="10"
-                    android:hint="Número"
+                    android:hint="Número *"
                     android:inputType="number"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -73,8 +73,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="CEP"
-                    android:inputType="textPersonName"
+                    android:hint="CEP (Apenas números) *"
+                    android:inputType="number"
                     android:textSize="14sp" />
 
                 <TextView
@@ -91,7 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Bairro"
+                    android:hint="Bairro *"
                     android:inputType="textPersonName"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -154,8 +154,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Nome "
-                    android:inputType="textPersonName"
+                    android:hint="Nome *"
+                    android:inputType="textPersonName|textCapSentences"
                     android:textSize="14sp" />
 
                 <EditText
@@ -164,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:ems="10"
-                    android:hint="Número"
+                    android:hint="Número *"
                     android:inputType="number"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -188,8 +188,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="CEP"
-                    android:inputType="textPersonName"
+                    android:hint="CEP (Apenas números) *"
+                    android:inputType="number"
                     android:textSize="14sp" />
 
                 <TextView
@@ -206,7 +206,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Bairro"
+                    android:hint="Bairro *"
                     android:inputType="textPersonName"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -220,21 +220,24 @@
                     android:id="@+id/editSecondaryAddressButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="@color/defaultButtonBackground"
                     android:text="Editar"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/alertSecondaryAddressMsg"
+                <Button
+                    android:id="@+id/cancelSecondaryAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:padding="2dp"
-                    android:textColor="#F01010"
-                    android:textSize="12sp" />
+                    android:layout_margin="5dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/defaultButtonBackground"
+                    android:text="Cancelar"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="12sp"
+                    android:visibility="invisible" />
             </LinearLayout>
 
         </LinearLayout>

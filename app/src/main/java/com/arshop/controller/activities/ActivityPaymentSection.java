@@ -63,6 +63,7 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
 
 
         fillUserCreditCardInfo(logged_user);
+        lockElements();
 
 
         // Spinner giving options about how much user wants to afford per month.
@@ -101,6 +102,20 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
             userCpf.setText(logged_user.getUser_cards().get(0).getCPF());
         }
 
+    }
+
+
+    /**
+     * Lock all EditText elements for edition. The fields are unlocked only when the user wants
+     * to modify and edit any data. Otherwise the fields keeps it only for readonly.
+     */
+    public void lockElements() {
+        userCreditCardName.setEnabled(false);
+        userCreditCardNumber.setEnabled(false);
+        userCreditCardExpiringDate.setEnabled(false);
+        userCreditCardCvv.setEnabled(false);
+        userBornDate.setEnabled(false);
+        userCpf.setEnabled(false);
     }
 
 

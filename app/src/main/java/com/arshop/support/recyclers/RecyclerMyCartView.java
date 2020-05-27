@@ -47,16 +47,18 @@ public class RecyclerMyCartView extends RecyclerView.Adapter<RecyclerMyCartView.
 
         holder.productInCartName.setText(myCart.get(position).getName());
         holder.productInCartPrice.setText("R$"+myCart.get(position).getPrice());
-        holder.deleteProductFromCart.setImageResource(R.drawable.delete_button);
-        holder.deleteProductFromCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myCart.remove(position);
-                notifyItemRemoved(position);
-                ((ActivityMyCart) context).setSubtotal(myCart);
+        if(context.getClass().getSimpleName().equals("ActivityMyCart")) {
+            holder.deleteProductFromCart.setImageResource(R.drawable.delete_button);
+            holder.deleteProductFromCart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    myCart.remove(position);
+                    notifyDataSetChanged();
+                    ((ActivityMyCart) context).setSubtotal(myCart);
 //
-            }
-        });
+                }
+            });
+        }
     }
 
     @Override

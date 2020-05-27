@@ -5,7 +5,7 @@
     <item
         android:id="@+id/menuHome"
         android:icon="@drawable/icon_home"
-        android:title="Home"
+        android:title="Principal"
         app:showAsAction="always"/>
 
     <item
@@ -23,7 +23,7 @@
     <item
         android:id="@+id/menuProfile"
         android:icon="@drawable/icon_profile"
-        android:title="Perfil"
+        android:title="Meu Perfil"
         app:showAsAction="always"/>
 
 </menu>

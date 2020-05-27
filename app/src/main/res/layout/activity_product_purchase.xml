@@ -52,7 +52,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="Name"
+                        android:hint="Nome do Responsável completo "
                         android:inputType="textPersonName"
                         android:textSize="14sp" />
 
@@ -67,7 +67,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:ems="10"
-                            android:hint="Address"
+                            android:hint="Nome do Endereço"
                             android:inputType="textPersonName"
                             android:textSize="14sp" />
 
@@ -77,8 +77,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:ems="10"
-                            android:hint="Number"
-                            android:inputType="textPersonName"
+                            android:hint="Número"
+                            android:inputType="number"
                             android:textSize="14sp" />
                     </LinearLayout>
 
@@ -87,7 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="Complement"
+                        android:hint="Complemento"
                         android:inputType="textPersonName"
                         android:textSize="14sp" />
 
@@ -101,8 +101,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="CEP"
-                            android:inputType="textPersonName"
+                            android:hint="CEP (Apenas números)"
+                            android:inputType="number"
                             android:textSize="14sp" />
 
                         <TextView
@@ -119,7 +119,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="Neighborhood"
+                            android:hint="Bairro"
                             android:inputType="textPersonName"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -133,8 +133,13 @@
                             android:id="@+id/editAddress"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/rounded_button"
+                            android:backgroundTint="@color/defaultButtonBackground"
+                            android:fontFamily="@font/lato"
                             android:onClick="editMyAddress"
+                            android:padding="5dp"
                             android:text="Editar endereço"
+                            android:textColor="@color/buttonTextColor"
                             android:textSize="12sp" />
 
                         <TextView

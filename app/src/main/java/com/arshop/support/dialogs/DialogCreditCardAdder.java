@@ -59,7 +59,7 @@ public class DialogCreditCardAdder extends DialogFragment {
                                     Toast.LENGTH_SHORT).show();
 
                         } else {
-                            Toast.makeText(getActivity(),"Todos campos são obrigatórios.",
+                            Toast.makeText(getActivity(),"Todos campos são obrigatórios!",
                                     Toast.LENGTH_SHORT).show();
 
                         }

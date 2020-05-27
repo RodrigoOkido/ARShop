@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -37,6 +38,7 @@ public class ActivityProductPurchase extends AppCompatActivity {
     private TextView subtotalValue, alertAddressMessage;
     private EditText userName, userAddress, userAddressNumber, userAddressComplement, userCep,
             userNeighborhood;
+    private Button editAddress;
 
 
     @Override
@@ -54,6 +56,7 @@ public class ActivityProductPurchase extends AppCompatActivity {
         subtotal = String.valueOf(((LoggedUser) this.getApplication()).getSubtotal());
 
         fillUserAddressBasicInformations(logged_user);
+        lockElements();
 
         subtotalValue = findViewById(R.id.subtotalValue);
         subtotalValue.append(subtotal);
@@ -89,14 +92,74 @@ public class ActivityProductPurchase extends AppCompatActivity {
 
 
     /**
+     * Lock all EditText elements for edition. The fields are unlocked only when the user wants
+     * to modify and edit any data. Otherwise the fields keeps it only for readonly.
+     */
+    public void lockElements() {
+        userName.setEnabled(false);
+        userAddress.setEnabled(false);
+        userAddressNumber.setEnabled(false);
+        userAddressComplement.setEnabled(false);
+        userCep.setEnabled(false);
+        userNeighborhood.setEnabled(false);
+    }
+
+
+    /**
+     * Unlock all EditText fields. This is unlocked when the user press the button to edit
+     * the data of the profile.
+     */
+    public void unlockElements() {
+//        userName.setEnabled(true);
+        userAddress.setEnabled(true);
+        userAddressNumber.setEnabled(true);
+        userAddressComplement.setEnabled(true);
+        userCep.setEnabled(true);
+        userNeighborhood.setEnabled(true);
+    }
+
+    /**
      * If user press the button to change the address of the product delivery, this will take to
      * the user profile configuration. There user can modify his address.
      *
      * @param view The view context.
      */
     public void editMyAddress(View view){
-        Intent intent = new Intent (this, ActivityMySettings.class);
-        this.startActivity(intent);
+
+        Context context = getApplicationContext();
+
+        if (editAddress.getText().equals("Editar endereço")) {
+            unlockElements();
+            userAddress.setText("");
+            userAddressNumber.setText("");
+            userAddressComplement.setText("");
+            userCep.setText("");
+            userNeighborhood.setText("");
+            editAddress.setText("Salvar");
+        } else {
+            if (userName.getText().toString().equals("") || userAddress.getText().toString().equals("") ||
+                    userAddressNumber.getText().toString().equals("")
+                    || userCep.getText().toString().equals("") || userNeighborhood.getText().toString().equals("") ) {
+
+                CharSequence text = "Todos campos precisam ser preenchidos!";
+                Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+                return;
+            } else {
+                lockElements();
+                logged_user.getAddresses().get(0).setAddressName(userAddress.getText().toString());
+                logged_user.getAddresses().get(0).setAddress_number(Integer.parseInt(userAddressNumber.getText().toString()));
+                if(userAddressComplement.getText().toString().equals("")){
+                    logged_user.getAddresses().get(0).setAddress_complement("Sem Complemento");
+                } else {
+                    logged_user.getAddresses().get(0).setAddress_complement(userAddressComplement.getText().toString());
+                }
+                logged_user.getAddresses().get(0).setCEP(userCep.getText().toString());
+                logged_user.getAddresses().get(0).setNeighborhood(userNeighborhood.getText().toString());
+                CharSequence text = "Endereço editado com sucesso!";
+                Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+                editAddress.setText("Editar endereço");
+            }
+        }
     }
 
 
@@ -127,15 +190,25 @@ public class ActivityProductPurchase extends AppCompatActivity {
             return;
         }
 
-        // Create intent and guards all the necessary informations to pass to the next Activity.
-        Intent intent = new Intent(view.getContext(), ActivityPaymentSection.class);
-        intent.putExtra("ShippingOption", shippingOption);
-        intent.putExtra("PaymentOption", paymentOption);
+        if (paymentOption.equals("Boleto Bancário")) {
+            Intent intent = new Intent(view.getContext(), ActivityFinishPurchaseSection.class);
+            intent.putExtra("ShippingOption", shippingOption);
+            intent.putExtra("PaymentOption", paymentOption);
+
+            // Start PaymentSection activity.
+            this.startActivity(intent);
+        } else {
+            // Create intent and guards all the necessary informations to pass to the next Activity.
+            Intent intent = new Intent(view.getContext(), ActivityPaymentSection.class);
+            intent.putExtra("ShippingOption", shippingOption);
+            intent.putExtra("PaymentOption", paymentOption);
+
+            // Start PaymentSection activity.
+            this.startActivity(intent);
+        }
 
 
 
-        // Start PaymentSection activity.
-        this.startActivity(intent);
     }
 
 
@@ -271,6 +344,7 @@ public class ActivityProductPurchase extends AppCompatActivity {
         userAddressComplement = findViewById(R.id.userAddressComplement);
         userCep = findViewById(R.id.userCep);
         userNeighborhood = findViewById(R.id.userNeighborhood);
+        editAddress = findViewById(R.id.editAddress);
         alertAddressMessage = findViewById(R.id.alertAddressMsg);
     }
 

@@ -67,8 +67,7 @@ public class DialogAddressAdder extends DialogFragment {
                                     Toast.LENGTH_SHORT).show();
 
                         } else {
-                            Toast.makeText(getActivity(),"Todos campos (exceto campo complemento)" +
-                                            " são obrigatórios.",
+                            Toast.makeText(getActivity(),"Campos com * são obrigatórios!",
                                     Toast.LENGTH_SHORT).show();
 
                         }

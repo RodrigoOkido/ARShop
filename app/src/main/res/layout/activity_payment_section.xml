@@ -67,7 +67,7 @@
                                 android:layout_height="wrap_content"
                                 android:ems="10"
                                 android:fontFamily="@font/roboto"
-                                android:hint="Titular Name"
+                                android:hint="Nome do Titular *"
                                 android:inputType="textPersonName"
                                 android:textSize="14sp" />
 
@@ -77,7 +77,7 @@
                                 android:layout_height="wrap_content"
                                 android:ems="10"
                                 android:fontFamily="@font/roboto"
-                                android:hint="Card Number"
+                                android:hint="Número do Cartão *"
                                 android:inputType="number"
                                 android:textSize="14sp" />
 
@@ -87,7 +87,7 @@
                                 android:layout_height="wrap_content"
                                 android:ems="10"
                                 android:fontFamily="@font/roboto"
-                                android:hint="Card expiring date"
+                                android:hint="Card expiring date *"
                                 android:inputType="date"
                                 android:textSize="14sp" />
 
@@ -97,7 +97,7 @@
                                 android:layout_height="wrap_content"
                                 android:ems="10"
                                 android:fontFamily="@font/roboto"
-                                android:hint="CVV"
+                                android:hint="CVV *"
                                 android:inputType="number"
                                 android:textSize="14sp" />
 
@@ -124,7 +124,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:fontFamily="@font/roboto"
-                        android:hint="Born Date"
+                        android:hint="Data de Nascimento *"
                         android:inputType="date"
                         android:textSize="14sp" />
 
@@ -134,7 +134,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:fontFamily="@font/roboto"
-                        android:hint="CPF"
+                        android:hint="CPF *"
                         android:inputType="number"
                         android:textSize="14sp" />
 
@@ -173,6 +173,7 @@
                 android:layout_height="wrap_content"
                 app:elevation="12dp"
                 app:menu="@menu/toolbar_menu"
+                app:labelVisibilityMode="labeled"
                 android:background="?android:attr/windowBackground"/>
 
         </LinearLayout>

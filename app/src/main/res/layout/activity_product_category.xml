@@ -40,6 +40,7 @@
             android:layout_height="wrap_content"
             android:background="?android:attr/windowBackground"
             app:elevation="12dp"
+            app:labelVisibilityMode="labeled"
             app:menu="@menu/toolbar_menu" />
 
 

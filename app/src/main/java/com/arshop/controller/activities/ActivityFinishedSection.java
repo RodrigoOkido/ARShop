@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.arshop.controller.R;
+import com.arshop.model.Product;
+
+import java.util.ArrayList;
 
 
 /**
@@ -20,6 +23,8 @@ public class ActivityFinishedSection extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finished_section);
+
+        ((LoggedUser) this.getApplication()).setUsersCart(new ArrayList<Product>());
     }
 
 

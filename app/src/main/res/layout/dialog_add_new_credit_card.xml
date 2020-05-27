@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="@font/roboto"
-                    android:hint="Titular Name"
+                    android:hint="Nome do Titular *"
                     android:inputType="textPersonName"
                     android:textSize="12sp" />
 
@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="@font/roboto"
-                    android:hint="Card Number"
+                    android:hint="Número do Cartão *"
                     android:inputType="number"
                     android:textSize="12sp" />
 
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="@font/roboto"
-                    android:hint="Card expiring date"
+                    android:hint="Data de Vencimento *"
                     android:inputType="date"
                     android:textSize="12sp" />
 
@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="@font/roboto"
-                    android:hint="CVV"
+                    android:hint="CVV *"
                     android:inputType="number"
                     android:textSize="12sp" />
 

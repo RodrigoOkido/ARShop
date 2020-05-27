@@ -3,11 +3,13 @@ package com.arshop.controller.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.arshop.controller.R;
 import com.arshop.model.Address;
@@ -64,14 +66,20 @@ public class ActivityLogin extends AppCompatActivity {
      * @param view The view.
      */
     public void login(View view){
+        // Context for toast if necessary.
+        Context context = getApplicationContext();
 
         userEmail = email.getText().toString();
         userPassword = password.getText().toString();
 
         if (superUserActivated){
-            enterToApp(view);
+            if(userEmail.equals("admin@owner.com") && userPassword.equals("admin")) {
+                enterToApp(view);
+            } else{
+                CharSequence text = "Login Inválido";
+                Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+            }
         } else {
-
             // Checks login Information
 
 
@@ -136,7 +144,7 @@ public class ActivityLogin extends AppCompatActivity {
 
 
         // Create that super user with generic informations.
-        superUser = new User ("admin@owner.com", "admin", "Admin App Developer",
+        superUser = new User ("admin@owner.com", "admin", "Anônimo",
                 "123.456.789-00", "02/02/94", "00000-00", 26,
                 superAddresses, superCreditCards);
 
@@ -153,8 +161,6 @@ public class ActivityLogin extends AppCompatActivity {
         password.setText("admin");
 
         loginButton = findViewById(R.id.loginButton);
-        loginButton.setText("SUPER USER LOGIN");
-
     }
 
 
