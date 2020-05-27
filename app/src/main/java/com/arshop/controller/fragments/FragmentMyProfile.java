@@ -71,7 +71,7 @@ public class FragmentMyProfile extends Fragment implements View.OnClickListener 
         userEmailField.setText(logged_user.getEmail());
         userCpfField.setText(logged_user.getCpf());
         userBornDateField.setText(logged_user.getBornDate());
-        userAgeField.setText("0");
+        userAgeField.setText(String.valueOf(logged_user.getAge()));
         userContactField.setText("");
     }
 

@@ -117,7 +117,7 @@ public class ActivityProductCategory extends AppCompatActivity {
      */
     public void loadToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
-        toolbar.setTitle("Categorias");
+        toolbar.setTitle("Selecione uma Categoria");
         setSupportActionBar(toolbar);
 
     }

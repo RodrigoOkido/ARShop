@@ -68,7 +68,7 @@
                                 android:ems="10"
                                 android:fontFamily="@font/roboto"
                                 android:hint="Nome do Titular *"
-                                android:inputType="textPersonName"
+                                android:inputType="textPersonName|textCapSentences"
                                 android:textSize="14sp" />
 
                             <EditText

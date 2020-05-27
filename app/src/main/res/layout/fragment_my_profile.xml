@@ -84,8 +84,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="CPF *"
-                android:inputType="textPersonName"
+                android:hint="CPF (Apenas números) *"
+                android:inputType="number"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Data de Nascimento (dd/mm/yy) *"
-                android:inputType="textPersonName"
+                android:inputType="date"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -127,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Idade"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Telefone"
-                android:inputType="textPersonName"
+                android:inputType="phone"
                 android:textSize="14sp" />
         </LinearLayout>
 

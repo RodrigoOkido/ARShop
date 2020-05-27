@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Bairro *"
-                    android:inputType="textPersonName"
+                    android:inputType="textPersonName|textCapSentences"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -207,7 +207,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Bairro *"
-                    android:inputType="textPersonName"
+                    android:inputType="textPersonName|textCapSentences"
                     android:textSize="14sp" />
             </LinearLayout>
 

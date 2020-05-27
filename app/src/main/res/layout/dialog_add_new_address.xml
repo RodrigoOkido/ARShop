@@ -61,8 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="CEP *"
-                android:inputType="textPersonName"
+                android:hint="CEP (Apenas Números) *"
+                android:inputType="number"
                 android:textSize="14sp" />
 
             <TextView
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Bairro *"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|textCapSentences"
                 android:textSize="14sp" />
         </LinearLayout>
 

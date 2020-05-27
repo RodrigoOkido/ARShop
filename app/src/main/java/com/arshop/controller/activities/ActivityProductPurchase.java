@@ -141,7 +141,7 @@ public class ActivityProductPurchase extends AppCompatActivity {
                     userAddressNumber.getText().toString().equals("")
                     || userCep.getText().toString().equals("") || userNeighborhood.getText().toString().equals("") ) {
 
-                CharSequence text = "Todos campos precisam ser preenchidos!";
+                CharSequence text = "Campos com * precisam são obrigatório!";
                 Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
                 return;
             } else {

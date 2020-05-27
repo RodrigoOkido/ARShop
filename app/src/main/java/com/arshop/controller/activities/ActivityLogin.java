@@ -136,8 +136,8 @@ public class ActivityLogin extends AppCompatActivity {
 
 
         // Creates and add an generic Address.
-        Address adr = new Address("Street 10", "Block 7", "00000-00",
-                "No Complement.", 0);
+        Address adr = new Address("Rua A", "Flores", "90010-00",
+                "Bloco B, Ap. 99", 102);
 
         List<Address> superAddresses = new ArrayList<>();
         superAddresses.add(adr);
@@ -145,7 +145,7 @@ public class ActivityLogin extends AppCompatActivity {
 
         // Create that super user with generic informations.
         superUser = new User ("admin@owner.com", "admin", "Anônimo",
-                "123.456.789-00", "02/02/94", "00000-00", 26,
+                "123.456.789-00", "02/02/94", "0000000", 26,
                 superAddresses, superCreditCards);
 
 

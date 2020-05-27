@@ -48,12 +48,12 @@ public class DialogAddressAdder extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String addressName = newAddressName.getText().toString();
-                        int addressNumber = -1;
+                        int addressNumber = Integer.valueOf(newAddressNumber.getText().toString());
                         String addressComplement = newAddressComplement.getText().toString();
                         String addressCep = newAddressCep.getText().toString();
                         String addressNeighborhood = newAddressNeighborhood.getText().toString();
 
-                        if (!addressName.equals("") && !Integer.valueOf(addressNumber).equals("-1")
+                        if (!addressName.equals("") && addressNumber >= 0
                         && !addressCep.equals("") && !addressNeighborhood.equals("")) {
 
                             if(addressComplement.equals("")){
