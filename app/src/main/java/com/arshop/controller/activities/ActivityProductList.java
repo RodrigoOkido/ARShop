@@ -134,7 +134,14 @@ public class ActivityProductList extends AppCompatActivity {
 
                             // Images of the product
                             JSONArray images = response.getJSONArray("pictures");
-                            for (int image = 0; image < images.length(); image++){
+                            int images_counter = images.length();
+
+                            // Limit product images quantity to 10.
+                            if (images_counter > 10) {
+                                images_counter = 10;
+                            }
+                            
+                            for (int image = 0; image < images_counter; image++){
                                 prodImages.add(images.getJSONObject(image).getString("secure_url"));
 //                                Log.d("DEBUG", images.getJSONObject(image).getString("secure_url"));
                             }
