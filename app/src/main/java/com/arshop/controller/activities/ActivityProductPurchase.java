@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.arshop.controller.R;
 import com.arshop.model.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.kofigyan.stateprogressbar.StateProgressBar;
 
 
 /**
@@ -40,6 +41,9 @@ public class ActivityProductPurchase extends AppCompatActivity {
             userNeighborhood;
     private Button editAddress;
 
+    // Progress state bar
+    private String[] descriptionData = {"Identificação", "Pagamento", "Confirmação", "Concluído"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,10 @@ public class ActivityProductPurchase extends AppCompatActivity {
         loadToolbar();
         // Load and configure the Bottom Navigation Menu
         loadBottomMenuNavigation();
+
+        // Load state bar progress
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.purchase_bar_identification);
+        stateProgressBar.setStateDescriptionData(descriptionData);
 
         // Recieve the data of the products to be purchased.
         logged_user = ((LoggedUser) this.getApplication()).getUser();

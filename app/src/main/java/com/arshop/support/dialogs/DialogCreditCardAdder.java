@@ -55,7 +55,7 @@ public class DialogCreditCardAdder extends DialogFragment {
                             listener.addNewCreditCard(titularName, cardNumber, cardExpirationDate,
                                     Integer.valueOf(cardCvv));
 
-                            Toast.makeText(getActivity(),"Cartão adicionado!",
+                            Toast.makeText(getActivity(),"Cartão adicionado com sucesso!",
                                     Toast.LENGTH_SHORT).show();
 
                         } else {

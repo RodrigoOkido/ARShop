@@ -44,7 +44,7 @@ public class RecyclerMyFavoriteView extends RecyclerView.Adapter<RecyclerMyFavor
     public void onBindViewHolder(@NonNull RecyclerMyFavoriteView.FavoriteView holder, int position) {
 
         holder.productInFavoriteName.setText(myFavoriteProducts.get(position).getName());
-        holder.productInFavoritePrice.append(myFavoriteProducts.get(position).getPrice());
+        holder.productInFavoritePrice.setText("R$" + myFavoriteProducts.get(position).getPrice());
         holder.deleteProductFromFavorite.setImageResource(R.drawable.icon_favorite);
         holder.deleteProductFromFavorite.setOnClickListener(new View.OnClickListener() {
             @Override

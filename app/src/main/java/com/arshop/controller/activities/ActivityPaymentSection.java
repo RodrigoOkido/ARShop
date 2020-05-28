@@ -17,6 +17,7 @@ import com.arshop.controller.R;
 import com.arshop.model.Product;
 import com.arshop.model.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.kofigyan.stateprogressbar.StateProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,8 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
     private EditText userCreditCardName, userCreditCardNumber, userCreditCardExpiringDate,
         userCreditCardCvv, userBornDate, userCpf;
 
+    // Progress state bar
+    private String[] descriptionData = {"Identificação", "Pagamento", "Confirmação", "Concluído"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,10 @@ public class ActivityPaymentSection extends AppCompatActivity implements Adapter
         loadToolbar();
         // Load and configure the Bottom Navigation Menu.
         loadBottomMenuNavigation();
+
+        // Load state bar progress
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.purchase_bar_identification);
+        stateProgressBar.setStateDescriptionData(descriptionData);
 
 
         // Recieve the data of the products to be purchased.

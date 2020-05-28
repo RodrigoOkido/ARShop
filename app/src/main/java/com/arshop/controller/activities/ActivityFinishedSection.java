@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.arshop.controller.R;
 import com.arshop.model.Product;
+import com.kofigyan.stateprogressbar.StateProgressBar;
 
 import java.util.ArrayList;
 
@@ -19,12 +20,19 @@ import java.util.ArrayList;
  */
 public class ActivityFinishedSection extends AppCompatActivity {
 
+    // Progress state bar
+    private String[] descriptionData = {"Identificação", "Pagamento", "Confirmação", "Concluído"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finished_section);
 
         ((LoggedUser) this.getApplication()).setUsersCart(new ArrayList<Product>());
+
+        // Load state bar progress
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.purchase_bar_identification);
+        stateProgressBar.setStateDescriptionData(descriptionData);
     }
 
 

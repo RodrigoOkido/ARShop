@@ -44,7 +44,7 @@ public class DialogAddressAdder extends DialogFragment {
 
                     }
                 })
-                .setPositiveButton("Adicionar", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Salvar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String addressName = newAddressName.getText().toString();
@@ -63,7 +63,7 @@ public class DialogAddressAdder extends DialogFragment {
                             listener.addNewAddress(addressName, addressNumber, addressComplement,
                                     addressCep, addressNeighborhood);
 
-                            Toast.makeText(getActivity(),"Endereço Modificado!",
+                            Toast.makeText(getActivity(),"Endereço modificado com sucesso!",
                                     Toast.LENGTH_SHORT).show();
 
                         } else {

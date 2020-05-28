@@ -16,6 +16,7 @@ import com.arshop.controller.R;
 import com.arshop.model.Product;
 import com.arshop.support.recyclers.RecyclerMyCartView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.kofigyan.stateprogressbar.StateProgressBar;
 
 import java.util.List;
 
@@ -37,6 +38,9 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
     // Layout TextView fields.
     private TextView paymentFormValue, shippingValue, subtotalValue;
 
+    // Progress state bar
+    private String[] descriptionData = {"Identificação", "Pagamento", "Confirmação", "Concluído"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,10 @@ public class ActivityFinishPurchaseSection extends AppCompatActivity {
         loadBottomMenuNavigation();
         // Associates each field of the layout to a variable.
         getLayoutElements();
+
+        // Load state bar progress
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.purchase_bar_identification);
+        stateProgressBar.setStateDescriptionData(descriptionData);
 
         Intent intent = getIntent();
         productsToPurchase = ((LoggedUser) this.getApplication()).getUsersCart();
