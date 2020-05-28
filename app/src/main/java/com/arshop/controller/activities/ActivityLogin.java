@@ -76,16 +76,14 @@ public class ActivityLogin extends AppCompatActivity {
             if(userEmail.equals("admin@owner.com") && userPassword.equals("usuario123")) {
                 enterToApp(view);
             } else{
-                CharSequence text = "Login Inválido";
+                CharSequence text = "Email ou senha inválidos";
                 Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
             }
         } else {
             // Checks login Information
 
 
-
         }
-
     }
 
 
