@@ -73,7 +73,7 @@ public class ActivityLogin extends AppCompatActivity {
         userPassword = password.getText().toString();
 
         if (superUserActivated){
-            if(userEmail.equals("admin@owner.com") && userPassword.equals("admin")) {
+            if(userEmail.equals("admin@owner.com") && userPassword.equals("usuario123")) {
                 enterToApp(view);
             } else{
                 CharSequence text = "Login Inválido";
@@ -127,7 +127,7 @@ public class ActivityLogin extends AppCompatActivity {
     public void loadSuperAdmin(){
 
         // Creates and add an generic Credit Card.
-        CreditCard cc = new CreditCard(CreditCard.Credit.MASTERCARD, "Admin App Developer",
+        CreditCard cc = new CreditCard(CreditCard.Credit.MASTERCARD, "Anônimo",
                 "0000000000001234","12/99",901, "02/02/94",
                 "123.456.789-00");
 
@@ -144,7 +144,7 @@ public class ActivityLogin extends AppCompatActivity {
 
 
         // Create that super user with generic informations.
-        superUser = new User ("admin@owner.com", "admin", "Anônimo",
+        superUser = new User ("admin@owner.com", "usuario123", "Anônimo",
                 "123.456.789-00", "02/02/94", "0000000", 26,
                 superAddresses, superCreditCards);
 
@@ -157,8 +157,8 @@ public class ActivityLogin extends AppCompatActivity {
 
 
         // Fill the fields automatically for the SUPER USER.
-        email.setText("admin@owner.com");
-        password.setText("admin");
+        email.setText("");
+        password.setText("");
 
         loginButton = findViewById(R.id.loginButton);
     }
@@ -170,7 +170,7 @@ public class ActivityLogin extends AppCompatActivity {
      */
     public void loadToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
-        toolbar.setTitle("Login");
+        toolbar.setTitle("Iniciar Sessão (Login)");
         setSupportActionBar(toolbar);
 
     }
