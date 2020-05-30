@@ -52,7 +52,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
-            android:text="Obrigado por confiar e acreditar na ARShop! Seu produto foi processado e poderá ser acompanhado no seu perfil!" />
+            android:text="Obrigado por confiar e acreditar na ARShop! Seu pedido foi processado e poderá ser acompanhado no seu perfil!" />
 
         <ImageView
             android:id="@+id/imageView"

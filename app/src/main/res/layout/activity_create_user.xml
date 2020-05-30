@@ -60,6 +60,7 @@
             android:ems="10"
             android:hint="CPF (Apenas números) *"
             android:inputType="number"
+            android:text="00012345678"
             android:textSize="14sp" />
 
         <EditText

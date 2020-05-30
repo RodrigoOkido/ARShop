@@ -17,7 +17,7 @@
             android:id="@+id/category_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:alpha="0.6"
+            android:alpha="0.5"
             android:scaleType="centerCrop"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 

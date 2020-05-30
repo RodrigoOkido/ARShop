@@ -34,6 +34,12 @@
                 android:layout_height="match_parent" />
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_above="@id/bottom_menu"
+            android:background="@drawable/bottom_navigation_bar_shadow"/>
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_menu"
             android:layout_width="match_parent"
