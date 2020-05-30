@@ -234,7 +234,7 @@ public class ActivityProductPurchase extends AppCompatActivity {
 
         if(selected != -1) {
             RadioButton optionChosed = (RadioButton) findViewById(selected);
-            selectedOption = "(" + optionChosed.getText().toString()+ ") R$15";
+            selectedOption = optionChosed.getText().toString()+ " - R$15";
         }
 
         return selectedOption;

@@ -23,6 +23,7 @@
 
 
     <ScrollView
+        android:id="@+id/scrollView_prodDetail"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="50dp"
@@ -282,13 +283,13 @@
                     android:id="@+id/prodTextDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:fontFamily="@font/roboto"
-                    android:textColor="@color/textColor"
-                    android:textSize="12sp"
                     android:ems="10"
+                    android:fontFamily="@font/roboto"
                     android:gravity="start|top"
-                    android:inputType="textMultiLine" />
+                    android:inputType="textMultiLine"
+                    android:padding="8dp"
+                    android:textColor="@color/textColor"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/prodLocation"
@@ -316,6 +317,14 @@
         </LinearLayout>
     </ScrollView>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_above="@id/bottom_menu"
+        android:background="@drawable/bottom_navigation_bar_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView_prodDetail" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_menu"

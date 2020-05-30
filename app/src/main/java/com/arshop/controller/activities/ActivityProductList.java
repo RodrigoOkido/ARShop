@@ -84,9 +84,10 @@ public class ActivityProductList extends AppCompatActivity {
      */
     private void loadProdcutsId(Category chosenCategory) {
 
+
         switch (chosenCategory.getCategoryName()){
             case "Mesas": productsIds = new ArrayList<String>(Arrays.asList("MLB1197287312",
-                    "MLB810162721","MLB887866260","MLB1031104504","MLB1127456411",
+                    "MLB810162721","MLB1015757289", "MLB887866260","MLB1031104504","MLB1127456411",
                     "MLB1134192837","MLB1060580939"));
                 break;
             case "Cadeiras": productsIds = new ArrayList<String>(Arrays.asList("MLB1152392407",
@@ -98,7 +99,7 @@ public class ActivityProductList extends AppCompatActivity {
                     "MLB967263695","MLB1143116459"));
                 break;
             case "Sofás": productsIds = new ArrayList<String>(Arrays.asList("MLB830687652",
-                    "MLB1130894410","MLB830692038","MLB830688004","MLB925457196","MLB1178661430",
+                    "MLB1130894410","MLB830692038","MLB830688004","MLB925457196", "MLB1178661430",
                     "MLB1178204238","MLB1178665106"));
                 break;
             case "Decorativos": productsIds = new ArrayList<String>(Arrays.asList("MLB1090662845",
@@ -252,7 +253,7 @@ public class ActivityProductList extends AppCompatActivity {
                 break;
             case "Cadeiras": product.setProdARName("Wooden Chair.sfb");
                 break;
-            case "Eletrodomésticos": product.setProdARName("ModernDesk.sfb") ;
+            case "Eletrodomésticos": product.setProdARName("ModernDesk.sfb");
                 break;
             case "Sofás": product.setProdARName("table.sfb");
                 break;

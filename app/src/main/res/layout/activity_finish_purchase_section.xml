@@ -55,13 +55,12 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5sp"
-            android:orientation="vertical"
-            android:padding="5dp">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/rounded_layout"
                 android:elevation="8dp"
                 android:orientation="vertical"
@@ -89,7 +88,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/rounded_layout"
                 android:elevation="8dp"
                 android:orientation="vertical"
@@ -177,6 +176,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_layout"
                 android:elevation="8dp"
@@ -257,7 +257,7 @@
                 android:id="@+id/finishPurchaseButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_margin="10dp"
                 android:layout_weight="0"
                 android:background="@drawable/rounded_button"
                 android:backgroundTint="@color/defaultButtonBackground"
@@ -267,6 +267,15 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_above="@id/bottom_menu"
+        android:background="@drawable/bottom_navigation_bar_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_menu"

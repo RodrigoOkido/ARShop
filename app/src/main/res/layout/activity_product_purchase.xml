@@ -214,7 +214,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/lato"
-                            android:text="Comum" />
+                            android:text="Comum (7 dias)" />
                     </RadioGroup>
 
                     <TextView
@@ -309,6 +309,15 @@
                 android:textColor="@color/buttonTextColor" />
         </LinearLayout>
     </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_above="@id/bottom_menu"
+        android:background="@drawable/bottom_navigation_bar_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_menu"
