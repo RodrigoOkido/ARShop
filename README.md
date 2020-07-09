@@ -1,40 +1,45 @@
 # ARShop (Augmented Reality Shop)
 
-[PTBR] [ENG]
-
-## Atenção / Attention
-
-[PTBR]  <br/>
-Este trabalho NÃO TEM propósitos comerciais! Foi totalmente realizado para propósito de TCC, e sua disponibilidade aqui
-nesta plataforma é apenas para finalidades de estudo e aprendizado! 
-
-[ENG]  <br/>
-This work DO NOT have any commercial purpose! This was totally designed and developed for Computer Science graduation degree final work.
-This project is available in this platform only for study and learning purpose.
+**[PTBR][ENG]**
 
 ## Descrição / Description
 
-[PTBR]  <br/>
+**[PTBR]**  <br/>
 Trabalho de Conclusão do curso de Ciência da Computação na Universidade Federal do Rio Grande do Sul.
 
 Aplicativo básico de E-commerce para smartphone desenvolvido para o sistema operacional Android. Usa API do Mercado Livre como 
 base de dados dos produtos e o ARCore para realidade aumentada. Utiliza conceitos de UX para a interface, com objetivo de ser intuitiva 
 e fácilmente compreensivel a qualquer usuário. 
+ 
+**ATENÇÃO** <br/>
+Este trabalho **NÃO TEM** propósitos comerciais! Foi em sua totalidade realizado para propósito de TCC, e sua disponibilidade aqui
+nesta plataforma é apenas para finalidades de estudo e aprendizado. Todas referências e itens não utilizados e feitos pelo autor aqui em questão
+está referenciado na seção de Referencias contido mais abaixo aqui nesta descrição do trabalho.
 
-[ENG]  <br/>
+<br/>
+
+**[ENG]**  <br/>
 Graduation degree project for Computer Science course in Universidade Federal do Rio Grande do Sul.
 
 Basic e-commerce application developed for the Android operating system. Uses the 'Mercado Livre API' as
 product database and ARCore for augmented reality. The concept of UX is used for the interface, in order to be intuitive
 and easily understandable to any user.
 
+**IMPORTANT NOTE** <br/>
+This work **DO NOT** have commercial purposes! This was totally designed and developed for Computer Science graduation degree final work. Your availability in
+this platform is only for study and learning purposes. All items not made by the author of this work is referenced in the "References" section contained
+further down here in this job description.
+
+<br/>
+
 ## Tecnologias Utilizadas / Tecnologies Used
 
-
-[PTBR]  <br/> 
+**[PTBR]**  <br/> 
 As seguintes tecnologias foram utilizados para o desenvolvimento deste trabalho: <br/>
 
-[ENG]  <br/>
+<br/>
+
+**[ENG]**  <br/>
 The following technologies was used to develop this application:
 
 
@@ -53,15 +58,18 @@ Tecnologias / Tecnologies:
 Para maiores informações a respeito da API do Mercado Livre: https://developers.mercadolivre.com.br/pt_br/api-docs-pt-br <br/>
 Para maiores informações a respeito do ARCore: https://developers.google.com/ar/develop
 
+<br/>
+
 ## Referências / References
 
 
-[PTBR]  <br/> 
+**[PTBR]**  <br/> 
 Algumas features deste trabalho foram realizadas por terceiros. Para o correto uso de tais elementos, todos os itens não
 realizados pelo autor deste trabalho estarão corretamente referenciados e creditados abaixo. Apoiem todos estes autores sempre que possível!
 
+<br/>
 
-[ENG]  <br/>
+**[ENG]**  <br/>
 Some of the features in this work was realized by third parties. For the correct usage of those elements, all the itens which 
 was not realized by the author of this work will be correctly referenced and with the given credits below. Support all
 those authors if possible!
