@@ -10,6 +10,12 @@ Trabalho de Conclusão do curso de Ciência da Computação na Universidade Fede
 Aplicativo básico de E-commerce para smartphone desenvolvido para o sistema operacional Android. Usa API do Mercado Livre como 
 base de dados dos produtos e o ARCore para realidade aumentada. Utiliza conceitos de UX para a interface, com objetivo de ser intuitiva 
 e fácilmente compreensivel a qualquer usuário. 
+<br/>
+<br/>
+Por usar realidade aumentada, é necessário que o hardware do seu smartphone tenha suporte ao recurso para utilizá-lo. Você pode verificar neste link se o seu 
+dispositivo possui suporte ao ARCore.
+<br/>
+Link: https://developers.google.com/ar/discover/supported-devices
  
 **ATENÇÃO** <br/>
 Este trabalho **NÃO TEM** propósitos comerciais! Foi em sua totalidade realizado para propósito de TCC, e sua disponibilidade aqui
@@ -24,6 +30,12 @@ Graduation degree project for Computer Science course in Universidade Federal do
 Basic e-commerce application developed for the Android operating system. Uses the 'Mercado Livre API' as
 product database and ARCore for augmented reality. The concept of UX is used for the interface, in order to be intuitive
 and easily understandable to any user.
+<br/>
+<br/>
+To use augmented reality, it is necessary to garantee that your smartphone hardware support the feature to use. You can check this link if your
+device supports ARCore.
+<br/>
+Link: https://developers.google.com/ar/discover/supported-devices
 
 **IMPORTANT NOTE** <br/>
 This work **DO NOT** have commercial purposes! This was totally designed and developed for Computer Science graduation degree final work. Your availability in
@@ -42,15 +54,15 @@ As seguintes tecnologias foram utilizados para o desenvolvimento deste trabalho:
 **[ENG]**  <br/>
 The following technologies was used to develop this application:
 
-
-IDE: Android Studio 3.5.3 <br/>
+Operational System: Android v9.0 (For AR it neeeds minimum 7.0 version of Android)
+IDE: Android Studio v3.5.3 (December 2019) <br/>
 Arquitetura de Projeto (Project Architecture): MVC 
 
 
 Tecnologias / Tecnologies:
-- Java
+- Java 8.0
 - API do Mercado Livre
-- ARCore
+- ARCore (Minimum Android v7.0)
 - JSON
 - User Experience
 
