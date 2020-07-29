@@ -15,7 +15,7 @@ e fácilmente compreensivel a qualquer usuário.
 Por usar realidade aumentada, é necessário que o hardware do seu smartphone tenha suporte ao recurso para utilizá-lo. Você pode verificar neste link se o seu 
 dispositivo possui suporte ao ARCore.
 <br/>
-Link: https://developers.google.com/ar/discover/supported-devices
+[Link]: https://developers.google.com/ar/discover/supported-devices
  
 **ATENÇÃO** <br/>
 Este trabalho **NÃO TEM** propósitos comerciais! Foi em sua totalidade realizado para propósito de TCC, e sua disponibilidade aqui
@@ -35,7 +35,7 @@ and easily understandable to any user.
 To use augmented reality, it is necessary to garantee that your smartphone hardware support the feature to use. You can check this link if your
 device supports ARCore.
 <br/>
-Link: https://developers.google.com/ar/discover/supported-devices
+[Link]: https://developers.google.com/ar/discover/supported-devices
 
 **IMPORTANT NOTE** <br/>
 This work **DO NOT** have commercial purposes! This was totally designed and developed for Computer Science graduation degree final work. Your availability in
@@ -54,7 +54,7 @@ As seguintes tecnologias foram utilizados para o desenvolvimento deste trabalho:
 **[ENG]**  <br/>
 The following technologies was used to develop this application:
 
-Operational System: Android v9.0 (For AR it neeeds minimum 7.0 version of Android)
+Operational System: Android v9.0 (For AR it neeeds minimum 7.0 version of Android) <br/>
 IDE: Android Studio v3.5.3 (December 2019) <br/>
 Arquitetura de Projeto (Project Architecture): MVC 
 
@@ -62,7 +62,7 @@ Arquitetura de Projeto (Project Architecture): MVC
 Tecnologias / Tecnologies:
 - Java 8.0
 - API do Mercado Livre
-- ARCore (Minimum Android v7.0)
+- ARCore 
 - JSON
 - User Experience
 
