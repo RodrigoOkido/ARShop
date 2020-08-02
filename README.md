@@ -1,74 +1,71 @@
 # ARShop (Augmented Reality Shop)
 
+Author: Rodrigo Okido <br/>
+Year: 2020 
+
 **[PTBR][ENG]**
 
 ## Descrição / Description
 
 **[PTBR]**  <br/>
-Trabalho de Conclusão do curso de Ciência da Computação na Universidade Federal do Rio Grande do Sul.
+Trabalho de Conclusão de curso para o Bacharelado no curso de Ciência da Computação na Universidade Federal do Rio Grande do Sul (2020/1).
 
 Aplicativo básico de E-commerce para smartphone desenvolvido para o sistema operacional Android. Usa API do Mercado Livre como 
 base de dados dos produtos e o ARCore para realidade aumentada. Utiliza conceitos de UX para a interface, com objetivo de ser intuitiva 
 e fácilmente compreensivel a qualquer usuário. 
 <br/>
 <br/>
-Por usar realidade aumentada, é necessário que o hardware do seu smartphone tenha suporte ao recurso para utilizá-lo. Você pode verificar neste link se o seu 
-dispositivo possui suporte ao ARCore.
+Por usar realidade aumentada, é necessário que o hardware do seu smartphone tenha suporte ao recurso para utilizá-lo. Você pode verificar se seu smartphone possui suporte ao ARCore através do link localizado na seção de 'Tecnologias Utilizadas'.
 <br/>
-[Link]: https://developers.google.com/ar/discover/supported-devices
  
 **ATENÇÃO** <br/>
 Este trabalho **NÃO TEM** propósitos comerciais! Foi em sua totalidade realizado para propósito de TCC, e sua disponibilidade aqui
 nesta plataforma é apenas para finalidades de estudo e aprendizado. Todas referências e itens não utilizados e feitos pelo autor aqui em questão
-está referenciado na seção de Referencias contido mais abaixo aqui nesta descrição do trabalho.
+está referenciado na seção de 'Referências' contido mais abaixo aqui nesta descrição do trabalho.
 
 <br/>
 
 **[ENG]**  <br/>
-Graduation work for bachelor degree in Computer Science course in Universidade Federal do Rio Grande do Sul.
+Graduation work for bachelor degree in Computer Science course at Universidade Federal do Rio Grande do Sul (2020/1).  
 
 Basic e-commerce application developed for the Android operating system. Uses the 'Mercado Livre API' as
 product database and ARCore for augmented reality. The concept of UX is used for the interface, in order to be intuitive
 and easily understandable to any user.
 <br/>
 <br/>
-To use augmented reality, it is necessary to garantee that your smartphone hardware support the feature to use. You can check this link if your
-device supports ARCore.
+To use augmented reality, it is necessary to guarantee that your smartphone hardware have support to use it. You can check if your smartphone supports ARCore through the link located in the 'Technologies Used' section.
 <br/>
-[Link]: https://developers.google.com/ar/discover/supported-devices
+<br/>
 
 **IMPORTANT NOTE** <br/>
-This work **DO NOT** have commercial purposes! This was totally designed and developed for Computer Science graduation degree final work. Your availability in
-this platform is only for study and learning purposes. All items not made by the author of this work is referenced in the "References" section contained
-further down here in this job description.
-
+This work **DO NOT** have commercial purposes! This was totally designed and developed for Computer Science graduation bachelor degree final work. Your availability in this platform is only for study and learning purposes. All items not made by the author of this work is referenced in the 'References' section contained further down here in this job description.
+<br/>
 <br/>
 
-## Tecnologias Utilizadas / Tecnologies Used
+## Tecnologias Utilizadas / Technologies Used
 
 **[PTBR]**  <br/> 
 As seguintes tecnologias foram utilizados para o desenvolvimento deste trabalho: <br/>
-
-<br/>
-
 **[ENG]**  <br/>
 The following technologies was used to develop this application:
 
-Operational System: Android v9.0 (For AR it neeeds minimum 7.0 version of Android) <br/>
+Operational System: Android v9.0 <br/>
 IDE: Android Studio v3.5.3 (December 2019) <br/>
-Arquitetura de Projeto (Project Architecture): MVC 
+Project Architecture: MVC
 
 
 Tecnologias / Tecnologies:
 - Java 8.0
 - API do Mercado Livre
-- ARCore 
+- ARCore (Require v7.0 or newer Android version)
 - JSON
 - User Experience
 
 
-Para maiores informações a respeito da API do Mercado Livre: https://developers.mercadolivre.com.br/pt_br/api-docs-pt-br <br/>
-Para maiores informações a respeito do ARCore: https://developers.google.com/ar/develop
+For more information about the Mercado Livre API: https://developers.mercadolivre.com.br/pt_br/api-docs-pt-br <br/>
+For more information about the ARCore: https://developers.google.com/ar/develop <br/>
+**AR Supported Devices:** https://developers.google.com/ar/discover/supported-devices
+
 
 <br/>
 
@@ -76,15 +73,14 @@ Para maiores informações a respeito do ARCore: https://developers.google.com/a
 
 
 **[PTBR]**  <br/> 
-Algumas features deste trabalho foram realizadas por terceiros. Para o correto uso de tais elementos, todos os itens não
-realizados pelo autor deste trabalho estarão corretamente referenciados e creditados abaixo. Apoiem todos estes autores sempre que possível!
+Algumas features deste trabalho foram realizadas por terceiros. Para fazer o uso de maneira correta e apropriada, todos os itens não
+desenvolvidos pelo autor deste trabalho estarão corretamente referenciados e creditados abaixo. Apoiem todos estes autores sempre que possível!
 
 <br/>
 
 **[ENG]**  <br/>
-Some of the features in this work was realized by third parties. For the correct usage of those elements, all the itens which 
-was not realized by the author of this work will be correctly referenced and with the given credits below. Support all
-those authors if possible!
+Some of the features in this work was realized by third parties. To make use correctly and appropriately, all items not developed by the author 
+of this work will be correctly referenced and with the given credits below. Support all those authors if possible!
 
 ### 3D Models
 Modern Desktop (L Format): https://free3d.com/3d-model/pc-desktop-85335.html (mmnkl9) <br/>
