@@ -25,7 +25,7 @@ está referenciado na seção de Referencias contido mais abaixo aqui nesta desc
 <br/>
 
 **[ENG]**  <br/>
-Graduation degree project for Computer Science course in Universidade Federal do Rio Grande do Sul.
+Graduation work for bachelor degree in Computer Science course in Universidade Federal do Rio Grande do Sul.
 
 Basic e-commerce application developed for the Android operating system. Uses the 'Mercado Livre API' as
 product database and ARCore for augmented reality. The concept of UX is used for the interface, in order to be intuitive
