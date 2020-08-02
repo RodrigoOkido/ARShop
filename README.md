@@ -54,7 +54,7 @@ IDE: Android Studio v3.5.3 (December 2019) <br/>
 Project Architecture: MVC
 
 
-Tecnologias / Tecnologies:
+Tecnologias / Technologies:
 - Java 8.0
 - API do Mercado Livre
 - ARCore (Require v7.0 or newer Android version)
