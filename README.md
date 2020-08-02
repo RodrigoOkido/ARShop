@@ -3,6 +3,9 @@
 Author: Rodrigo Okido <br/>
 Year: 2020 
 
+TCC Link (PTBR Only): [Click Here](https://drive.google.com/file/d/1JOUuTKoIdpIsfyhb2gDSKotoYySoJfnh/view?usp=sharing)
+
+
 **[PTBR][ENG]**
 
 ## Descrição / Description
@@ -19,9 +22,7 @@ Por usar realidade aumentada, é necessário que o hardware do seu smartphone te
 <br/>
  
 **ATENÇÃO** <br/>
-Este trabalho **NÃO TEM** propósitos comerciais! Foi em sua totalidade realizado para propósito de TCC, e sua disponibilidade aqui
-nesta plataforma é apenas para finalidades de estudo e aprendizado. Todas referências e itens não utilizados e feitos pelo autor aqui em questão
-está referenciado na seção de 'Referências' contido mais abaixo aqui nesta descrição do trabalho.
+Este projeto **NÃO FOI** originado para propósitos comerciais! Foi em sua totalidade designado para apresentar uma ideia, e proposta de TCC. Sua disponibilidade aqui nesta plataforma é apenas para finalidades de estudo e aprendizado. Todas referências e itens não utilizados e feitos pelo autor aqui em questão está referenciado na seção de 'Referências' contido mais abaixo aqui nesta descrição do trabalho.
 
 <br/>
 
@@ -38,7 +39,7 @@ To use augmented reality, it is necessary to guarantee that your smartphone hard
 <br/>
 
 **IMPORTANT NOTE** <br/>
-This work **DO NOT** have commercial purposes! This was totally designed and developed for Computer Science graduation bachelor degree final work. Your availability in this platform is only for study and learning purposes. All items not made by the author of this work is referenced in the 'References' section contained further down here in this job description.
+This project **WAS NOT** originated for commercial purposes! Was totally designed to demonstrate a concept (idea), and developed for Computer Science graduation bachelor degree final work. Your availability in this platform is only for study and learning purposes. All items not made by the author of this work is referenced in the 'References' section contained further down here in this job description.
 <br/>
 <br/>
 
@@ -62,9 +63,9 @@ Tecnologias / Technologies:
 - User Experience
 
 
-For more information about the Mercado Livre API: https://developers.mercadolivre.com.br/pt_br/api-docs-pt-br <br/>
-For more information about the ARCore: https://developers.google.com/ar/develop <br/>
-**AR Supported Devices:** https://developers.google.com/ar/discover/supported-devices
+For more information about the Mercado Livre API (PTBR): [Click Here](https://developers.mercadolivre.com.br/pt_br/api-docs-pt-br) <br/>
+For more information about the ARCore: [Click Here](https://developers.google.com/ar/develop) <br/>
+**AR Supported Devices:** [Click Here](https://developers.google.com/ar/discover/supported-devices)
 
 
 <br/>
@@ -83,9 +84,9 @@ Some of the features in this work was realized by third parties. To make use cor
 of this work will be correctly referenced and with the given credits below. Support all those authors if possible!
 
 ### 3D Models
-Modern Desktop (L Format): https://free3d.com/3d-model/pc-desktop-85335.html (mmnkl9) <br/>
-Table: https://free3d.com/3d-model/cinema4d-table-66762.html (sniefy) <br/>
-Wooden Chair: https://free3d.com/3d-model/wooden-chair-38608.html (jetstorm_477)
+Modern Desktop (L Format): https://free3d.com/3d-model/pc-desktop-85335.html (Author: mmnkl9) <br/>
+Table: https://free3d.com/3d-model/cinema4d-table-66762.html (Author: sniefy) <br/>
+Wooden Chair: https://free3d.com/3d-model/wooden-chair-38608.html (Author: jetstorm_477)
 
 ### Icons
 
@@ -95,7 +96,7 @@ Link: https://www.flaticon.com/free-icon/shopping-cart_1170576 <br/>
 Author: https://www.flaticon.com/authors/freepik
 
 #### AR Button: <br/>
-Icon made by Pixel perfect from www.flaticon.com <br/>
+Icon made by SmashIcons from www.flaticon.com <br/>
 Link: https://www.flaticon.com/free-icon/mobile_2488304 <br/>
 Author: https://www.flaticon.com/authors/smashicons
            
@@ -107,4 +108,4 @@ Author: https://www.flaticon.com/authors/alfredo-hernandez
 #### Neutral Credit Card: <br/>
 Icon made by Pixel perfect from www.flaticon.com <br/>
 Link: https://www.flaticon.com/free-icon/credit-card_633611?term=credit%20card&page=1&position=43 <br/>
-Author: https://www.flaticon.com/authors/smashicons
+Author: https://www.flaticon.com/authors/pixel-perfect
